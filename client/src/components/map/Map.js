@@ -7,7 +7,7 @@ class FishMap extends Component {
   render() {
     
         const options = {
-          url: 'https://js.arcgis.com/4.4/'
+          url: 'https://js.arcgis.com/4.5/'
         };
 
 
