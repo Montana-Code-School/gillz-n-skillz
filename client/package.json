@@ -9,7 +9,10 @@
     "react-arcgis": "^3.0.0",
     "react-bootstrap": "^0.31.5",
     "react-dom": "^16.1.1",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "esri-loader": "^1.5.0",
+    "esri-loader-react": "^2.0.0-beta.2",
+    "prop-types": "^15.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
