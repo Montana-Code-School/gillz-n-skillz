@@ -4,8 +4,25 @@ import './Map.css';
 import EsriLoaderReact from 'esri-loader-react';
 
 class FishMap extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clickedFapLat: "",
+      clickedFapLong: ""
+    }
+    this.getLatLong = this.getLatLong.bind(this);
+  }
+  
+
   getLatLong(response){
     console.log(response);
+    this.setState({
+     
+        clickedFapLat: response.results[0].mapPoint.latitude,
+        clickedFapLong: response.results[0].mapPoint.longitude
+    
+    })
+     console.log(this.state);
   }
   render() {
     
@@ -14,9 +31,6 @@ class FishMap extends Component {
         };
 
 
-         
-        //  fishMap.addLayer(featureLayer);   
-    
         return (
           <div className="App">
             
@@ -66,7 +80,7 @@ class FishMap extends Component {
           
                         // query all the features available for drawing.
                         lyrView.queryFeatures().then(function(results) {
-                            console.log(results);
+                            // console.log(results);
                           // graphics = results;
           
                           // var fragment = document.createDocumentFragment();
