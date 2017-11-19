@@ -4,6 +4,9 @@ import './Map.css';
 import EsriLoaderReact from 'esri-loader-react';
 
 class FishMap extends Component {
+  getLatLong(response){
+    console.log(response);
+  }
   render() {
     
         const options = {
@@ -44,10 +47,19 @@ class FishMap extends Component {
                   var featureLayer = new FeatureLayer({
                     url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",
                     outFields: ['*'],
-                    popupTemplate: popupTemplate
+                    // popupTemplate: popupTemplate
                   });
+
                   fishMap.add(featureLayer);
 
+                  fishView.on("click", event => {
+                    fishView.hitTest(event)
+                      .then(this.getLatLong);
+                  })
+
+                  
+
+                  //Gives results from the data table
                   fishView.whenLayerView(featureLayer).then(function(lyrView) {
                     lyrView.watch("updating", function(val) {
                       if (!val) { // wait for the layer view to finish updating
@@ -61,7 +73,7 @@ class FishMap extends Component {
           
                           results.forEach(function(result, index) {
                             var attributes = result.attributes;
-                            console.log(attributes.NAME + ", " + attributes.WEB_PAGE);
+                            // console.log(attributes.NAME + ", " + attributes.WEB_PAGE);
                       
                             // var name = attributes.ZIP + " (" +
                             //   attributes.PO_NAME + ")"
