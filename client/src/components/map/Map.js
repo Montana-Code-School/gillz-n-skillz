@@ -12,17 +12,19 @@ class FishMap extends Component {
     }
     this.getLatLong = this.getLatLong.bind(this);
   }
-  
 
+  handleLatLong() {
+    this.props.callbackFromApp(this.state);
+  }
+  
   getLatLong(response){
-    console.log(response);
     this.setState({
      
         clickedFapLat: response.results[0].mapPoint.latitude,
         clickedFapLong: response.results[0].mapPoint.longitude
     
     })
-     console.log(this.state);
+    this.handleLatLong();
   }
   render() {
     
