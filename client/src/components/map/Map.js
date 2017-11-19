@@ -53,17 +53,16 @@ class FishMap extends Component {
                   })
                   
                   var popupTemplate = { // autocasts as new PopupTemplate()
-                    title: "FAP: {NAME}",
-                    content: "<p><b> Web: {WEB_PAGE}% </b></p>"
-                      // "<p> Married: {MARRIED_CY}</p>" +
-                      // "<p> Never Married: {NEVMARR_CY}</p>" +
-                      // "<p> Divorced: {DIVORCD_CY}</p>"
+                    title: "{NAME}",
+                    content: "<p><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></p>" +
+                      "<p> Boat Launch: {BOAT_FAC}</p>" +
+                      "<p> Camping: {CAMPING}</p>"
                   };
                   
                   var featureLayer = new FeatureLayer({
                     url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",
                     outFields: ['*'],
-                    // popupTemplate: popupTemplate
+                    popupTemplate: popupTemplate
                   });
 
                   fishMap.add(featureLayer);
