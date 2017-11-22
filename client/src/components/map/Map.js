@@ -86,8 +86,8 @@ class FishMap extends Component {
           
                           // var fragment = document.createDocumentFragment();
           
-                          results.forEach(function(result, index) {
-                            var attributes = result.attributes;
+                          // results.forEach(function(result, index) {
+                          //   var attributes = result.attributes;
                             // console.log(attributes.NAME + ", " + attributes.WEB_PAGE);
                       
                             // var name = attributes.ZIP + " (" +
@@ -101,7 +101,7 @@ class FishMap extends Component {
                           //   li.textContent = name;
           
                           //   fragment.appendChild(li);
-                          });
+                          // });
                         //   // Empty the current list
                         //   listNode.innerHTML = "";
                         //   listNode.appendChild(fragment);

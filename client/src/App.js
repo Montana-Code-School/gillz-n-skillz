@@ -1,4 +1,4 @@
-import { Navbar, Jumbotron, Button } from 'react-bootstrap';
+// import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import React, { Component } from 'react';
 import FishMap from './components/map/Map';
 import FapDetails from './components/fapDetails/FapDetails';
@@ -26,37 +26,37 @@ class App extends Component {
         return (
 
           <div>
-            <nav class="navbar navbar-default">
-              <div class="container-fluid">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+            <nav className="navbar navbar-default">
+              <div className="container-fluid">
+                <div className="navbar-header">
+                  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span className="sr-only">Toggle navigation</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">Gillz-N-Skillz</a>
+                  <a className="navbar-brand" href="">Gillz-N-Skillz</a>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                  
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                  <ul className="nav navbar-nav navbar-right">
+                    <li><a href="">Link</a></li>
+                    <li className="dropdown">
+                      <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                      <ul className="dropdown-menu">
+                        <li><a href="">Action</a></li>
+                        <li><a href="">Another action</a></li>
+                        <li><a href="">Something else here</a></li>
+                        <li role="separator" className="divider"></li>
+                        <li><a href="">Separated link</a></li>
                       </ul>
                     </li>
                   </ul>
                 </div>
               </div>
             </nav>
-          <div class="jumbotron">
-            <div class="container">
+          <div className="jumbotron">
+            <div className="container">
               <FishMap callbackFromApp={this.latLongCallback}/>
             </div>
           </div>
