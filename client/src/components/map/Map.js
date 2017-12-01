@@ -53,10 +53,11 @@ class FishMap extends Component {
                   })
                   
                   var popupTemplate = { // autocasts as new PopupTemplate()
-                    title: "{NAME}",
-                    content: "<p><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></p>" +
-                      "<p> Boat Launch: {BOAT_FAC}</p>" +
-                      "<p> Camping: {CAMPING}</p>"
+                    title: "Fishing Site Details<p>{NAME}</p>",
+                    content: 
+                      "<ul><li> Boat Facility: {BOAT_FAC}</li>" +
+                      "<li>Camping: {CAMPING}</li>" +
+                      "<li>Site Web Page: <a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></li></ul>"
                   };
                   
                   var featureLayer = new FeatureLayer({
