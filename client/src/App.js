@@ -28,6 +28,7 @@ class App extends Component {
 
           <div>
             <header className="bgimage">
+            
             <nav className="navbar navbar-inverse">
               <div className="container-fluid">
                 <div className="navbar-header">
@@ -57,16 +58,24 @@ class App extends Component {
                 </div>
               </div>
             </nav>
-          <div className="jumbotron">
-            <div className="container">
+           
+            <div className="container-fluid">
               <FishMap callbackFromApp={this.latLongCallback}/>
+              <br />
             </div>
-          </div>
+         
           <div className="jumbotron">
+            <h3>Location Deets</h3>
+            <p>I am your location. Check me out for directions, shops and post-fishing extravaganzas!</p>
+          </div>
+          <div className="container">
             <FapDetails fapDetails={this.state}/>
           </div>
-          </header>
-          </div>
+          <p>Copyright Gillz-n-Skillz 2017</p>
+          
+      </header>
+      </div>
+          
         );
       }
     }
