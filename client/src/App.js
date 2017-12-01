@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import FishMap from './components/map/Map';
 import FapDetails from './components/fapDetails/FapDetails';
 // import EsriLoaderReact from 'esri-loader-react';
+import styles from './App.css';
 
 class App extends Component {
   constructor() {
@@ -26,6 +27,7 @@ class App extends Component {
         return (
 
           <div>
+            <header className="bgimage">
             <nav className="navbar navbar-inverse">
               <div className="container-fluid">
                 <div className="navbar-header">
@@ -60,9 +62,10 @@ class App extends Component {
               <FishMap callbackFromApp={this.latLongCallback}/>
             </div>
           </div>
-            
+          <div className="jumbotron">
             <FapDetails fapDetails={this.state}/>
-
+          </div>
+          </header>
           </div>
         );
       }
