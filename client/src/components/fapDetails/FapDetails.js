@@ -127,41 +127,41 @@ class FapDetails extends Component {
   render() {
     return (
       <div className="container">
-      <div className="row">
-        <div className="panel panel-default">
-          <div className="panel-body">
-            <h3>Current Conditions</h3>
-              <p>{this.state.icon} <i class="wi wi-day-rain"></i></p>
-              <p>Feels Like {this.state.feelslike_f} <i class="wi wi-fahrenheit"></i></p>
-              <p>{this.state.weather}</p>
-              <p>{this.state.temp_f} <i class="wi wi-fahrenheit"></i></p>
-              <p>Precipitation Today {this.state.precip_today_in}</p>
-          </div>
-        <div className="panel panel-default">
-          <div className="panel-body">
-            <h3>Wind</h3>
-            <p>{this.state.wind_dir} <i class="wi wi-towards-s"></i></p>
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#CurrentConditions">Current Conditions</a></li>
+          <li><a data-toggle="tab" href="#Wind">Wind</a></li>
+          <li><a data-toggle="tab" href="#Stream">Stream</a></li>
+          <li><a data-toggle="tab" href="#Something">Something</a></li>
+          <li><a data-toggle="tab" href="#Forecast">Forecast</a></li>
+        </ul>
+
+      <div class="tab-content">
+        <div id="CurrentConditions" class="tab-pane fade in active">
+          <h3>Current Conditions</h3>
+            <p>{this.state.icon} <i class="wi wi-day-rain"></i></p>
+            <p>Feels Like {this.state.feelslike_f} <i class="wi wi-fahrenheit"></i></p>
+            <p>{this.state.weather}</p>
+            <p>{this.state.temp_f} <i class="wi wi-fahrenheit"></i></p>
+            <p>Precipitation Today {this.state.precip_today_in} <i class="wi wi-towards-s"></i></p>
+        </div>
+        <div id="Wind" class="tab-pane fade">
+          <h3>Wind</h3>
+            <p>{this.state.wind_dir}</p>
             <p>{this.state.wind_mph} mph</p>
             <p>{this.state.wind_gust_mph} gust mph</p>
-            </div>
         </div>
-        <div className="panel panel-default">
-          <div className="panel-body">
-            <h3>Stream</h3>
-              <p>I am the water.</p>
-         </div>
+        <div id="Stream" class="tab-pane fade">
+          <h3>Stream</h3>
+            <p>I am the water.</p>
         </div>
-        <div className="panel panel-default">
-          <div className="panel-body">
-            <h3>Something</h3>
-              <p>I am spacing.</p>
-              <p>{this.props.fapDetails.clickedFapLat}</p>
-              <p>{this.props.fapDetails.clickedFapLong}</p>
-          </div>
+        <div id="Something" class="tab-pane fade">
+          <h3>Something</h3>
+            <p>I am spacing.</p>
+            <p>{this.props.fapDetails.clickedFapLat}</p>
+            <p>{this.props.fapDetails.clickedFapLong}</p>
         </div>
-        <div className="panel panel-default">
-          <div className="panel-body">
-            <h3>Forecast</h3>
+        <div id="Forecast" class="tab-pane fade">
+          <h3>Forecast</h3>
             <p> {this.state.forecastDay0Weekday}</p>
             <p> {this.state.forecastDay0Icon} <i class="wi wi-day-rain"></i></p>
             <p> {this.state.forecastDay0High} <i class="wi wi-fahrenheit"></i></p>
@@ -178,8 +178,6 @@ class FapDetails extends Component {
             <p> {this.state.forecastDay2Low} <i class="wi wi-fahrenheit"></i></p>
             <p> {this.state.forecastDay2Conditions}</p>
           </div>
-        </div>
-        </div>
         </div>
       </div>
     );
