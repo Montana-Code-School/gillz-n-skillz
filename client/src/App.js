@@ -47,26 +47,26 @@ class App extends Component {
                     <li className="dropdown">
                       <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
                       <ul className="dropdown-menu">
-                        <li><a href="">Action</a></li>
-                        <li><a href="">Another action</a></li>
-                        <li><a href="">Something else here</a></li>
-                        <li role="separator" className="divider"></li>
-                        <li><a href="">Separated link</a></li>
-                      </ul>
+                        <li><a href="">My Favorites</a></li>
+                        <li><a href="">Current Conditions</a></li>
+                        <li><a href="">Logout</a></li>
+                  </ul>
                     </li>
                   </ul>
                 </div>
               </div>
             </nav>
            
-            <div className="container-fluid">
+          <div className="container-fluid">
               <FishMap callbackFromApp={this.latLongCallback}/>
               <br />
             </div>
          
+         <div className="container">
           <div className="jumbotron">
             <h3>Location Deets</h3>
             <p>I am your location. Check me out for directions, shops and post-fishing extravaganzas!</p>
+          </div>
           </div>
           <div className="container">
             <FapDetails fapDetails={this.state}/>
