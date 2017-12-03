@@ -1,6 +1,7 @@
 // import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import React, { Component } from 'react';
 import axios from 'axios';
+import './weather-icons.css';
 
 
 class FapDetails extends Component {
