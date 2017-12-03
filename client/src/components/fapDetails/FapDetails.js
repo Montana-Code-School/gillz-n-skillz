@@ -131,16 +131,16 @@ class FapDetails extends Component {
         <div className="panel panel-default">
           <div className="panel-body">
             <h3>Current Conditions</h3>
-              <p>{this.state.icon}</p>
-              <p>Feels Like: {this.state.feelslike_f}</p>
+              <p>{this.state.icon} <i class="wi wi-day-rain"></i></p>
+              <p>Feels Like {this.state.feelslike_f} <i class="wi wi-fahrenheit"></i></p>
               <p>{this.state.weather}</p>
-              <p>{this.state.temp_f}</p>
-              <p>{this.state.precip_today_in}</p>
+              <p>{this.state.temp_f} <i class="wi wi-fahrenheit"></i></p>
+              <p>Precipitation Today {this.state.precip_today_in}</p>
           </div>
         <div className="panel panel-default">
           <div className="panel-body">
             <h3>Wind</h3>
-            <p>{this.state.wind_dir}</p>
+            <p>{this.state.wind_dir} <i class="wi wi-towards-s"></i></p>
             <p>{this.state.wind_mph} mph</p>
             <p>{this.state.wind_gust_mph} gust mph</p>
             </div>
@@ -163,19 +163,19 @@ class FapDetails extends Component {
           <div className="panel-body">
             <h3>Forecast</h3>
             <p> {this.state.forecastDay0Weekday}</p>
-            <p> {this.state.forecastDay0Icon}</p>
-            <p> {this.state.forecastDay0High}</p>
-            <p> {this.state.forecastDay0Low}</p>
+            <p> {this.state.forecastDay0Icon} <i class="wi wi-day-rain"></i></p>
+            <p> {this.state.forecastDay0High} <i class="wi wi-fahrenheit"></i></p>
+            <p> {this.state.forecastDay0Low} <i class="wi wi-fahrenheit"></i></p>
             <p> {this.state.forecastDay0Conditions}</p>
             <p> {this.state.forecastDay1Weekday}</p>
-            <p> {this.state.forecastDay1Icon}</p>
-            <p> {this.state.forecastDay1High}</p>
-            <p> {this.state.forecastDay1Low}</p>
+            <p> {this.state.forecastDay1Icon} <i class="wi wi-day-rain"></i></p>
+            <p> {this.state.forecastDay1High} <i class="wi wi-fahrenheit"></i></p>
+            <p> {this.state.forecastDay1Low} <i class="wi wi-fahrenheit"></i></p>
             <p> {this.state.forecastDay1Conditions}</p>
             <p> {this.state.forecastDay2Weekday}</p>
-            <p> {this.state.forecastDay2Icon}</p>
-            <p> {this.state.forecastDay2High}</p>
-            <p> {this.state.forecastDay2Low}</p>
+            <p> {this.state.forecastDay2Icon} <i class="wi wi-day-rain"></i></p>
+            <p> {this.state.forecastDay2High} <i class="wi wi-fahrenheit"></i></p>
+            <p> {this.state.forecastDay2Low} <i class="wi wi-fahrenheit"></i></p>
             <p> {this.state.forecastDay2Conditions}</p>
           </div>
         </div>
