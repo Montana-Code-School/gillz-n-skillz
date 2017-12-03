@@ -26,3 +26,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.bgimage {
+  background-image: url('https://static.pexels.com/photos/7138/summer-rocks-trees-river.jpg');
+  background-position: center center;
+  background-size: cover;
+}
+
+.jumbotron {
+  padding: 10px;
+  
+}
