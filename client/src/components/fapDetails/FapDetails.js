@@ -146,8 +146,7 @@ class FapDetails extends Component {
             <p>feels like {this.state.feelslike_f}℉</p>
             <p>{this.state.precip_today_in} inches today</p>
         </div>
-        <div className="panel panel-default">
-          <div className="panel-body">
+        <div id="Stream" class="tab-pane fade">
             <h3>Stream</h3>
               <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06329500&parm_cd=00060&period=7"/></p>
          </div>
