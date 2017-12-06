@@ -1,0 +1,14 @@
+p.dayOfWeek {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+p.caps {
+  text-transform: uppercase;
+}
+p.small {
+  font-variant: small-caps;
+}
+
+span.small {
+  font-variant: small-caps;
+}
