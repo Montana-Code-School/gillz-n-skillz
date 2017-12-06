@@ -17,7 +17,7 @@ class App extends Component {
   latLongCallback(clickedFap) {
     this.setState({
       clickedFapLat: clickedFap.clickedFapLat,
-      clickedFapLong: clickedFap.clickedFapLong
+      clickedFapLong: clickedFap.clickedFapLong,
     })
     // console.log(this.state)
   }
@@ -26,10 +26,10 @@ class App extends Component {
     
         return (
 
-          <div>
+        <div>
             <header className="bgimage">
-            
-            <nav className="navbar navbar-inverse">
+
+            <nav className="navbar navbar-inverse fixedTop">         
               <div className="container-fluid">
                 <div className="navbar-header">
                   <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -65,7 +65,7 @@ class App extends Component {
             </div>
          
           <div className="jumbotron">
-            <h3>Location Deets</h3>
+            <h3>Site Details</h3>
             <p>I am your location. Check me out for directions, shops and post-fishing extravaganzas!</p>
           </div>
           <div className="container">

@@ -21,7 +21,7 @@ class FishMap extends Component {
     this.setState({
      
         clickedFapLat: response.results[0].mapPoint.latitude,
-        clickedFapLong: response.results[0].mapPoint.longitude
+        clickedFapLong: response.results[0].mapPoint.longitude,
     
     })
     this.handleLatLong();
@@ -59,7 +59,7 @@ class FishMap extends Component {
                       "<li>Camping: {CAMPING}</li>" +
                       "<li>Site Web Page: <a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></li></ul>"
                   };
-                  
+                
                   var featureLayer = new FeatureLayer({
                     url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",
                     outFields: ['*'],

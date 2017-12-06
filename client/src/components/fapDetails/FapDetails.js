@@ -107,14 +107,15 @@ class FapDetails extends Component {
           console.log(error);
         });
 
-  //streamflow api call
+  // streamflow api call
+  // create model/table for 1)faps and 2)stream flow points along with relationship between them 1 to many
   // axios.get(
-  //   "https://waterservices.usgs.gov/nwis/iv/?sites=06048650&parameterCd=00060,00065"
+  //   "https://waterservices.usgs.gov/nwis/iv/?format=json&site=06329500"
   // )
   //   .then((response) => {
   //     console.log(response)
   //     this.setState({
-  //       streamflow: response.data.ns1:siteName        
+  //       streamflow: response.data.value.timeSeries[0].values[0].value[0].value       
   //     })
   //     console.log(this.state);
   //   })
@@ -147,7 +148,7 @@ class FapDetails extends Component {
         <div className="panel panel-default">
           <div className="panel-body">
             <h3>Stream</h3>
-              <p>I am the water.</p>
+              <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06329500&parm_cd=00060&period=7"/></p>
          </div>
         </div>
         <div className="panel panel-default">
