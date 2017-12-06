@@ -41,3 +41,6 @@
   background-color: whitesmoke;
   
 }
+p.caps {
+  text-transform: uppercase;
+}

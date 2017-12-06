@@ -71,7 +71,7 @@ class App extends Component {
           <div className="container">
             <FapDetails fapDetails={this.state}/>
           </div>
-          <p>Copyright Gillz-n-Skillz 2017</p>
+          <p class="caps">Copyright Gillz-n-Skillz 2017</p>
           
       </header>
       </div>
