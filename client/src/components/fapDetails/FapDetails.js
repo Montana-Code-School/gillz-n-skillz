@@ -129,59 +129,59 @@ class FapDetails extends Component {
   render() {
     return (
       <div className="container">
-        <ul class="nav nav-tabs">
-          <li class="active"><a data-toggle="tab" href="#CurrentConditions">Current Conditions</a></li>
+        <ul className="nav nav-tabs">
+          <li className="active"><a data-toggle="tab" href="#CurrentConditions">Current Conditions</a></li>
           <li><a data-toggle="tab" href="#Wind">Wind</a></li>
           <li><a data-toggle="tab" href="#Stream">Stream</a></li>
           <li><a data-toggle="tab" href="#Something">Something</a></li>
           <li><a data-toggle="tab" href="#Forecast">Forecast</a></li>
         </ul>
 
-      <div class="tab-content">
-        <div id="CurrentConditions" class="tab-pane fade in active">
+      <div className="tab-content">
+        <div id="CurrentConditions" className="tab-pane fade in active">
           <h3>Current Conditions</h3>
-          <i class={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
+          <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
             <p>{this.state.weather}</p>
             <p>{this.state.temp_f}℉</p>
             <p>feels like {this.state.feelslike_f}℉</p>
             <p>{this.state.precip_today_in} inches today</p>
         </div>
-        <div id="Stream" class="tab-pane fade">
+        <div id="Stream" className="tab-pane fade">
             <h3>Stream</h3>
               <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06329500&parm_cd=00060&period=7"/></p>
          </div>
-        <div id="Wind" class="tab-pane fade">
+        <div id="Wind" className="tab-pane fade">
           <h3>Wind</h3>
             <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
             <p>{this.state.wind_gust_mph}  mph gusts</p>
         </div>
-        <div id="Stream" class="tab-pane fade">
+        <div id="Stream" className="tab-pane fade">
           <h3>Stream</h3>
             <p>I am the water.</p>
         </div>
-        <div id="Something" class="tab-pane fade">
+        <div id="Something" className="tab-pane fade">
           <h3>Something</h3>
             <p>I am spacing.</p>
             <p>{this.props.fapDetails.clickedFapLat}</p>
             <p>{this.props.fapDetails.clickedFapLong}</p>
         </div>
-        <div id="Forecast" class="tab-pane fade">
+        <div id="Forecast" className="tab-pane fade">
           <h3>Forecast</h3>
-            <p class="dayOfWeek">{this.state.forecastDay0Weekday}</p>            
-            <p><i class={`wu wu-black wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
+            <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>            
+            <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
             <p>{this.state.forecastDay0Conditions}</p>
             <p>{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
-            <p class="caps">high / low</p>
-            <p class="dayOfWeek">{this.state.forecastDay1Weekday}</p>
-            <p><i class={`wu wu-black wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
+            <p className="caps">high / low</p>
+            <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
+            <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
             <p>{this.state.forecastDay1Conditions}</p>
             <p>{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
-            <p class="caps">high / low</p>
-            <p class="dayOfWeek">{this.state.forecastDay2Weekday}</p>
-            <p><i class={`wu wu-black wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
+            <p className="caps">high / low</p>
+            <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
+            <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
             <p>{this.state.forecastDay2Conditions}</p>
             <p>{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
-            <p class="caps">high / low</p>
+            <p className="caps">high / low</p>
           </div>
         </div>
       </div>

@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import FishMap from './components/map/Map';
 import FapDetails from './components/fapDetails/FapDetails';
 // import EsriLoaderReact from 'esri-loader-react';
-import styles from './App.css';
+import './App.css';
+// import ReactStickyScrollSpy from './react-sticky-scroll-spy';
 
 class App extends Component {
   constructor() {
@@ -28,8 +29,10 @@ class App extends Component {
 
         <div>
             <header className="bgimage">
+            
+            <div data-spy="affix" data-offset-top="0" data-offset-bottom="0">
 
-            <nav className="navbar navbar-inverse fixedTop">         
+            <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">         
               <div className="container-fluid">
                 <div className="navbar-header">
                   <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -56,7 +59,8 @@ class App extends Component {
                 </div>
               </div>
             </nav>
-           
+            </div>
+            
           <div className="container-fluid">
               <FishMap callbackFromApp={this.latLongCallback}/>
               <br />
@@ -71,7 +75,7 @@ class App extends Component {
           <div className="container">
             <FapDetails fapDetails={this.state}/>
           </div>
-          <p class="caps">Copyright Gillz-n-Skillz 2017</p>
+          <p className="caps">Copyright Gillz-n-Skillz 2017</p>
           
       </header>
       </div>
