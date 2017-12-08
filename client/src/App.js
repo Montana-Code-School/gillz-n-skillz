@@ -26,14 +26,12 @@ class App extends Component {
   render() {
     
         return (
-
-        <div>
             <header className="bgimage">
             
-            <div data-spy="affix" data-offset-top="0" data-offset-bottom="0">
-
-            <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">         
-              <div className="container-fluid">
+            {/* <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">          */}
+              
+              <nav className="navbar navbarstyle navbar-fixed-top">
+              <div className="container">
                 <div className="navbar-header">
                   <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span className="sr-only">Toggle navigation</span>
@@ -59,9 +57,8 @@ class App extends Component {
                 </div>
               </div>
             </nav>
-            </div>
             
-          <div className="container-fluid">
+          <div className="container map">
               <FishMap callbackFromApp={this.latLongCallback}/>
               <br />
             </div>
@@ -78,7 +75,7 @@ class App extends Component {
           <p className="caps">Copyright Gillz-n-Skillz 2017</p>
           
       </header>
-      </div>
+      
           
         );
       }

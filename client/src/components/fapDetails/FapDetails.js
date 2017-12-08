@@ -129,15 +129,15 @@ class FapDetails extends Component {
   render() {
     return (
       <div className="container">
-        <ul className="nav nav-tabs">
+        <ul className="nav nav-tabs nav-justifed navtabdetails">
           <li className="active"><a data-toggle="tab" href="#CurrentConditions">Current Conditions</a></li>
           <li><a data-toggle="tab" href="#Wind">Wind</a></li>
-          <li><a data-toggle="tab" href="#Stream">Stream</a></li>
-          <li><a data-toggle="tab" href="#Something">Something</a></li>
+          <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
+          <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
           <li><a data-toggle="tab" href="#Forecast">Forecast</a></li>
         </ul>
 
-      <div className="tab-content">
+      <div className="tab-content tabcontentstyle">
         <div id="CurrentConditions" className="tab-pane fade in active">
           <h3>Current Conditions</h3>
           <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
@@ -146,24 +146,18 @@ class FapDetails extends Component {
             <p>feels like {this.state.feelslike_f}℉</p>
             <p>{this.state.precip_today_in} inches today</p>
         </div>
-        <div id="Stream" className="tab-pane fade">
-            <h3>Stream</h3>
-              <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06329500&parm_cd=00060&period=7"/></p>
+        <div id="Streamflow" className="tab-pane fade">
+            <h3>Streamflow</h3>
+              <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7"/></p>
          </div>
         <div id="Wind" className="tab-pane fade">
           <h3>Wind</h3>
             <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
             <p>{this.state.wind_gust_mph}  mph gusts</p>
         </div>
-        <div id="Stream" className="tab-pane fade">
-          <h3>Stream</h3>
-            <p>I am the water.</p>
-        </div>
-        <div id="Something" className="tab-pane fade">
-          <h3>Something</h3>
-            <p>I am spacing.</p>
-            <p>{this.props.fapDetails.clickedFapLat}</p>
-            <p>{this.props.fapDetails.clickedFapLong}</p>
+        <div id="StreamTemperature" className="tab-pane fade">
+          <h3>Stream Temperature</h3>
+          <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7"/></p>
         </div>
         <div id="Forecast" className="tab-pane fade">
           <h3>Forecast</h3>
