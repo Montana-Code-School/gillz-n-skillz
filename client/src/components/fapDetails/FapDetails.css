@@ -13,9 +13,9 @@ span.small {
   font-variant: small-caps;
 }
 
-.navcontainer {
-  /* border-radius: 25px; */
-}
+/* .container fluid {
+  border-radius: 5rem;
+} */
 
 .navtabdetails {
   background: #7E8684;

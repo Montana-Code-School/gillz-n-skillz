@@ -129,7 +129,7 @@ class FapDetails extends Component {
   render() {
     return (
       <div className="container-fluid">
-      <div className="container-fluid navcontainer">
+      <div className="container-fluid">
         <ul className="nav nav-tabs nav-justifed navtabdetails">
           <li className="active"><a data-toggle="tab" href="#CurrentConditions">Current Conditions</a></li>
           <li><a data-toggle="tab" href="#Wind">Wind</a></li>
