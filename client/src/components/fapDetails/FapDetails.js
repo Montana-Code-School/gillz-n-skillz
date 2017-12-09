@@ -128,7 +128,8 @@ class FapDetails extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
+      <div className="container-fluid navcontainer">
         <ul className="nav nav-tabs nav-justifed navtabdetails">
           <li className="active"><a data-toggle="tab" href="#CurrentConditions">Current Conditions</a></li>
           <li><a data-toggle="tab" href="#Wind">Wind</a></li>
@@ -148,7 +149,7 @@ class FapDetails extends Component {
         </div>
         <div id="Streamflow" className="tab-pane fade">
             <h3>Streamflow</h3>
-              <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7"/></p>
+              <p><img className="img-responsive" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7"/></p>
          </div>
         <div id="Wind" className="tab-pane fade">
           <h3>Wind</h3>
@@ -157,7 +158,7 @@ class FapDetails extends Component {
         </div>
         <div id="StreamTemperature" className="tab-pane fade">
           <h3>Stream Temperature</h3>
-          <p><img src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7"/></p>
+          <p><img className="img-responsive" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7"/></p>
         </div>
         <div id="Forecast" className="tab-pane fade">
           <h3>Forecast</h3>
@@ -178,6 +179,7 @@ class FapDetails extends Component {
             <p className="caps">high / low</p>
           </div>
         </div>
+      </div>
       </div>
     );
   }

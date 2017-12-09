@@ -13,11 +13,15 @@ span.small {
   font-variant: small-caps;
 }
 
+.navcontainer {
+  /* border-radius: 25px; */
+}
+
 .navtabdetails {
   background: #7E8684;
   font-family: 'Cabin', sans-serif;
   font-weight: bolder;
- 
+  
 }
 
 .navtabdetails li a{

@@ -26,7 +26,7 @@ class App extends Component {
   render() {
     
         return (
-            <header className="bgimage">
+            <header className="bgimage img-responsive">
             
             {/* <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">          */}
               
@@ -57,12 +57,14 @@ class App extends Component {
                 </div>
               </div>
             </nav>
-            
+          
           <div className="container map">
+           {/* <Well bsSize="large">  */}
               <FishMap callbackFromApp={this.latLongCallback}/>
               <br />
+          {/* </Well> */}
             </div>
-         
+       
          <div className="container">
           <div className="jumbotron">
             <h3>Site Details</h3>
