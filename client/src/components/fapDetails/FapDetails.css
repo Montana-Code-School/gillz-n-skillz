@@ -12,3 +12,24 @@ p.small {
 span.small {
   font-variant: small-caps;
 }
+
+/* .container fluid {
+  border-radius: 5rem;
+} */
+
+.navtabdetails {
+  background: #7E8684;
+  font-family: 'Cabin', sans-serif;
+  font-weight: bolder;
+  
+}
+
+.navtabdetails li a{
+  color: #2D656C;
+}
+
+.tabcontentstyle {
+  background: white;
+  padding: 20px;
+}
+

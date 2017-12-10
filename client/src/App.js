@@ -4,7 +4,6 @@ import FishMap from './components/map/Map';
 import FapDetails from './components/fapDetails/FapDetails';
 // import EsriLoaderReact from 'esri-loader-react';
 import './App.css';
-// import ReactStickyScrollSpy from './react-sticky-scroll-spy';
 
 class App extends Component {
   constructor() {
@@ -15,6 +14,7 @@ class App extends Component {
     }
     this.latLongCallback = this.latLongCallback.bind(this);
   }
+
   latLongCallback(clickedFap) {
     this.setState({
       clickedFapLat: clickedFap.clickedFapLat,
@@ -24,64 +24,52 @@ class App extends Component {
   }
 
   render() {
-    
-        return (
-
-        <div>
-            <header className="bgimage">
-            
-            <div data-spy="affix" data-offset-top="0" data-offset-bottom="0">
-
-            <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">         
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                  </button>
-                  <a className="navbar-brand" href="">Gillz-N-Skillz</a>
-                </div>
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                 
-                  <ul className="nav navbar-nav navbar-right">
-                    <li><a href="">Link</a></li>
-                    <li className="dropdown">
-                      <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-                      <ul className="dropdown-menu">
-                        <li><a href="">My Favorites</a></li>
-                        <li><a href="">Current Conditions</a></li>
-                        <li><a href="">Logout</a></li>
-                  </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </nav>
-            </div>
-            
+    return (
+      <header className="bgimage img-responsive">
+        <nav className="navbar navbarstyle navbar-fixed-top">
           <div className="container-fluid">
-              <FishMap callbackFromApp={this.latLongCallback}/>
-              <br />
+            <div className="navbar-header">
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <a className="navbar-brand" href="">Gillz-N-Skillz</a>
             </div>
-         
-         <div className="container">
-          <div className="jumbotron">
-            <h3>Site Details</h3>
-            <p>I am your location. Check me out for directions, shops and post-fishing extravaganzas!</p>
+            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+              <ul className="nav navbar-nav navbar-right">
+                <li><a href="">Link</a></li>
+                <li className="dropdown">
+                  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                  <ul className="dropdown-menu">
+                    <li><a href="">My Favorites</a></li>
+                    <li><a href="">Current Conditions</a></li>
+                    <li><a href="">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-          </div>
-          <div className="container">
-            <FapDetails fapDetails={this.state}/>
-          </div>
+        </nav>
+
+        <div className="container-fluid map">
+          <FishMap callbackFromApp={this.latLongCallback} />
+          <br />
+        </div>
+
+        <div className="container-fluid">
+          <FapDetails fapDetails={this.state} />
+        </div>
+
+        <div className="container-fluid">
           <p className="caps">Copyright Gillz-n-Skillz 2017</p>
-          
-      </header>
-      </div>
-          
-        );
-      }
-    }
+        </div>
+      
+       </header>
+    );
+  }
+}
 
 export default App;

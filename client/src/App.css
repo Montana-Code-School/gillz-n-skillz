@@ -41,6 +41,11 @@
   background-color: whitesmoke;
   
 }
+
+.map {
+  padding-top: 75px;
+}
+
 .caps {
   text-transform: uppercase;
   font-family: 'Cabin', sans-serif;
@@ -52,12 +57,31 @@ nav {
   text-transform: uppercase;
 }
 
+<<<<<<< HEAD
 /* .affix{
   position: fixed;
   z-index: 999;
 } */
+=======
+.navbarstyle {
+  background-color: #7E8684;
+  
+}
+
+.navbarstyle a{
+  color: #2D656C;
+}
+
+.navbar-toggle .icon-bar {
+  background: #2D656C; 
+}
+>>>>>>> develop
 
 h3 {
   font-family: 'Cabin', sans-serif;
   font-weight: bold;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
