@@ -1,6 +1,7 @@
 {
   "db": {
+    "url": "mongodb://admin:fishapp@ds133776.mlab.com:33776/gillznskillz",
     "name": "db",
-    "connector": "memory"
+    "connector": "mongodb"
   }
 }

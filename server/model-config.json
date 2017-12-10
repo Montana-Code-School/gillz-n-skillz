@@ -34,5 +34,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "gagesites": {
+    "dataSource": "db",
+    "public": true
+  },
+  "accesssites": {
+    "dataSource": "db",
+    "public": true
   }
 }

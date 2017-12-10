@@ -1,0 +1,41 @@
+{
+  "name": "accesssites",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "X": {
+      "type": "number"
+    },
+    "Y": {
+      "type": "number"
+    },
+    "siteid": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "webpage": {
+      "type": "string"
+    },
+    "boatfacility": {
+      "type": "string"
+    },
+    "camping": {
+      "type": "string"
+    },
+    "hunting": {
+      "type": "string"
+    },
+    "usgsgagesitenumber": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -17,6 +17,7 @@
     "loopback": "^3.0.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^5.0.0",
+    "loopback-connector-mongodb": "^3.3.1",
     "react-arcgis": "^3.0.0",
     "react-sticky-scroll-spy": "^1.0.16",
     "serve-favicon": "^2.0.1",

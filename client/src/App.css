@@ -52,10 +52,10 @@ nav {
   text-transform: uppercase;
 }
 
-.affix{
+/* .affix{
   position: fixed;
   z-index: 999;
-}
+} */
 
 h3 {
   font-family: 'Cabin', sans-serif;
