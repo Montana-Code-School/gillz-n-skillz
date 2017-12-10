@@ -57,12 +57,6 @@ nav {
   text-transform: uppercase;
 }
 
-<<<<<<< HEAD
-/* .affix{
-  position: fixed;
-  z-index: 999;
-} */
-=======
 .navbarstyle {
   background-color: #7E8684;
   
@@ -75,7 +69,6 @@ nav {
 .navbar-toggle .icon-bar {
   background: #2D656C; 
 }
->>>>>>> develop
 
 h3 {
   font-family: 'Cabin', sans-serif;
