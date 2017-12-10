@@ -60,13 +60,6 @@ class App extends Component {
         </div>
 
         <div className="container-fluid">
-          <div className="jumbotron">
-            <h3>Site Details</h3>
-            <p>I am your location. Check me out for directions, shops and post-fishing extravaganzas!</p>
-          </div>
-        </div>
-
-        <div className="container-fluid">
           <FapDetails fapDetails={this.state} />
         </div>
 

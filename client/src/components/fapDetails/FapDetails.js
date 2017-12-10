@@ -142,9 +142,11 @@ class FapDetails extends Component {
 
   render() {
     return (
-      // <div className="container-fluid">
-
-        <div>
+        <div className="container-fluid">
+        
+          <div className="jumbotron">
+            <h3>Site Details</h3>
+          </div>
           <ul className="nav nav-tabs nav-justifed navtabdetails">
             <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>            
             <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
