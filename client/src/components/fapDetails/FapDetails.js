@@ -149,7 +149,7 @@ class FapDetails extends Component {
         </div>
         <div id="Streamflow" className="tab-pane fade">
             {/* <h3>Streamflow</h3> */}
-              <p><img className="img-responsive" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7"/></p>
+              <p><img className="img-responsive center-block" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7" alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/></p>
          </div>
         <div id="Wind" className="tab-pane fade">
           {/* <h3>Wind</h3> */}
@@ -158,7 +158,7 @@ class FapDetails extends Component {
         </div>
         <div id="StreamTemperature" className="tab-pane fade">
           {/* <h3>Stream Temperature</h3> */}
-          <p><img className="img-responsive" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7"/></p>
+          <p><img className="img-responsive center-block" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7" alt="A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days"/></p>
         </div>
         <div id="Forecast" className="tab-pane fade">
           {/* <h3>Forecast</h3> */}
