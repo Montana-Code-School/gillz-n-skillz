@@ -4,7 +4,6 @@ import FishMap from './components/map/Map';
 import FapDetails from './components/fapDetails/FapDetails';
 // import EsriLoaderReact from 'esri-loader-react';
 import './App.css';
-// import ReactStickyScrollSpy from './react-sticky-scroll-spy';
 
 class App extends Component {
   constructor() {

@@ -8,7 +8,8 @@ class FishMap extends Component {
     super(props);
     this.state = {
       clickedFapLat: "",
-      clickedFapLong: ""
+      clickedFapLong: "",
+      clickedSiteName: ""
     }
     this.getLatLong = this.getLatLong.bind(this);
   }
@@ -18,16 +19,18 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
-    this.setState({
-     
+    console.log(this.state)
+      this.setState({
         clickedFapLat: response.results[0].mapPoint.latitude,
         clickedFapLong: response.results[0].mapPoint.longitude,
+        clickedSiteName: response.results[0].mapPoint.name,
     
     })
     this.handleLatLong();
+    
   }
   render() {
-    
+    console.log(this.state);
         const options = {
           url: 'https://js.arcgis.com/4.5/'
         };
