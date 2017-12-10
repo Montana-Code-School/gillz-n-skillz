@@ -66,6 +66,10 @@ nav {
   color: #2D656C;
 }
 
+.navbar-toggle .icon-bar {
+  background: #2D656C; 
+}
+
 h3 {
   font-family: 'Cabin', sans-serif;
   font-weight: bold;

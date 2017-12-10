@@ -27,9 +27,8 @@ class App extends Component {
   render() {
     return (
       <header className="bgimage img-responsive">
-        {/* <nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">          */}
         <nav className="navbar navbarstyle navbar-fixed-top">
-          <div className="container">
+          <div className="container-fluid">
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span className="sr-only">Toggle navigation</span>
@@ -75,8 +74,8 @@ class App extends Component {
         <div className="container-fluid">
           <p className="caps">Copyright Gillz-n-Skillz 2017</p>
         </div>
-
-      </header>
+      
+       </header>
     );
   }
 }
