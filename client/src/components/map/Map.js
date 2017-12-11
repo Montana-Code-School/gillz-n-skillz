@@ -8,7 +8,8 @@ class FishMap extends Component {
     super(props);
     this.state = {
       clickedFapLat: "",
-      clickedFapLong: ""
+      clickedFapLong: "",
+      clickedFapSiteId: ""
     }
     this.getLatLong = this.getLatLong.bind(this);
   }
@@ -18,6 +19,7 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
+    console.log(response)
       this.setState({
         clickedFapLat: response.results[0].mapPoint.latitude,
         clickedFapLong: response.results[0].mapPoint.longitude
@@ -55,6 +57,7 @@ class FishMap extends Component {
                     content: 
                       "<ul><li> Boat Facility: {BOAT_FAC}</li>" +
                       "<li>Camping: {CAMPING}</li>" +
+                      "<li>Site: {SITEID}</li>" +
                       "<li>Site Web Page: <a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></li></ul>"
                   };
                 
@@ -65,56 +68,65 @@ class FishMap extends Component {
                   });
 
                   fishMap.add(featureLayer);
-
-                  fishView.on("click", event => {
-                    fishView.hitTest(event)
-                      .then(this.getLatLong);
-                  })
-
+                  var details = [];
                   
 
                   //Gives results from the data table
+                  var siteId = 0;
                   fishView.whenLayerView(featureLayer).then(function(lyrView) {
                     lyrView.watch("updating", function(val) {
                       if (!val) { // wait for the layer view to finish updating
-          
-                        // query all the features available for drawing.
-                        lyrView.queryFeatures().then(function(results) {
-                            // console.log(results);
-                          // graphics = results;
-          
-                          // var fragment = document.createDocumentFragment();
-          
-                          // results.forEach(function(result, index) {
-                          //   var attributes = result.attributes;
-                            // console.log(attributes.NAME + ", " + attributes.WEB_PAGE);
+                        fishView.on("click", event => {
+                          lyrView.queryFeatures().then(function(results) {
+                            results.forEach(function(result, index) {
+                              console.log(result);
+                              if (event.mapPoint.latitude === result.geometry.latitude && 
+                                event.mapPoint.longitude === result.geometry.longitude) {
+                                  debugger
+                                  siteId = result.attributes.SITEID; 
+                                }
+                            });
+                          });
+                          console.log(event)
+                        fishView.hitTest(event)
+                          .then(this.getLatLong);
+                        
+                            
+                        });
+                      //   // query all the features available for drawing.
                       
-                            // var name = attributes.ZIP + " (" +
-                            //   attributes.PO_NAME + ")"
+                          
+                      //     details = results; 
+                      //       // console.log(results);
+                      //     // graphics = results;
           
-                          //   // Create a list zip codes in NY
-                          //   var li = document.createElement("li");
-                          //   li.classList.add("panel-result");
-                          //   li.tabIndex = 0;
-                          //   li.setAttribute("data-result-id", index);
-                          //   li.textContent = name;
-          
-                          //   fragment.appendChild(li);
-                          // });
-                        //   // Empty the current list
-                        //   listNode.innerHTML = "";
-                        //   listNode.appendChild(fragment);
-                         });
-                      }
-                    });
-                  });
+                      //     // var fragment = document.createDocumentFragment();
 
+                     
+                      //       var attributes = result.attributes;
+                      //       console.log(attributes.SITEID);
+                          }
+                        });
+                      });
+
+                    // fishMap.addEventListener("click", onListClickHandler);
+                    
+                    
+                    function onListClickHandler(event) {
+                      var target = event.target;
+                      var resultId = target.getAttribute("SITEID");
+                      console.log(resultId);
+                      
+                      // get the graphic corresponding to the clicked zip code
+                      // var result = resultId
+                    };
                 }}
                 
               onError={error => console.error(error)}
             />
           </div>
         );
+
       }
     }
 

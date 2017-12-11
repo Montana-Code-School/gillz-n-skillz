@@ -16,7 +16,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "faps": {
+      "type": "hasMany",
+      "model": "accesssites",
+      "foreignKey": "usgsgagesitenumber"
+    }
+  },
   "acls": [],
   "methods": {}
 }

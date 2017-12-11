@@ -51,7 +51,7 @@ class FapDetails extends Component {
   }
 
   componentWillReceiveProps() {
-    console.log("Hello, World!" + this.props.fapDetails.clickedSiteName);
+    console.log(this.props.fapDetails.clickedFapLat, this.props.fapDetails.clickedFapLong);
     this.drawWeather(this.props.fapDetails.clickedFapLat, this.props.fapDetails.clickedFapLong)    
   }
 
@@ -115,7 +115,6 @@ class FapDetails extends Component {
             forecastDay2avewinddir: response.data.forecast.simpleforecast.forecastday[2].avewind.dir,
             forecastDay2avewindmph: response.data.forecast.simpleforecast.forecastday[2].avewind.mph,
             forecastDay2maxwindmph: response.data.forecast.simpleforecast.forecastday[2].maxwind.mph,
-           
             
           })
         })
@@ -124,20 +123,16 @@ class FapDetails extends Component {
         });
 
   // streamflow api call
-  // create model/table for 1)faps and 2)stream flow points along with relationship between them 1 to many
-  // axios.get(
-  //   "https://waterservices.usgs.gov/nwis/iv/?format=json&site=06329500"
-  // )
-  //   .then((response) => {
-  //     console.log(response)
-  //     this.setState({
-  //       streamflow: response.data.value.timeSeries[0].values[0].value[0].value       
-  //     })
-  //     console.log(this.state);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+  axios.get(
+    "/api/accesssites?filter[where][X]=-111.963049"
+  )
+    .then((response) => {
+      console.log(response)
+      // console.log(this.state);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
   render() {
