@@ -10,6 +10,7 @@ class FapDetails extends Component {
     this.state = {
       clickedFapLat: "",
       clickedFapLong: "",
+      clickedFapSiteId: "",
       icon: "",
       weather: "",
       feelslike_f: "",
@@ -47,15 +48,16 @@ class FapDetails extends Component {
   }
 
   componentDidMount() {
-    this.drawWeather("45.67287885173888", "-111.07997885742002")
+    this.drawWeather("45.67287885173888", "-111.07997885742002", "280946")
   }
 
   componentWillReceiveProps() {
     console.log("Hello, World!" + this.props.fapDetails.clickedSiteName);
-    this.drawWeather(this.props.fapDetails.clickedFapLat, this.props.fapDetails.clickedFapLong)    
+    this.drawWeather(this.props.fapDetails.clickedFapLat, this.props.fapDetails.clickedFapLong, this.props.fapDetails.clickedFapSiteId)
+
   }
 
-  drawWeather(lat, long) {
+  drawWeather(lat, long, siteId) {
     // var that = this;
     axios.get(
       "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
@@ -125,19 +127,20 @@ class FapDetails extends Component {
 
   // streamflow api call
   // create model/table for 1)faps and 2)stream flow points along with relationship between them 1 to many
-  // axios.get(
-  //   "https://waterservices.usgs.gov/nwis/iv/?format=json&site=06329500"
-  // )
-  //   .then((response) => {
-  //     console.log(response)
-  //     this.setState({
-  //       streamflow: response.data.value.timeSeries[0].values[0].value[0].value       
-  //     })
-  //     console.log(this.state);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
+  axios.get(
+    "https://waterservices.usgs.gov/nwis/iv/?format=json&site="
+    // + this.state.streamSiteId
+  )
+    .then((response) => {
+      console.log(response)
+      this.setState({
+        streamflow: response.data.value.timeSeries[0].values[0].value[0].value       
+      })
+      console.log(this.state);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 }
 
   render() {

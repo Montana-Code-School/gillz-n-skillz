@@ -10,7 +10,8 @@ class App extends Component {
     super();
     this.state = {
       clickedFapLat: "",
-      clickedFapLong: ""
+      clickedFapLong: "",
+      clickedFapSiteId: ""
     }
     this.latLongCallback = this.latLongCallback.bind(this);
   }
@@ -19,6 +20,7 @@ class App extends Component {
     this.setState({
       clickedFapLat: clickedFap.clickedFapLat,
       clickedFapLong: clickedFap.clickedFapLong,
+      clickedFapSiteId: clickedFap.clickedFapSiteId
     })
     // console.log(this.state)
   }

@@ -8,7 +8,8 @@ class FishMap extends Component {
     super(props);
     this.state = {
       clickedFapLat: "",
-      clickedFapLong: ""
+      clickedFapLong: "",
+      clickedFapSiteId: ""
     }
     this.getLatLong = this.getLatLong.bind(this);
   }
@@ -18,18 +19,23 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
+    console.log(response);
+    var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid');
+    
+    console.log(siteId);
       this.setState({
         clickedFapLat: response.results[0].mapPoint.latitude,
-        clickedFapLong: response.results[0].mapPoint.longitude
+        clickedFapLong: response.results[0].mapPoint.longitude,
+        clickedFapSiteId: siteId
     })
     this.handleLatLong();
-    
+    console.log(this.state)
   }
-  render() {
-        const options = {
-          url: 'https://js.arcgis.com/4.5/'
-        };
 
+  render() {
+    const options = {
+       url: 'https://js.arcgis.com/4.5/'
+    };
 
         return (
           <div className="App">
@@ -51,7 +57,7 @@ class FishMap extends Component {
                   })
                   
                   var popupTemplate = { // autocasts as new PopupTemplate()
-                    title: "Fishing Site Details<p>{NAME}</p>",
+                    title: "Fishing Site Details<p data-siteid={SITEID}>{NAME}</p>",
                     content: 
                       "<ul><li> Boat Facility: {BOAT_FAC}</li>" +
                       "<li>Camping: {CAMPING}</li>" +
@@ -70,44 +76,6 @@ class FishMap extends Component {
                     fishView.hitTest(event)
                       .then(this.getLatLong);
                   })
-
-                  
-
-                  //Gives results from the data table
-                  fishView.whenLayerView(featureLayer).then(function(lyrView) {
-                    lyrView.watch("updating", function(val) {
-                      if (!val) { // wait for the layer view to finish updating
-          
-                        // query all the features available for drawing.
-                        lyrView.queryFeatures().then(function(results) {
-                            // console.log(results);
-                          // graphics = results;
-          
-                          // var fragment = document.createDocumentFragment();
-          
-                          // results.forEach(function(result, index) {
-                          //   var attributes = result.attributes;
-                            // console.log(attributes.NAME + ", " + attributes.WEB_PAGE);
-                      
-                            // var name = attributes.ZIP + " (" +
-                            //   attributes.PO_NAME + ")"
-          
-                          //   // Create a list zip codes in NY
-                          //   var li = document.createElement("li");
-                          //   li.classList.add("panel-result");
-                          //   li.tabIndex = 0;
-                          //   li.setAttribute("data-result-id", index);
-                          //   li.textContent = name;
-          
-                          //   fragment.appendChild(li);
-                          // });
-                        //   // Empty the current list
-                        //   listNode.innerHTML = "";
-                        //   listNode.appendChild(fragment);
-                         });
-                      }
-                    });
-                  });
 
                 }}
                 
