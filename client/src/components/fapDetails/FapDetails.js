@@ -43,7 +43,8 @@ class FapDetails extends Component {
       forecastDay2avewinddir: "",
       forecastDay2avewindmph: "",
       forecastDay2maxwindmph: "",
-      streamflow: ""
+      streamflow: "",
+      usgsgagesitenumber: ""
     };
   }
 
@@ -125,22 +126,22 @@ class FapDetails extends Component {
           console.log(error);
         });
 
-  // streamflow api call
-  // create model/table for 1)faps and 2)stream flow points along with relationship between them 1 to many
-  axios.get(
-    "https://waterservices.usgs.gov/nwis/iv/?format=json&site="
-    // + this.state.streamSiteId
-  )
-    .then((response) => {
-      console.log(response)
-      this.setState({
-        streamflow: response.data.value.timeSeries[0].values[0].value[0].value       
-      })
-      console.log(this.state);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+//   // streamflow api call
+//   // create model/table for 1)faps and 2)stream flow points along with relationship between them 1 to many
+//   axios.get(
+//     "https://waterservices.usgs.gov/nwis/iv/?format=json&site="
+//     + this.state.usgsgagesitenumber
+//   )
+//     .then((response) => {
+//       console.log(response)
+//       this.setState({
+//         streamflow: response.data.value.timeSeries[0].values[0].value[0].value       
+//       })
+//       console.log(this.state);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
 }
 
   render() {
