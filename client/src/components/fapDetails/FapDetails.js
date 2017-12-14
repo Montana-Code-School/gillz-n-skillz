@@ -125,8 +125,9 @@ class FapDetails extends Component {
         });
         
         //call accesssites table
-        axios.get('/api/accesssites/' + this.state.siteid)
+        axios.get('/api/accesssites?where[siteid]=' + siteId)
         .then((response) => {
+          console.log(response.data.usgsgagesitenumber)
           this.setState({
             usgsgagesitenumber: response.data.usgsgagesitenumber 
           })          
