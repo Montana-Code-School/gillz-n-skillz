@@ -118,14 +118,23 @@ class FapDetails extends Component {
             forecastDay2avewinddir: response.data.forecast.simpleforecast.forecastday[2].avewind.dir,
             forecastDay2avewindmph: response.data.forecast.simpleforecast.forecastday[2].avewind.mph,
             forecastDay2maxwindmph: response.data.forecast.simpleforecast.forecastday[2].maxwind.mph,
-           
-            
           })
         })
         .catch((error) => {
           console.log(error);
         });
-
+        
+        //call accesssites table
+        axios.get('/api/accesssites/' + this.state.siteid)
+        .then((response) => {
+          this.setState({
+            usgsgagesitenumber: response.data.usgsgagesitenumber 
+          })          
+        })
+        .catch((error) => {
+          console.log(error);
+          });
+          
 //   // streamflow api call
 //   // create model/table for 1)faps and 2)stream flow points along with relationship between them 1 to many
 //   axios.get(
@@ -203,11 +212,18 @@ class FapDetails extends Component {
             </div>
 
             <div id="Streamflow" className="tab-pane fade">
-              <p><img className="img-responsive center-block" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7" alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/></p>
+              {/* <p><img className="img-responsive center-block" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7" alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/></p> */}
+              <p><img className={'img-responsive center-block'}
+                src={'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=7'} 
+                alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/>
+              </p>
             </div>
 
             <div id="StreamTemperature" className="tab-pane fade">
-              <p><img className="img-responsive center-block" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7" alt="A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days"/></p>
+              <p><img className="img-responsive center-block" 
+                src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7" 
+                alt="A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days"/>
+              </p>
             </div>
 
           
