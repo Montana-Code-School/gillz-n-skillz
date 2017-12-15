@@ -1,4 +1,3 @@
-// import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import React, { Component } from 'react';
 import axios from 'axios';
 import './FapDetails.css';
@@ -53,13 +52,11 @@ class FapDetails extends Component {
   }
 
   componentWillReceiveProps() {
-    console.log("Hello, World!" + this.props.fapDetails.clickedSiteName);
     this.drawWeather(this.props.fapDetails.clickedFapLat, this.props.fapDetails.clickedFapLong, this.props.fapDetails.clickedFapSiteId)
 
   }
 
   drawWeather(lat, long, siteId) {
-    // var that = this;
     axios.get(
       "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
       + lat
@@ -124,34 +121,18 @@ class FapDetails extends Component {
           console.log(error);
         });
         
-        //call accesssites table
-        axios.get('/api/accesssites?where[siteid]=' + siteId)
+//call accesssites table
+        axios.get('/api/accesssites?filter[where][siteid]=' + siteId)
         .then((response) => {
-          console.log(response.data.usgsgagesitenumber)
+          console.log(response.data[0].usgsgagesitenumber)
+          console.log(siteId)
           this.setState({
-            usgsgagesitenumber: response.data.usgsgagesitenumber 
+            usgsgagesitenumber: response.data[0].usgsgagesitenumber 
           })          
         })
         .catch((error) => {
           console.log(error);
           });
-          
-//   // streamflow api call
-//   // create model/table for 1)faps and 2)stream flow points along with relationship between them 1 to many
-//   axios.get(
-//     "https://waterservices.usgs.gov/nwis/iv/?format=json&site="
-//     + this.state.usgsgagesitenumber
-//   )
-//     .then((response) => {
-//       console.log(response)
-//       this.setState({
-//         streamflow: response.data.value.timeSeries[0].values[0].value[0].value       
-//       })
-//       console.log(this.state);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
 }
 
   render() {
@@ -213,21 +194,18 @@ class FapDetails extends Component {
             </div>
 
             <div id="Streamflow" className="tab-pane fade">
-              {/* <p><img className="img-responsive center-block" src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00060&period=7" alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/></p> */}
               <p><img className={'img-responsive center-block'}
-                src={'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=7'} 
+                src={'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00060&period=7'} 
                 alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/>
               </p>
             </div>
 
             <div id="StreamTemperature" className="tab-pane fade">
               <p><img className="img-responsive center-block" 
-                src="https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=06190540&parm_cd=00010&period=7" 
+                src={'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00010&period=7'} 
                 alt="A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days"/>
               </p>
             </div>
-
-          
         </div>
       </div>
     );

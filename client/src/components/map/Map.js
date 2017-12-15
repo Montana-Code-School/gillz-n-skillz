@@ -19,17 +19,17 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
-    console.log(response);
+    // console.log(response);
     var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid');
     
-    console.log(siteId);
+    // console.log(siteId);
       this.setState({
         clickedFapLat: response.results[0].mapPoint.latitude,
         clickedFapLong: response.results[0].mapPoint.longitude,
         clickedFapSiteId: siteId
     })
     this.handleLatLong();
-    console.log(this.state)
+    // console.log(this.state)
   }
 
   render() {
@@ -61,6 +61,7 @@ class FishMap extends Component {
                     content: 
                       "<ul><li> Boat Facility: {BOAT_FAC}</li>" +
                       "<li>Camping: {CAMPING}</li>" +
+                      "<li>SiteId: {SiteId} </li>" +
                       "<li>Site Web Page: <a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></li></ul>"
                   };
                 
