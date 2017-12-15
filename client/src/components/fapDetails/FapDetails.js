@@ -4,6 +4,7 @@ import './FapDetails.css';
 import './dist/wu-icons-style.css';
 
 class FapDetails extends Component {
+        
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +44,9 @@ class FapDetails extends Component {
       forecastDay2avewindmph: "",
       forecastDay2maxwindmph: "",
       streamflow: "",
-      usgsgagesitenumber: ""
+      usgsgagesitenumber: "",
+      usgsGraphUrl: "",
+      unknownUsgsSite: ""
     };
   }
 
@@ -135,12 +138,37 @@ class FapDetails extends Component {
           });
 }
 
+  // unknownUsgsGauge() {
+  //   let unknownUsgsStreamflow = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00060&period=7";
+  //   let unknownUsgsStreamTemp = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00010&period=7";
+  // }
+
   render() {
+   var gaugeStreamflow = "";
+     if (this.state.usgsgagesitenumber === 0) {
+      gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    } else {      
+      gaugeStreamflow = <img className='img-responsive center-block'
+      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=7`}
+      alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
+    }
+
+    var gaugeStreamTemp = "";
+    if (this.state.usgsgagesitenumber === 0) {
+     gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    } else {      
+     gaugeStreamTemp = 
+      <img className='img-responsive center-block' 
+      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=7`} 
+      alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
+    }
+
     return (
         <div className="container-fluid">
         
           <div className="jumbotron">
             <h3>Site Details</h3>
+            unknownUsgsGraph
           </div>
           <ul className="nav nav-tabs nav-justifed navtabdetails">
             <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>            
@@ -194,16 +222,14 @@ class FapDetails extends Component {
             </div>
 
             <div id="Streamflow" className="tab-pane fade">
-              <p><img className={'img-responsive center-block'}
-                src={'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00060&period=7'} 
-                alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/>
+              <p>
+               {gaugeStreamflow}
               </p>
             </div>
 
             <div id="StreamTemperature" className="tab-pane fade">
-              <p><img className="img-responsive center-block" 
-                src={'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00010&period=7'} 
-                alt="A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days"/>
+              <p>
+               {gaugeStreamTemp}
               </p>
             </div>
         </div>
