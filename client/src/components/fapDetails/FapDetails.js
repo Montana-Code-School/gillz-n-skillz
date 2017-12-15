@@ -4,6 +4,7 @@ import './FapDetails.css';
 import './dist/wu-icons-style.css';
 
 class FapDetails extends Component {
+        
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +44,9 @@ class FapDetails extends Component {
       forecastDay2avewindmph: "",
       forecastDay2maxwindmph: "",
       streamflow: "",
-      usgsgagesitenumber: ""
+      usgsgagesitenumber: "",
+      usgsGraphUrl: "",
+      unknownUsgsSite: ""
     };
   }
 
@@ -135,12 +138,47 @@ class FapDetails extends Component {
           });
 }
 
+unknownUsgsGauge() {
+
+  let generatedUsgsStreamflowUrl= 'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00060&period=7';
+  let generatedUsgsStreamTempUrl= 'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00010&period=7';
+  let unknownUsgsSite = '<i className="wu wu-black wu-256 wu-unknown"></i>';
+  let unknownUsgsStreamflow = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00060&period=7";
+  let unknownUsgsStreamTemp = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00010&period=7";
+  
+  // if (this.state.usgsgagesitenumber === 0){} 
+  //     // || this.state.usgsgagesitenumber === null  
+  //     // || this.state.usgsgagesitenumber === undefined 
+  //     // || this.state.usgsgagesitenumber === "") {
+  //   return ()
+  //       //show the cloud with a question mark
+  //   }  else {}
+  // //build the url that goes into src
+  // {'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00060&period=7'}
+
+  // return(
+  //   this.setState({
+  //     usgsGraphUrl: unknownUsgsSite 
+  //   })          
+  // )
+
+}
+
   render() {
+   var gauge = "";
+     if (this.state.usgsgagesitenumber === 0) {
+      gauge =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    } else {      
+     gauge = <img className='img-responsive center-block'
+      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=7`}
+      alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
+    }
     return (
         <div className="container-fluid">
         
           <div className="jumbotron">
             <h3>Site Details</h3>
+            unknownUsgsGraph
           </div>
           <ul className="nav nav-tabs nav-justifed navtabdetails">
             <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>            
@@ -194,9 +232,8 @@ class FapDetails extends Component {
             </div>
 
             <div id="Streamflow" className="tab-pane fade">
-              <p><img className={'img-responsive center-block'}
-                src={'https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=' + this.state.usgsgagesitenumber +'&parm_cd=00060&period=7'} 
-                alt="A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic"/>
+              <p>
+               {gauge}
               </p>
             </div>
 
