@@ -3,8 +3,10 @@ import axios from 'axios';
 import './FapDetails.css';
 import './dist/wu-icons-style.css';
 
+var gaugeStreamflow = "";
+
 class FapDetails extends Component {
-        
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +53,7 @@ class FapDetails extends Component {
   }
 
   componentDidMount() {
-    this.drawWeather("45.67287885173888", "-111.07997885742002", "280946")
+    this.drawWeather("45.67287885173888", "-111.07997885742002", "280946", "0")
   }
 
   componentWillReceiveProps() {
@@ -59,9 +61,9 @@ class FapDetails extends Component {
 
   }
 
-  drawWeather(lat, long, siteId) {
+  drawWeather(lat, long, siteId, usgsgagesitenumber) {
     axios.get(
-      "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
+      // "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
       + lat
       + "," 
       + long 
@@ -84,7 +86,7 @@ class FapDetails extends Component {
       });
 //forecast api call
       axios.get(
-        "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
+        // "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
         + lat
         + "," 
         + long 
@@ -136,7 +138,23 @@ class FapDetails extends Component {
         .catch((error) => {
           console.log(error);
           });
+
+                //  streamflow graph       
+      if (this.state.usgsgagesitenumber === "0") {
+        gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+      } else {      
+        fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
+         .then((r) =>  {
+            if (r.status === 400) {
+            gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+            } else {
+              gaugeStreamflow = <img className='img-responsive center-block'
+              src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
+              alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
+            }
+         })};
 }
+
 
   // unknownUsgsGauge() {
   //   let unknownUsgsStreamflow = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00060&period=8";
@@ -144,27 +162,26 @@ class FapDetails extends Component {
   // }
 
   render() {
-   var gaugeStreamflow = "";
-     if (this.state.usgsgagesitenumber === "0") {
-      gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-    } else {      
-      gaugeStreamflow = <img className='img-responsive center-block'
-      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
-      alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
-    } 
-    
-
-    // } else {      
-    //   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`
-    //    } if (r.meta.code === 400) {
-    //     gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-    //    } else {      
-    //       gaugeStreamflow = <img className='img-responsive center-block'
-    //       src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
-    //       alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
-    //     } 
 
 
+       
+
+        //  window.fetch('https://api.foursquare.com/v2/venues/explore?v=20170324&near=Jljjl&query=study%20spot&limit=10&intent=browse&radius=100000&venuePhotos=1&client_id=XPQI2RJB3NMDT2JYQIMWDMGZSKRDQZX40NYIOKK02DXB1CVE&client_secret=UNHLLMUWXTEI3USTTN5DRJ02QDWQMHZQ5B22CFX0EY4JLEHO')
+        //  .then(r => r.json())
+        //  .then(r => {
+        //    if (r.meta.code === 400) {
+        //      console.error('Error')
+        //    } else {
+        //      console.log(r)
+        //    }
+        //  })
+       
+
+  // } else {      
+  //   gaugeStreamflow = <img className='img-responsive center-block'
+  //   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
+  //   alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
+  // } 
   
    
 
