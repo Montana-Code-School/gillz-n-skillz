@@ -31,7 +31,7 @@
       "type": "string"
     },
     "usgsgagesitenumber": {
-      "type": "number"
+      "type": "string"
     }
   },
   "validations": [],

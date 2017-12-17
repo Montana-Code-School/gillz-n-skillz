@@ -53,16 +53,26 @@ class FishMap extends Component {
                       container: containerNode,
                       center: [-111.0429, 45.67],
                       zoom: 10,
-                      map: fishMap 
+                      map: fishMap, 
+                      popup: {
+                        dockEnabled: true,
+                        dockOptions: {
+                          // Disables the dock button from the popup
+                          buttonEnabled: false,
+                          // Ignore the default sizes that trigger responsive docking
+                          breakpoint: false,
+                          position: "bottom-left"
+                        },
+                      }
                   })
                   
                   var popupTemplate = { // autocasts as new PopupTemplate()
-                    title: "Fishing Site Details<p data-siteid={SITEID}>{NAME}</p>",
-                    content: 
-                      "<ul><li> Boat Facility: {BOAT_FAC}</li>" +
-                      "<li>Camping: {CAMPING}</li>" +
-                      "<li>SiteId: {SiteId} </li>" +
-                      "<li>Site Web Page: <a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></li></ul>"
+                    title: "<p data-siteid={SITEID}>{NAME}</p>",
+                    content:
+                      "<p>Boat Facility: {BOAT_FAC}</p>" +
+                      "<p>Camping: {CAMPING}</p>" +
+                      "<p>SiteId: {SiteId} </p>" +
+                      "<p><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></p>"
                   };
                 
                   var featureLayer = new FeatureLayer({

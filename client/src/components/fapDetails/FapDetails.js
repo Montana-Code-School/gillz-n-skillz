@@ -125,7 +125,7 @@ class FapDetails extends Component {
         });
         
 //call accesssites table
-        axios.get('/api/accesssites?filter[where][siteid]=' + siteId)
+        axios.get('/api/accesssites?filter[where][siteid][like]=' + siteId)
         .then((response) => {
           console.log(response.data[0].usgsgagesitenumber)
           console.log(siteId)
@@ -139,27 +139,42 @@ class FapDetails extends Component {
 }
 
   // unknownUsgsGauge() {
-  //   let unknownUsgsStreamflow = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00060&period=7";
-  //   let unknownUsgsStreamTemp = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00010&period=7";
+  //   let unknownUsgsStreamflow = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00060&period=8";
+  //   let unknownUsgsStreamTemp = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00010&period=8";
   // }
 
   render() {
    var gaugeStreamflow = "";
-     if (this.state.usgsgagesitenumber === 0) {
+     if (this.state.usgsgagesitenumber === "0") {
       gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
     } else {      
       gaugeStreamflow = <img className='img-responsive center-block'
-      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=7`}
+      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
       alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
-    }
+    } 
+    
 
-    var gaugeStreamTemp = "";
-    if (this.state.usgsgagesitenumber === 0) {
+    // } else {      
+    //   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`
+    //    } if (r.meta.code === 400) {
+    //     gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    //    } else {      
+    //       gaugeStreamflow = <img className='img-responsive center-block'
+    //       src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
+    //       alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
+    //     } 
+
+
+  
+   
+
+    var gaugeStreamTemp = ""; 
+    if (this.state.usgsgagesitenumber === "0") {
      gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
     } else {      
      gaugeStreamTemp = 
       <img className='img-responsive center-block' 
-      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=7`} 
+      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`} 
       alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
     }
 
@@ -198,7 +213,7 @@ class FapDetails extends Component {
                     <p className="caps">high / low</p>
                     <p>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir}</p>
                     <p>{this.state.forecastDay0maxwindmph} mph max</p>
-                  </div>
+                    </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
                     <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
