@@ -38,7 +38,12 @@ class App extends Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-              <a className="navbar-brand" href="">Gillz-N-Skillz</a>
+              <div className="navbar-brand" >
+                <a href="">
+                  <img src="./gillznskills-icon.png" style={{width:30}} alt='A leaping fish filled with multi-colored glitter'/>
+                  Gillz-N-Skillz
+                </a>
+                </div>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
