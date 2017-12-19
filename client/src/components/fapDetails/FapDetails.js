@@ -61,11 +61,11 @@ class FapDetails extends Component {
 
   drawWeather(lat, long, siteId) {
     axios.get(
-      "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
-      + lat
-      + "," 
-      + long 
-      + ".json"
+      // "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
+      // + lat
+      // + "," 
+      // + long 
+      // + ".json"
     )
       .then((response) => {
         this.setState({
@@ -84,11 +84,11 @@ class FapDetails extends Component {
       });
 //forecast api call
       axios.get(
-        "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
-        + lat
-        + "," 
-        + long 
-        + ".json"
+        // "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
+        // + lat
+        // + "," 
+        // + long 
+        // + ".json"
       )
         .then((response) => {
           this.setState({
