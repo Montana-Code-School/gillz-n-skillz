@@ -4,6 +4,7 @@ import './FapDetails.css';
 import './dist/wu-icons-style.css';
 
 var gaugeStreamflow = "";
+var gaugeStreamTemp = "";
 
 class FapDetails extends Component {
   
@@ -53,7 +54,7 @@ class FapDetails extends Component {
   }
 
   componentDidMount() {
-    this.drawWeather("45.67287885173888", "-111.07997885742002", "280946", "0")
+    this.drawWeather("45.67287885173888", "-111.07997885742002", "280946")
   }
 
   componentWillReceiveProps() {
@@ -61,7 +62,7 @@ class FapDetails extends Component {
 
   }
 
-  drawWeather(lat, long, siteId, usgsgagesitenumber) {
+  drawWeather(lat, long, siteId) {
     axios.get(
       // "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
       + lat
@@ -139,7 +140,7 @@ class FapDetails extends Component {
           console.log(error);
           });
 
-                //  streamflow graph       
+//  streamflow graph       
       if (this.state.usgsgagesitenumber === "0") {
         gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
       } else {      
@@ -151,6 +152,21 @@ class FapDetails extends Component {
               gaugeStreamflow = <img className='img-responsive center-block'
               src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
               alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
+            }
+         })};
+
+//  streamflow temp      gaugeStreamTemp
+      if (this.state.usgsgagesitenumber === "0") {
+        gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+      } else {      
+        fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
+         .then((r) =>  {
+            if (r.status === 400) {
+              gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+            } else {
+              gaugeStreamTemp = <img className='img-responsive center-block'
+              src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
+              alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
             }
          })};
 }
@@ -185,15 +201,15 @@ class FapDetails extends Component {
   
    
 
-    var gaugeStreamTemp = ""; 
-    if (this.state.usgsgagesitenumber === "0") {
-     gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-    } else {      
-     gaugeStreamTemp = 
-      <img className='img-responsive center-block' 
-      src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`} 
-      alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
-    }
+    // var gaugeStreamTemp = ""; 
+    // if (this.state.usgsgagesitenumber === "0") {
+    //  gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    // } else {      
+    //  gaugeStreamTemp = 
+    //   <img className='img-responsive center-block' 
+    //   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`} 
+    //   alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
+    // }
 
     return (
         <div className="container-fluid">
