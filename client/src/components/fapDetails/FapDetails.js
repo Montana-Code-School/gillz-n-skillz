@@ -141,7 +141,7 @@ class FapDetails extends Component {
           });
 
 //  streamflow graph       
-      if (this.state.usgsgagesitenumber === "0") {
+      if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
         gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
       } else {      
         fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
@@ -155,8 +155,8 @@ class FapDetails extends Component {
             }
          })};
 
-//  streamflow temp      gaugeStreamTemp
-      if (this.state.usgsgagesitenumber === "0") {
+//  streamflow temp     
+      if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
         gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
       } else {      
         fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
@@ -171,52 +171,13 @@ class FapDetails extends Component {
          })};
 }
 
-
-  // unknownUsgsGauge() {
-  //   let unknownUsgsStreamflow = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00060&period=8";
-  //   let unknownUsgsStreamTemp = "https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=0&parm_cd=00010&period=8";
-  // }
-
-  render() {
-
-
-       
-
-        //  window.fetch('https://api.foursquare.com/v2/venues/explore?v=20170324&near=Jljjl&query=study%20spot&limit=10&intent=browse&radius=100000&venuePhotos=1&client_id=XPQI2RJB3NMDT2JYQIMWDMGZSKRDQZX40NYIOKK02DXB1CVE&client_secret=UNHLLMUWXTEI3USTTN5DRJ02QDWQMHZQ5B22CFX0EY4JLEHO')
-        //  .then(r => r.json())
-        //  .then(r => {
-        //    if (r.meta.code === 400) {
-        //      console.error('Error')
-        //    } else {
-        //      console.log(r)
-        //    }
-        //  })
-       
-
-  // } else {      
-  //   gaugeStreamflow = <img className='img-responsive center-block'
-  //   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
-  //   alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
-  // } 
-  
-   
-
-    // var gaugeStreamTemp = ""; 
-    // if (this.state.usgsgagesitenumber === "0") {
-    //  gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-    // } else {      
-    //  gaugeStreamTemp = 
-    //   <img className='img-responsive center-block' 
-    //   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`} 
-    //   alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
-    // }
+  render() {   
 
     return (
         <div className="container-fluid">
         
           <div className="jumbotron">
             <h3>Site Details</h3>
-            unknownUsgsGraph
           </div>
           <ul className="nav nav-tabs nav-justifed navtabdetails">
             <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>            

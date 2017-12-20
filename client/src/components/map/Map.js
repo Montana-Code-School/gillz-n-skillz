@@ -71,8 +71,7 @@ class FishMap extends Component {
                     content:
                       "<p>Boat Facility: {BOAT_FAC}</p>" +
                       "<p>Camping: {CAMPING}</p>" +
-                      "<p>SiteId: {SiteId} </p>" +
-                      "<p><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></p>"
+                      "<p>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
                   };
                 
                   var featureLayer = new FeatureLayer({
