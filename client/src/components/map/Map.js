@@ -19,16 +19,22 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
-    // console.log(response);
-    var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid');
+    console.log(response);
+    if (response.results.length) {
+      document.querySelector(".esri-popup").style.display="block";
+      var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
+      
+      // console.log(siteId);
+        this.setState({
+          clickedFapLat: response.results[0].mapPoint.latitude,
+          clickedFapLong: response.results[0].mapPoint.longitude,
+          clickedFapSiteId: siteId
+      })
+      this.handleLatLong();
+    } else {
+      document.querySelector(".esri-popup").style.display="none";
+    }
     
-    // console.log(siteId);
-      this.setState({
-        clickedFapLat: response.results[0].mapPoint.latitude,
-        clickedFapLong: response.results[0].mapPoint.longitude,
-        clickedFapSiteId: siteId
-    })
-    this.handleLatLong();
     // console.log(this.state)
   }
 
@@ -60,8 +66,8 @@ class FishMap extends Component {
                           // Disables the dock button from the popup
                           buttonEnabled: false,
                           // Ignore the default sizes that trigger responsive docking
-                          breakpoint: false,
-                          position: "bottom-left"
+                          breakpoint: true,
+                          position: "bottom-left",
                         },
                       }
                   })
@@ -73,6 +79,7 @@ class FishMap extends Component {
                       "<p>Camping: {CAMPING}</p>" +
                       "<p>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
                   };
+        
                 
                   var featureLayer = new FeatureLayer({
                     url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",

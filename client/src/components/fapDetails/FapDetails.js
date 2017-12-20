@@ -63,69 +63,69 @@ class FapDetails extends Component {
   }
 
   drawWeather(lat, long, siteId) {
-    axios.get(
-      // "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
-      + lat
-      + "," 
-      + long 
-      + ".json"
-    )
-      .then((response) => {
-        this.setState({
-          icon: response.data.current_observation.icon,
-          feelslike_f: response.data.current_observation.feelslike_f,
-          temp_f: response.data.current_observation.temp_f,
-          weather: response.data.current_observation.weather,
-          precip_today_in: response.data.current_observation.precip_today_in,
-          wind_dir: response.data.current_observation.wind_dir,
-          wind_mph: response.data.current_observation.wind_mph,
-          wind_gust_mph: response.data.current_observation.wind_gust_mph
-        })
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios.get(
+    //   // "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
+    //   + lat
+    //   + "," 
+    //   + long 
+    //   + ".json"
+    // )
+    //   .then((response) => {
+    //     this.setState({
+    //       icon: response.data.current_observation.icon,
+    //       feelslike_f: response.data.current_observation.feelslike_f,
+    //       temp_f: response.data.current_observation.temp_f,
+    //       weather: response.data.current_observation.weather,
+    //       precip_today_in: response.data.current_observation.precip_today_in,
+    //       wind_dir: response.data.current_observation.wind_dir,
+    //       wind_mph: response.data.current_observation.wind_mph,
+    //       wind_gust_mph: response.data.current_observation.wind_gust_mph
+    //     })
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
 //forecast api call
-      axios.get(
-        // "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
-        + lat
-        + "," 
-        + long 
-        + ".json"
-      )
-        .then((response) => {
-          this.setState({
-            forecastDay0Weekday: response.data.forecast.simpleforecast.forecastday[0].date.weekday_short,
-            forecastDay0Icon: response.data.forecast.simpleforecast.forecastday[0].icon,
-            forecastDay0High: response.data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
-            forecastDay0Low: response.data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
-            forecastDay0Conditions: response.data.forecast.simpleforecast.forecastday[0].conditions,
-            forecastDay0avewinddir: response.data.forecast.simpleforecast.forecastday[0].avewind.dir,
-            forecastDay0avewindmph: response.data.forecast.simpleforecast.forecastday[0].avewind.mph,
-            forecastDay0maxwindmph: response.data.forecast.simpleforecast.forecastday[0].maxwind.mph,
+      // axios.get(
+      //   // "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
+      //   + lat
+      //   + "," 
+      //   + long 
+      //   + ".json"
+      // )
+      //   .then((response) => {
+      //     this.setState({
+      //       forecastDay0Weekday: response.data.forecast.simpleforecast.forecastday[0].date.weekday_short,
+      //       forecastDay0Icon: response.data.forecast.simpleforecast.forecastday[0].icon,
+      //       forecastDay0High: response.data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
+      //       forecastDay0Low: response.data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
+      //       forecastDay0Conditions: response.data.forecast.simpleforecast.forecastday[0].conditions,
+      //       forecastDay0avewinddir: response.data.forecast.simpleforecast.forecastday[0].avewind.dir,
+      //       forecastDay0avewindmph: response.data.forecast.simpleforecast.forecastday[0].avewind.mph,
+      //       forecastDay0maxwindmph: response.data.forecast.simpleforecast.forecastday[0].maxwind.mph,
 
-            forecastDay1Weekday: response.data.forecast.simpleforecast.forecastday[1].date.weekday_short,
-            forecastDay1Icon: response.data.forecast.simpleforecast.forecastday[1].icon,
-            forecastDay1High: response.data.forecast.simpleforecast.forecastday[1].high.fahrenheit,
-            forecastDay1Low: response.data.forecast.simpleforecast.forecastday[1].low.fahrenheit,
-            forecastDay1Conditions: response.data.forecast.simpleforecast.forecastday[1].conditions,
-            forecastDay1avewinddir: response.data.forecast.simpleforecast.forecastday[1].avewind.dir,
-            forecastDay1avewindmph: response.data.forecast.simpleforecast.forecastday[1].avewind.mph,
-            forecastDay1maxwindmph: response.data.forecast.simpleforecast.forecastday[1].maxwind.mph,
+      //       forecastDay1Weekday: response.data.forecast.simpleforecast.forecastday[1].date.weekday_short,
+      //       forecastDay1Icon: response.data.forecast.simpleforecast.forecastday[1].icon,
+      //       forecastDay1High: response.data.forecast.simpleforecast.forecastday[1].high.fahrenheit,
+      //       forecastDay1Low: response.data.forecast.simpleforecast.forecastday[1].low.fahrenheit,
+      //       forecastDay1Conditions: response.data.forecast.simpleforecast.forecastday[1].conditions,
+      //       forecastDay1avewinddir: response.data.forecast.simpleforecast.forecastday[1].avewind.dir,
+      //       forecastDay1avewindmph: response.data.forecast.simpleforecast.forecastday[1].avewind.mph,
+      //       forecastDay1maxwindmph: response.data.forecast.simpleforecast.forecastday[1].maxwind.mph,
 
-            forecastDay2Weekday: response.data.forecast.simpleforecast.forecastday[2].date.weekday_short,
-            forecastDay2Icon: response.data.forecast.simpleforecast.forecastday[2].icon,
-            forecastDay2High: response.data.forecast.simpleforecast.forecastday[2].high.fahrenheit,
-            forecastDay2Low: response.data.forecast.simpleforecast.forecastday[2].low.fahrenheit,
-            forecastDay2Conditions: response.data.forecast.simpleforecast.forecastday[2].conditions,
-            forecastDay2avewinddir: response.data.forecast.simpleforecast.forecastday[2].avewind.dir,
-            forecastDay2avewindmph: response.data.forecast.simpleforecast.forecastday[2].avewind.mph,
-            forecastDay2maxwindmph: response.data.forecast.simpleforecast.forecastday[2].maxwind.mph,
-          })
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      //       forecastDay2Weekday: response.data.forecast.simpleforecast.forecastday[2].date.weekday_short,
+      //       forecastDay2Icon: response.data.forecast.simpleforecast.forecastday[2].icon,
+      //       forecastDay2High: response.data.forecast.simpleforecast.forecastday[2].high.fahrenheit,
+      //       forecastDay2Low: response.data.forecast.simpleforecast.forecastday[2].low.fahrenheit,
+      //       forecastDay2Conditions: response.data.forecast.simpleforecast.forecastday[2].conditions,
+      //       forecastDay2avewinddir: response.data.forecast.simpleforecast.forecastday[2].avewind.dir,
+      //       forecastDay2avewindmph: response.data.forecast.simpleforecast.forecastday[2].avewind.mph,
+      //       forecastDay2maxwindmph: response.data.forecast.simpleforecast.forecastday[2].maxwind.mph,
+      //     })
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
         
 //call accesssites table
         axios.get('/api/accesssites?filter[where][siteid][like]=' + siteId)

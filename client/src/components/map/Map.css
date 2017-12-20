@@ -2,4 +2,6 @@
   height: 400px;
 }
 
-
+.esri-popup {
+  display: none;
+}
