@@ -35,8 +35,11 @@
     "dataSource": "db",
     "public": false
   },
-  
   "accesssites": {
+    "dataSource": "db",
+    "public": true
+  },
+  "angler": {
     "dataSource": "db",
     "public": true
   }
