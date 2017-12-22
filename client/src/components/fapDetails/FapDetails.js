@@ -3,8 +3,6 @@ import axios from 'axios';
 import './FapDetails.css';
 import './dist/wu-icons-style.css';
 
-var gaugeStreamflow = "";
-var gaugeStreamTemp = "";
 
 class FapDetails extends Component {
   
@@ -49,7 +47,9 @@ class FapDetails extends Component {
       streamflow: "",
       usgsgagesitenumber: "",
       usgsGraphUrl: "",
-      unknownUsgsSite: ""
+      unknownUsgsSite: "",
+      gaugeStreamflow: "",
+      gaugeStreamTemp: ""
     };
   }
 
@@ -57,81 +57,88 @@ class FapDetails extends Component {
     this.drawWeather("45.67287885173888", "-111.07997885742002", "280946")
   }
 
-  componentWillReceiveProps() {
-    this.drawWeather(this.props.fapDetails.clickedFapLat, this.props.fapDetails.clickedFapLong, this.props.fapDetails.clickedFapSiteId)
+  componentWillReceiveProps(nextProps) {
+      this.setState ({
+        clickedFapLat: nextProps.fapDetails.clickedFapLat,
+        clickedFapLong: nextProps.fapDetails.clickedFapLong,
+        clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId
+      })
+      this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId)
+
+  }
+
+  componentWillUpdate(){
 
   }
 
   drawWeather(lat, long, siteId) {
-    // axios.get(
-    //   // "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
-    //   + lat
-    //   + "," 
-    //   + long 
-    //   + ".json"
-    // )
-    //   .then((response) => {
-    //     this.setState({
-    //       icon: response.data.current_observation.icon,
-    //       feelslike_f: response.data.current_observation.feelslike_f,
-    //       temp_f: response.data.current_observation.temp_f,
-    //       weather: response.data.current_observation.weather,
-    //       precip_today_in: response.data.current_observation.precip_today_in,
-    //       wind_dir: response.data.current_observation.wind_dir,
-    //       wind_mph: response.data.current_observation.wind_mph,
-    //       wind_gust_mph: response.data.current_observation.wind_gust_mph
-    //     })
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-//forecast api call
-      // axios.get(
-      //   // "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
-      //   + lat
-      //   + "," 
-      //   + long 
-      //   + ".json"
-      // )
-      //   .then((response) => {
-      //     this.setState({
-      //       forecastDay0Weekday: response.data.forecast.simpleforecast.forecastday[0].date.weekday_short,
-      //       forecastDay0Icon: response.data.forecast.simpleforecast.forecastday[0].icon,
-      //       forecastDay0High: response.data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
-      //       forecastDay0Low: response.data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
-      //       forecastDay0Conditions: response.data.forecast.simpleforecast.forecastday[0].conditions,
-      //       forecastDay0avewinddir: response.data.forecast.simpleforecast.forecastday[0].avewind.dir,
-      //       forecastDay0avewindmph: response.data.forecast.simpleforecast.forecastday[0].avewind.mph,
-      //       forecastDay0maxwindmph: response.data.forecast.simpleforecast.forecastday[0].maxwind.mph,
+    axios.get(
+      "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
+      + lat
+      + "," 
+      + long 
+      + ".json"
+    )
+      .then((response) => {
+        this.setState({
+          icon: response.data.current_observation.icon,
+          feelslike_f: response.data.current_observation.feelslike_f,
+          temp_f: response.data.current_observation.temp_f,
+          weather: response.data.current_observation.weather,
+          precip_today_in: response.data.current_observation.precip_today_in,
+          wind_dir: response.data.current_observation.wind_dir,
+          wind_mph: response.data.current_observation.wind_mph,
+          wind_gust_mph: response.data.current_observation.wind_gust_mph
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+// forecast api call
+      axios.get(
+        "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
+        + lat
+        + "," 
+        + long 
+        + ".json"
+      )
+        .then((response) => {
+          this.setState({
+            forecastDay0Weekday: response.data.forecast.simpleforecast.forecastday[0].date.weekday_short,
+            forecastDay0Icon: response.data.forecast.simpleforecast.forecastday[0].icon,
+            forecastDay0High: response.data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
+            forecastDay0Low: response.data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
+            forecastDay0Conditions: response.data.forecast.simpleforecast.forecastday[0].conditions,
+            forecastDay0avewinddir: response.data.forecast.simpleforecast.forecastday[0].avewind.dir,
+            forecastDay0avewindmph: response.data.forecast.simpleforecast.forecastday[0].avewind.mph,
+            forecastDay0maxwindmph: response.data.forecast.simpleforecast.forecastday[0].maxwind.mph,
 
-      //       forecastDay1Weekday: response.data.forecast.simpleforecast.forecastday[1].date.weekday_short,
-      //       forecastDay1Icon: response.data.forecast.simpleforecast.forecastday[1].icon,
-      //       forecastDay1High: response.data.forecast.simpleforecast.forecastday[1].high.fahrenheit,
-      //       forecastDay1Low: response.data.forecast.simpleforecast.forecastday[1].low.fahrenheit,
-      //       forecastDay1Conditions: response.data.forecast.simpleforecast.forecastday[1].conditions,
-      //       forecastDay1avewinddir: response.data.forecast.simpleforecast.forecastday[1].avewind.dir,
-      //       forecastDay1avewindmph: response.data.forecast.simpleforecast.forecastday[1].avewind.mph,
-      //       forecastDay1maxwindmph: response.data.forecast.simpleforecast.forecastday[1].maxwind.mph,
+            forecastDay1Weekday: response.data.forecast.simpleforecast.forecastday[1].date.weekday_short,
+            forecastDay1Icon: response.data.forecast.simpleforecast.forecastday[1].icon,
+            forecastDay1High: response.data.forecast.simpleforecast.forecastday[1].high.fahrenheit,
+            forecastDay1Low: response.data.forecast.simpleforecast.forecastday[1].low.fahrenheit,
+            forecastDay1Conditions: response.data.forecast.simpleforecast.forecastday[1].conditions,
+            forecastDay1avewinddir: response.data.forecast.simpleforecast.forecastday[1].avewind.dir,
+            forecastDay1avewindmph: response.data.forecast.simpleforecast.forecastday[1].avewind.mph,
+            forecastDay1maxwindmph: response.data.forecast.simpleforecast.forecastday[1].maxwind.mph,
 
-      //       forecastDay2Weekday: response.data.forecast.simpleforecast.forecastday[2].date.weekday_short,
-      //       forecastDay2Icon: response.data.forecast.simpleforecast.forecastday[2].icon,
-      //       forecastDay2High: response.data.forecast.simpleforecast.forecastday[2].high.fahrenheit,
-      //       forecastDay2Low: response.data.forecast.simpleforecast.forecastday[2].low.fahrenheit,
-      //       forecastDay2Conditions: response.data.forecast.simpleforecast.forecastday[2].conditions,
-      //       forecastDay2avewinddir: response.data.forecast.simpleforecast.forecastday[2].avewind.dir,
-      //       forecastDay2avewindmph: response.data.forecast.simpleforecast.forecastday[2].avewind.mph,
-      //       forecastDay2maxwindmph: response.data.forecast.simpleforecast.forecastday[2].maxwind.mph,
-      //     })
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
+            forecastDay2Weekday: response.data.forecast.simpleforecast.forecastday[2].date.weekday_short,
+            forecastDay2Icon: response.data.forecast.simpleforecast.forecastday[2].icon,
+            forecastDay2High: response.data.forecast.simpleforecast.forecastday[2].high.fahrenheit,
+            forecastDay2Low: response.data.forecast.simpleforecast.forecastday[2].low.fahrenheit,
+            forecastDay2Conditions: response.data.forecast.simpleforecast.forecastday[2].conditions,
+            forecastDay2avewinddir: response.data.forecast.simpleforecast.forecastday[2].avewind.dir,
+            forecastDay2avewindmph: response.data.forecast.simpleforecast.forecastday[2].avewind.mph,
+            forecastDay2maxwindmph: response.data.forecast.simpleforecast.forecastday[2].maxwind.mph,
+          })
+        })
+        .catch((error) => {
+          console.log(error);
+        });
         
 //call accesssites table
         axios.get('/api/accesssites?filter[where][siteid][like]=' + siteId)
         .then((response) => {
-          console.log(response.data[0].usgsgagesitenumber)
-          console.log(siteId)
           this.setState({
             usgsgagesitenumber: response.data[0].usgsgagesitenumber 
           })          
@@ -142,33 +149,35 @@ class FapDetails extends Component {
 
 //  streamflow graph       
       if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
-        gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+        this.setState({
+          gaugeStreamflow:  <i className="wu wu-black wu-256 wu-unknown"></i>
+        });
       } else {      
-        fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
+        axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
          .then((r) =>  {
-            if (r.status === 400) {
-            gaugeStreamflow =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-            } else {
-              gaugeStreamflow = <img className='img-responsive center-block'
+            if (r.status === 200) {
+              this.setState({
+              gaugeStreamflow: <img className='img-responsive center-block'
               src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
               alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic'/>
+              });
             }
          })};
 
 //  streamflow temp     
-      if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
-        gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-      } else {      
-        fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
-         .then((r) =>  {
-            if (r.status === 400) {
-              gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-            } else {
-              gaugeStreamTemp = <img className='img-responsive center-block'
-              src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
-              alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
-            }
-         })};
+      // if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
+      //   gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+      // } else {      
+      //   fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
+      //    .then((r) =>  {
+      //       if (r.status === 400) {
+      //         gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+      //       } else {
+      //         gaugeStreamTemp = <img className='img-responsive center-block'
+      //         src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
+      //         alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
+      //       }
+      //    })};
 }
 
   render() {   
@@ -232,15 +241,15 @@ class FapDetails extends Component {
 
             <div id="Streamflow" className="tab-pane fade">
               <p>
-               {gaugeStreamflow}
+               {this.state.gaugeStreamflow}
               </p>
             </div>
 
-            <div id="StreamTemperature" className="tab-pane fade">
+            {/* <div id="StreamTemperature" className="tab-pane fade">
               <p>
                {gaugeStreamTemp}
               </p>
-            </div>
+            </div> */}
         </div>
       </div>
     );

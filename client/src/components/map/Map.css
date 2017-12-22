@@ -5,3 +5,21 @@
 .esri-popup {
   display: none;
 }
+
+.esri-popup__header-title {
+  color: #2D656C;
+  font-size: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+}
+.esri-popup__header-title.esri-popup_header-title{
+  font-size: 25px;
+}
+.esri-popup-renderer__main-container {
+  text-align: left;
+  text-indent: 40px;
+}
+.esri-popup__content p {
+  font-size: 20px;
+}

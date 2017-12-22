@@ -19,13 +19,10 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
-    console.log(response);
     if (response.results.length) {
       document.querySelector(".esri-popup").style.display="block";
       var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
-      
-      // console.log(siteId);
-        this.setState({
+              this.setState({
           clickedFapLat: response.results[0].mapPoint.latitude,
           clickedFapLong: response.results[0].mapPoint.longitude,
           clickedFapSiteId: siteId
@@ -35,7 +32,6 @@ class FishMap extends Component {
       document.querySelector(".esri-popup").style.display="none";
     }
     
-    // console.log(this.state)
   }
 
   render() {
@@ -66,7 +62,7 @@ class FishMap extends Component {
                           // Disables the dock button from the popup
                           buttonEnabled: false,
                           // Ignore the default sizes that trigger responsive docking
-                          breakpoint: true,
+                          breakpoint: false,
                           position: "bottom-left",
                         },
                       }
@@ -77,6 +73,7 @@ class FishMap extends Component {
                     content:
                       "<p>Boat Facility: {BOAT_FAC}</p>" +
                       "<p>Camping: {CAMPING}</p>" +
+                      "<p>SiteID: {SITEID}</p>" +
                       "<p>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
                   };
         
