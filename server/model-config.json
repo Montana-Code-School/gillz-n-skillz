@@ -42,5 +42,9 @@
   "angler": {
     "dataSource": "db",
     "public": true
+  },
+  "favoriteFaps": {
+    "dataSource": "db",
+    "public": true
   }
 }

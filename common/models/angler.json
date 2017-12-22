@@ -19,7 +19,17 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "accesssites": {
+      "type": "hasMany",
+      "model": "accesssites",
+      "foreignKey": "anglerId",
+      "options": {
+        "nestRemoting": false
+      },
+      "through": "favoriteFaps"
+    }
+  },
   "acls": [],
   "methods": {}
 }

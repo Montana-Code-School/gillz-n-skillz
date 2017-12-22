@@ -35,7 +35,17 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "anglers": {
+      "type": "hasMany",
+      "model": "angler",
+      "foreignKey": "accesssiteId",
+      "options": {
+        "nestRemoting": false
+      },
+      "through": "favoriteFaps"
+    }
+  },
   "acls": [],
   "methods": {}
 }

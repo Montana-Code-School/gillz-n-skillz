@@ -1,0 +1,22 @@
+{
+  "name": "favoriteFaps",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "accesssiteId": {
+      "type": "string",
+      "required": true
+    },
+    "anglerId": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
