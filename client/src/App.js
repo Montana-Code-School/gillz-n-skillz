@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import FishMap from './components/map/Map';
 import FapDetails from './components/fapDetails/FapDetails';
-import Photo from './components/photo/Photo';
+
+
+//import UserPhoto from './components/userPhoto/UserPhoto';
 // import EsriLoaderReact from 'esri-loader-react';
 import './App.css';
 
@@ -72,7 +74,7 @@ class App extends Component {
         </div>
 
         <div className="container-fluid">
-          <Photo fapPhotos={this.state} />
+          
         </div>
 
         <div className="container-fluid">
