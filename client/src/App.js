@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import FishMap from './components/map/Map';
 import FapDetails from './components/fapDetails/FapDetails';
+import FishPhotos from './components/fishPhotos/FishPhotos';
 
 
 //import UserPhoto from './components/userPhoto/UserPhoto';
@@ -54,8 +55,8 @@ class App extends Component {
                 <li className="dropdown">
                   <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="">My Favorites</a></li>
-                    <li><a href="">Current Conditions</a></li>
+                    <li><a href="">My Favorite FAPs</a></li>
+                    <li><a href="">My FAP Photos</a></li>
                     <li><a href="">Logout</a></li>
                   </ul>
                 </li>
@@ -74,7 +75,7 @@ class App extends Component {
         </div>
 
         <div className="container-fluid">
-          
+          <FishPhotos fishPhotos={this.state}/>
         </div>
 
         <div className="container-fluid">
