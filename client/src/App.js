@@ -51,9 +51,8 @@ class App extends Component {
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
               <ul className="nav navbar-nav navbar-right">
-                <li><a href="">Link</a></li>
                 <li className="dropdown">
-                  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
+                  <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span className="caret"></span></a>
                   <ul className="dropdown-menu">
                     <li><a href="">My Favorite FAPs</a></li>
                     <li><a href="">My FAP Photos</a></li>
@@ -65,9 +64,11 @@ class App extends Component {
           </div>
         </nav>
 
-        <div className="container-fluid map">
+        <div className="container-fluid">
+          <div className="map">
           <FishMap callbackFromApp={this.latLongCallback} />
           <br />
+          </div>
         </div>
 
         <div className="container-fluid">

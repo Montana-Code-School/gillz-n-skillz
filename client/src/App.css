@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 20px;
 }
 
 .App-logo {
@@ -34,16 +35,15 @@
 }
 
 .jumbotron {
-  /* padding-top: 10px;
+  padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px; */
   background-color: whitesmoke;
   
 }
 
 .map {
   padding-top: 75px;
+  border-block-end-color: #2D656C;
 }
 
 .caps {
@@ -55,10 +55,34 @@ nav {
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
   text-transform: uppercase;
+  border-radius: 6px;
+  height: 60px;
+}
+
+ul .nav .nav-tabs .nav-justified .navtabdetails {
+  border-radius: 6px;
+}
+
+.navtabdetails {
+  background: lightgray;
+}
+/* .tab-content {
+  border-radius: 6px;
+} */
+
+.tabcontentstyle .tab-content {
+ border-bottom-left-radius: 6px;
+ border-bottom-right-radius: 6px;
+ border-top-left-radius: 0px;
+ border-top-right-radius: 0px;
+}
+
+ul {
+  border-radius: 6px;
 }
 
 .navbarstyle {
-  background-color: black;
+  background-color: whitesmoke;
   
 }
 
@@ -77,4 +101,9 @@ h3 {
 
 body {
   font-family: 'Roboto', sans-serif;
+}
+
+.container-fluid {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
 }
