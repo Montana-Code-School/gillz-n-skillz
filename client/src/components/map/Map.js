@@ -9,7 +9,8 @@ class FishMap extends Component {
     this.state = {
       clickedFapLat: "",
       clickedFapLong: "",
-      clickedFapSiteId: ""
+      clickedFapSiteId: "",
+      clickedFapWebPage: ""
     }
     this.getLatLong = this.getLatLong.bind(this);
   }
@@ -22,10 +23,12 @@ class FishMap extends Component {
     if (response.results.length) {
       document.querySelector(".esri-popup").style.display="block";
       var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
+      var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
               this.setState({
           clickedFapLat: response.results[0].mapPoint.latitude,
           clickedFapLong: response.results[0].mapPoint.longitude,
-          clickedFapSiteId: siteId
+          clickedFapSiteId: siteId,
+          clickedFapWebPage: webPage
       })
       this.handleLatLong();
     } else {
@@ -74,10 +77,10 @@ class FishMap extends Component {
                       "<p>Boat Facility: {BOAT_FAC}</p>" +
                       "<p>Camping: {CAMPING}</p>" +
                       "<p>SiteID: {SITEID}</p>" +
-                      "<p>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
+                      "<p data-webpage={WEB_PAGE}>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
                   };
         
-                
+                //adds faps to map
                   var featureLayer = new FeatureLayer({
                     url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",
                     outFields: ['*'],

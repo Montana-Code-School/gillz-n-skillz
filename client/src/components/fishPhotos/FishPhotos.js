@@ -54,8 +54,8 @@ componentWillReceiveProps(nextProps) {
         secret: response.data.photos.photo[0].secret
         // fishPic: 
       })
-        console.log(this.state);
-        console.log("hello");
+        // console.log(this.state);
+        // console.log("hello");
     })
     .catch((err) => {
     console.log(err)

@@ -12,6 +12,7 @@ class FapDetails extends Component {
       clickedFapLat: "",
       clickedFapLong: "",
       clickedFapSiteId: "",
+      clickedFapWebPage: "",
       icon: "",
       weather: "",
       feelslike_f: "",
@@ -61,9 +62,11 @@ class FapDetails extends Component {
       this.setState ({
         clickedFapLat: nextProps.fapDetails.clickedFapLat,
         clickedFapLong: nextProps.fapDetails.clickedFapLong,
-        clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId
+        clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId,
+        clickedFapWebPage: nextProps.fapDetails.clickedFapWebPage
       })
-      this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId)
+      console.log(this.state);
+      this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId, this.state.clickedFapWebPage)
 
   }
 
@@ -71,7 +74,7 @@ class FapDetails extends Component {
 
   }
 
-  drawWeather(lat, long, siteId) {
+  drawWeather(lat, long, siteId, webPage) {
     axios.get(
       "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
       + lat
@@ -187,7 +190,14 @@ class FapDetails extends Component {
         
           <div className="jumbotron">
             <h3>Site Details</h3>
+            <p> {this.state.clickedFapSiteId} </p>
+            <ul>
+              <li><a href={this.state.clickedFapWebPage} target="blank"> More Site Info </a></li>
+              <li> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></li>
+            </ul>
           </div>
+
+
           <ul className="nav nav-tabs nav-justifed navtabdetails">
             <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>            
             <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
