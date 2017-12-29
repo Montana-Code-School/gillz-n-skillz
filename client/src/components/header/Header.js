@@ -23,10 +23,10 @@ class Header extends Component {
                 <span className="icon-bar"></span>
               </button>
               <div className="navbar-brand" >
-                <a href="">
+                <Link to="/">
                   <img src="./gillznskills-icon.png" style={{width:30}} alt='A leaping fish filled with multi-colored glitter'/>
                   Gillz-N-Skillz
-                </a>
+                </Link>
                 </div>
             </div>
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -35,8 +35,8 @@ class Header extends Component {
                 <li className="dropdown">
                   <a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><Link to="/login">Login</Link></li>
-                    <li><a href="">Logout</a></li>
+                      <li><Link to="/login">Login</Link></li>
+                      <li><a href="">Logout</a></li>
                   </ul>
                 </li>
               </ul>
