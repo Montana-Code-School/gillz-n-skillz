@@ -13,15 +13,24 @@ span.small {
   font-variant: small-caps;
 }
 
-/* .container fluid {
-  border-radius: 5rem;
-} */
-
+.container-fluid {
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-bottom: 0px;
+}
+.jumbotron {
+  padding-right: 30px;
+  padding-left: 30px;
+  background-color: whitesmoke;
+}
+.container-fluid {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
 .navtabdetails {
   background: #7E8684;
   font-family: 'Cabin', sans-serif;
   font-weight: bolder;
-  
 }
 
 .navtabdetails li a{
@@ -33,3 +42,14 @@ span.small {
   padding: 20px;
 }
 
+.tabcontentstyle .tab-content {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+ }
+ 
+ ul {
+   border-radius: 6px;
+ }
+ 

@@ -1,0 +1,32 @@
+nav {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 20px;
+  height: 60px;
+  /* transform: translatex(-5%); */
+}
+
+ul .nav .nav-tabs .nav-justified .navtabdetails {
+  border-radius: 6px;
+}
+
+.navtabdetails {
+  background: lightgray;
+}
+
+.navbarstyle {
+  background-color: whitesmoke;
+  
+}
+
+.navbarstyle a{
+  color: #2D656C;
+}
+
+.navbar-toggle .icon-bar {
+  background: #2D656C; 
+}
+
+.navbar-right {
+}

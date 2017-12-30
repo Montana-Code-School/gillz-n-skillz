@@ -187,37 +187,26 @@ class FapDetails extends Component {
 
     return (
         <div className="container-fluid">
-        
-          <div className="jumbotron">
-            <h3>Site Details</h3>
-            <p> {this.state.clickedFapSiteId} </p>
-            <ul>
-              <li><a href={this.state.clickedFapWebPage} target="blank"> More Site Info </a></li>
-              <li> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></li>
-            </ul>
-          </div>
 
-
-          <ul className="nav nav-tabs nav-justifed navtabdetails">
-            <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>            
-            <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
-            <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
-          </ul>
-
-          <div className="tab-content tabcontentstyle">
-            <div id="Weather" className="tab-pane fade in active">
-              <div className="row">
-                <div className="col-md-3">
-                  <p className="dayOfWeek">Today</p>    
-                  <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
-                  <p>{this.state.weather}</p>
-                  <p>{this.state.temp_f}℉</p>
-                  <p>feels like {this.state.feelslike_f}℉</p>
-                  <p>{this.state.precip_today_in} inches today</p>
-                  <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
-                  <p>{this.state.wind_gust_mph}  mph gusts</p>
-                </div>
-               <div>
+          <div className="row">
+              <ul className="nav nav-tabs nav-justifed navtabdetails">
+                <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>            
+                <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
+                <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
+              </ul>
+              <div className="tab-content tabcontentstyle">
+                <div id="Weather" className="tab-pane fade in active">
+                  <div className="row">
+                    <div className="col-md-3">
+                      <p className="dayOfWeek">Today</p>    
+                      <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
+                      <p>{this.state.weather}</p>
+                      <p>{this.state.temp_f}℉</p>
+                      <p>feels like {this.state.feelslike_f}℉</p>
+                      <p>{this.state.precip_today_in} inches today</p>
+                      <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
+                      <p>{this.state.wind_gust_mph}  mph gusts</p>
+                    </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>            
                     <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
@@ -247,7 +236,6 @@ class FapDetails extends Component {
                   </div>
                 </div>
                 </div>
-            </div>
 
             <div id="Streamflow" className="tab-pane fade">
               <p>
@@ -260,8 +248,11 @@ class FapDetails extends Component {
                {gaugeStreamTemp}
               </p>
             </div> */}
+          </div>
+          </div>
         </div>
-      </div>
+      
+      
     );
   }
 }

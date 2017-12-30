@@ -1,6 +1,10 @@
 .map-view {
   height: 400px;
+}
 
+.map {
+  padding-top: 75px;
+  border-block-end-color: #2D656C;
 }
 
 .esri-popup {

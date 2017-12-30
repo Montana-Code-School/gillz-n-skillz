@@ -29,27 +29,28 @@ class App extends Component {
 
   render() {
     return (
-      <div className="bgimage img-responsive">
-        <Header/>
-        <div className="container-fluid">
+    <div className="bgimage img-responsive">
+      <div className="container-fluid">
+        <div className="row">
+          <Header/>
+        </div>
+        <div className="row">
           <div className="map">
-          <FishMap callbackFromApp={this.latLongCallback} />
-          <br />
+            <FishMap callbackFromApp={this.latLongCallback} />
           </div>
         </div>
-
-        <div className="container-fluid">
-          <FapDetails fapDetails={this.state} />
-        </div>
-
-        <div className="container-fluid">
+        <div className="row">
           <FishPhotos fishPhotos={this.state}/>
         </div>
-
-        <div className="container-fluid">
+        <div className="row">
+          <FapDetails fapDetails={this.state} />
+        </div>  
+        
+        <div className="row">
           <p className="caps">Copyright Gillz-n-Skillz 2017</p>
         </div>
-      </div>
+      </div>  
+    </div>
     );
   }
 }

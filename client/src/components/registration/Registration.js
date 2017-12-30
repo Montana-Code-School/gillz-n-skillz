@@ -42,6 +42,7 @@ handleSubmit(event){
             username: this.state.username,
             password: this.state.password
           }
+        //use AT to login a new user once registered
           axios.post('/api/anglers/login', userLogin)
           .then ((res) => {
             localStorage.setItem("gillznskillzAT", res.data.id)
@@ -71,39 +72,29 @@ setAccessToken(accessToken){
 
  render () {
   return (
-    <div className="container-fluid">
-        <Header />
+    <div className="bgimage img-responsive">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-4">
-            <form onSubmit={(e) => this.handleSubmit(e)}>
-              <label>
-                Username:
-                <input type="text" name="username" onChange={this.handleChange} /><br />
-              </label>
-              <label>
-                Password:
-                <input type="text" name="password" onChange={this.handleChange} /><br />
-              </label>
-              <label>
-                First Name:
-                <input type="text" name="firstname" onChange={this.handleChange} /><br />
-              </label>
-              <label>
-                Last Name:
-                <input type="text" name="lastname" onChange={this.handleChange} /><br />
-              </label>
-              <label>
-                Email:
-                <input type="text" name="email" onChange={this.handleChange} /><br />
-              </label>
-              <label>
-                Fishing License Number:
-                <input type="text" name="licenseNo" onChange={this.handleChange} /><br />
-              </label>
-              <input type="submit" value="Login" />
-            </form>
-            <p><Link to="/login">Back to Login</Link></p>
+          <div className="col-lg-12">
+            <Header />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="jumbotron">
+              <div className="form-group">
+                <form onSubmit={(e) => this.handleSubmit(e)}>
+                    <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
+                    <label>Password:<input type="text" name="password" onChange={this.handleChange} /><br /></label>
+                    <label>First Name:<input type="text" name="firstname" onChange={this.handleChange} /><br /></label>
+                    <label>Last Name:<input type="text" name="lastname" onChange={this.handleChange} /><br /></label>
+                    <label>Email:<input type="text" name="email" onChange={this.handleChange} /><br /></label>
+                    <label>Fishing License Number:<input type="text" name="licenseNo" onChange={this.handleChange} /><br /></label>
+                  <input type="submit" value="Login"/>
+                </form>
+              <p><Link to="/login">Back to Login</Link></p>
+            </div>
+           </div>
           </div>
         </div>
       </div>
