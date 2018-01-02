@@ -82,17 +82,22 @@ setAccessToken(accessToken){
         <div className="row">
           <div className="col-lg-12">
             <div className="jumbotron">
+            <div className="container">
               <div className="form-group">
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+                <form class="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
+                  <h2 class="form-signin-heading">Please Create an Account</h2>
                     <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
                     <label>Password:<input type="text" name="password" onChange={this.handleChange} /><br /></label>
                     <label>First Name:<input type="text" name="firstname" onChange={this.handleChange} /><br /></label>
                     <label>Last Name:<input type="text" name="lastname" onChange={this.handleChange} /><br /></label>
                     <label>Email:<input type="text" name="email" onChange={this.handleChange} /><br /></label>
                     <label>Fishing License Number:<input type="text" name="licenseNo" onChange={this.handleChange} /><br /></label>
-                  <input type="submit" value="Login"/>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
                 </form>
+                <button class="btn btn-xs btn-default form-signin">
               <p><Link to="/login">Back to Login</Link></p>
+              </button>
+            </div>
             </div>
            </div>
           </div>

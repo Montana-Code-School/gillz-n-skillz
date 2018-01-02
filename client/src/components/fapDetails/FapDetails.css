@@ -17,16 +17,14 @@ span.small {
   padding-right: 30px;
   padding-left: 30px;
   margin-bottom: 0px;
+  padding-bottom: 0px;
 }
 .jumbotron {
   padding-right: 30px;
   padding-left: 30px;
   background-color: whitesmoke;
 }
-.container-fluid {
-  padding-bottom: 0px;
-  margin-bottom: 0px;
-}
+
 .navtabdetails {
   background: #7E8684;
   font-family: 'Cabin', sans-serif;

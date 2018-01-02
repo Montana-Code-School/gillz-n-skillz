@@ -20,13 +20,18 @@ class Login extends Component {
           <div className="row">
             <div className="col-lg-12">
               <div className="jumbotron">
+              <div className="container">
                 <div className="form-group">
-                  <form onSubmit={(e) => this.handleSubmit(e)}>
+                  <form class="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
+                    <h2 class="form-signin-heading">Please Login In</h2>
                       <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
                       <label>Password:<input type="text" name="password" onChange={this.handleChange} /><br /></label>
-                    <input type="submit" value="Login" />
+                    <button class="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
                   </form>
-                <p><Link to="/registration">Make an account.</Link></p>
+                  <button class="btn btn-xs btn-default form-signin">
+                <p><Link to="/registration">Create an Account</Link></p>
+                </button>
+              </div>
               </div>
             </div>
            </div>
