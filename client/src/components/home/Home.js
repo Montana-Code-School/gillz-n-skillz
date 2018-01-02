@@ -1,10 +1,12 @@
 // import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import React, { Component } from 'react';
+import { ParallaxProvider } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
 import Header from '../header/Header';
 import FishMap from '../map/Map';
 import FapDetails from '../fapDetails/FapDetails';
 import FishPhotos from '../fishPhotos/FishPhotos';
-// import './Home.css';
+import './Home.css';
 
 class App extends Component {
   constructor() {
@@ -29,7 +31,13 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+    <ParallaxProvider>
     <div className="bgimage img-responsive">
+    </div>
+    </ParallaxProvider>
+    
+    <div>
       <div className="container-fluid">
         <div className="row">
           <Header/>
@@ -50,6 +58,7 @@ class App extends Component {
           <p className="caps">Copyright Gillz-n-Skillz 2017</p>
         </div>
       </div>  
+    </div>
     </div>
     );
   }
