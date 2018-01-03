@@ -31,11 +31,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-    <ParallaxProvider>
-    <div className="bgimage img-responsive">
-    </div>
-    </ParallaxProvider>
+      <div>    
     
     <div>
       <div className="container-fluid">

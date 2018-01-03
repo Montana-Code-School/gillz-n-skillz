@@ -51,6 +51,12 @@ h3 {
 
 body {
   font-family: 'Roboto', sans-serif;
+  height: 100%;  
+  padding-top: 60px;
+  background-image: url('./img/56303-nature_1920x1080.jpeg');
+  background-repeat: no-repeat;
+  background-color: #000000;
+  background-attachment: fixed;
 }
 
 /* .container-fluid {
