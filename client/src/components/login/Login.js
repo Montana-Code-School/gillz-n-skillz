@@ -32,6 +32,7 @@ class Login extends Component {
         this.props.history.push('/angler/' + res.data.userId);
       })
       .catch((error) => {
+        alert("You ain't fishin'. Get a password FAP!")
         console.log(error);
       })
   }
