@@ -34,7 +34,7 @@ class Profile extends Component {
           }
         })
         .catch((error) => {
-          console.log(error);
+          this.props.history.push('/login');
         })
     } else {
         this.props.history.push('/login');

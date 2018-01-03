@@ -52,23 +52,12 @@ handleSubmit(event){
             console.log(error);
           })
         }
-        this.setAccessToken(res.data.id);
       })
       .catch((error) => {
         console.log(error);
       })
 }
 
-setAccessToken(accessToken){
-  // axios.post('/api/Users/' + accessToken + '/accessTokens' )
-  //   .then((res) => {
-  //     console.log(res);
-  //     // this.props.history.push('/') 
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-}
 
  render () {
   return (
