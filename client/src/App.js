@@ -10,6 +10,7 @@ import Home from './components/home/Home';
 import Registration from './components/registration/Registration';
 import Login from './components/login/Login';
 import './App.css';
+import Profile from './components/profile/Profile';
 
 class App extends Component {
   
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route exact path="/registration" component={Registration}/>
           <Route exact path="/login" component={Login}/>
+          <Route exact path="/angler/:id" component={Profile}/>
         </Switch>
       </Router>
     )

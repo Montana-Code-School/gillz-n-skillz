@@ -8,7 +8,7 @@ import FapDetails from '../fapDetails/FapDetails';
 import FishPhotos from '../fishPhotos/FishPhotos';
 import './Home.css';
 
-class App extends Component {
+class Home extends Component {
   constructor() {
     super();
     this.state = {
@@ -64,4 +64,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;

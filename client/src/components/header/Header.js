@@ -25,7 +25,7 @@ class Header extends Component {
                 </button>
                 <div className="navbar-brand" >
                   <Link to="/">
-                    <img src="./gillznskills-icon.png" style={{width:30}} alt='A leaping fish filled with multi-colored glitter'/>
+                    <img src="/gillznskills-icon.png" style={{width:30}} alt='A leaping fish filled with multi-colored glitter'/>
                       Gillz-N-Skillz
                   </Link>
                 </div>
