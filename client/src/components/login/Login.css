@@ -17,12 +17,13 @@ h2 {
   display: block;
 }
 
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  display: table;
+.jumbotron {
+  text-align: center;
+  padding-left: 60px;
+  padding-top: 30px;
+  padding-right: 60px;
+  padding-bottom: 30px;
+  margin: 50px;
 }
 
 .form-signin {
