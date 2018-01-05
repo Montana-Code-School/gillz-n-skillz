@@ -145,133 +145,126 @@ class FapDetails extends Component {
         this.setState({
           usgsgagesitenumber: response.data[0].usgsgagesitenumber
         })
+        //  streamflow graph       
+        if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
+          this.setState({
+            gaugeStreamflow: <i className="wu wu-black wu-256 wu-unknown"></i>,
+            gaugeStreamTemp: <i className="wu wu-black wu-256 wu-unknown"></i>
+          });
+        } else {
+          axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
+            .then((r) => {
+                this.setState({
+                  gaugeStreamflow: <img className='img-responsive center-block'
+                    src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
+                    alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic' />
+                });
+            });
+            axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
+            .then((r) => {
+              this.setState({
+                gaugeStreamTemp: <img className='img-responsive center-block'
+                  src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
+                  alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
+                });
+              });
+            } 
+        
       })
       .catch((error) => {
         console.log(error);
       });
 
-    //  streamflow graph       
-    if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
-      this.setState({
-        gaugeStreamflow: <i className="wu wu-black wu-256 wu-unknown"></i>
-      });
-    } else {
-      axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
-        .then((r) => {
-          if (r.status === 200) {
-            this.setState({
-              gaugeStreamflow: <img className='img-responsive center-block'
-                src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
-                alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic' />
-            });
+    
+          
           }
+    //  streamflow temp     
+    // if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
+    //   gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    // } else {      
+    //   fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
+    //    .then((r) =>  {
+    //       if (r.status === 400) {
+    //         gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    //       } else {
+    //         gaugeStreamTemp = <img className='img-responsive center-block'
+    //         src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
+    //         alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
+    //       }
+    //    })};
 
-          // if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
-          //   this.setState({
-          //     gaugeStreamflow: <i className="wu wu-black wu-256 wu-unknown"></i>
-          //   });
-          // } else {
-          //   axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
-          //     .then((r) => {
-          //       if (r.status === 200) {
-          //         this.setState({
-          //           gaugeStreamflow: <img className='img-responsive center-block'
-          //             src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
-          //             alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic' />
-          //         });
-          //       }
-              })
-          };
+    render() {
 
-          //  streamflow temp     
-          // if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
-          //   gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-          // } else {      
-          //   fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
-          //    .then((r) =>  {
-          //       if (r.status === 400) {
-          //         gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
-          //       } else {
-          //         gaugeStreamTemp = <img className='img-responsive center-block'
-          //         src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
-          //         alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
-          //       }
-          //    })};
-        }
+      return (
+        <div className="container-fluid" >
 
-  render() {
-
-          return(
-        <div className = "container-fluid" >
-
-              <div className="row">
-                <ul className="nav nav-tabs nav-justifed navtabdetails">
-                  <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>
-                  <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
-                  <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
-                </ul>
-                <div className="tab-content tabcontentstyle">
-                  <div id="Weather" className="tab-pane fade in active">
-                    <div className="row">
-                      <div className="col-md-3">
-                        <p className="dayOfWeek">Today</p>
-                        <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
-                        <p>{this.state.weather}</p>
-                        <p>{this.state.temp_f}℉</p>
-                        <p>feels like {this.state.feelslike_f}℉</p>
-                        <p>{this.state.precip_today_in} inches today</p>
-                        <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
-                        <p>{this.state.wind_gust_mph}  mph gusts</p>
-                      </div>
-                      <div className="col-md-3">
-                        <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
-                        <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
-                        <p>{this.state.forecastDay0Conditions}</p>
-                        <p>{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
-                        <p className="caps">high / low</p>
-                        <p>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir}</p>
-                        <p>{this.state.forecastDay0maxwindmph} mph max</p>
-                      </div>
-                      <div className="col-md-3">
-                        <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
-                        <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
-                        <p>{this.state.forecastDay1Conditions}</p>
-                        <p>{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
-                        <p className="caps">high / low</p>
-                        <p>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir}</p>
-                        <p>{this.state.forecastDay1maxwindmph} mph max</p>
-                      </div>
-                      <div className="col-md-3">
-                        <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
-                        <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
-                        <p>{this.state.forecastDay2Conditions}</p>
-                        <p>{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
-                        <p className="caps">high / low</p>
-                        <p>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir}</p>
-                        <p>{this.state.forecastDay2maxwindmph} mph max</p>
-                      </div>
-                    </div>
+          <div className="row">
+            <ul className="nav nav-tabs nav-justifed navtabdetails">
+              <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>
+              <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
+              <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
+            </ul>
+            <div className="tab-content tabcontentstyle">
+              <div id="Weather" className="tab-pane fade in active">
+                <div className="row">
+                  <div className="col-md-3">
+                    <p className="dayOfWeek">Today</p>
+                    <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
+                    <p>{this.state.weather}</p>
+                    <p>{this.state.temp_f}℉</p>
+                    <p>feels like {this.state.feelslike_f}℉</p>
+                    <p>{this.state.precip_today_in} inches today</p>
+                    <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
+                    <p>{this.state.wind_gust_mph}  mph gusts</p>
                   </div>
-
-                  <div id="Streamflow" className="tab-pane fade">
-                    <p>
-                      {this.state.gaugeStreamflow}
-                    </p>
+                  <div className="col-md-3">
+                    <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
+                    <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
+                    <p>{this.state.forecastDay0Conditions}</p>
+                    <p>{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
+                    <p className="caps">high / low</p>
+                    <p>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir}</p>
+                    <p>{this.state.forecastDay0maxwindmph} mph max</p>
                   </div>
-
-                  {/* <div id="StreamTemperature" className="tab-pane fade">
-              <p>
-               {gaugeStreamTemp}
-              </p>
-            </div> */}
+                  <div className="col-md-3">
+                    <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
+                    <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
+                    <p>{this.state.forecastDay1Conditions}</p>
+                    <p>{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
+                    <p className="caps">high / low</p>
+                    <p>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir}</p>
+                    <p>{this.state.forecastDay1maxwindmph} mph max</p>
+                  </div>
+                  <div className="col-md-3">
+                    <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
+                    <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
+                    <p>{this.state.forecastDay2Conditions}</p>
+                    <p>{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
+                    <p className="caps">high / low</p>
+                    <p>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir}</p>
+                    <p>{this.state.forecastDay2maxwindmph} mph max</p>
+                  </div>
                 </div>
               </div>
+
+              <div id="Streamflow" className="tab-pane fade">
+                <p>
+                  {this.state.gaugeStreamflow}
+                </p>
+              </div>
+
+              <div id="StreamTemperature" className="tab-pane fade">
+              <p>
+               {this.state.gaugeStreamTemp}
+              </p>
+            </div> 
+            </div>
+          </div>
         </div>
-      
-      
-    );
-        }
-}
 
-    export default FapDetails;
 
+      );
+    };
+  }
+
+export default FapDetails;
