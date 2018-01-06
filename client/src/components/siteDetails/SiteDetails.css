@@ -1,9 +1,4 @@
-.jumbotron {
-  margin-top: 20px;
-  background-color: whitesmoke;
-  padding-right: 30px;
-  padding-left: 30px;
-}
+
 .container-fluid {
   padding-right: 30px;
   padding-left: 30px;
@@ -16,6 +11,6 @@ p {
 }
 
 .riverIcon {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }

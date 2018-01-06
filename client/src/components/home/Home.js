@@ -1,7 +1,7 @@
 // import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import React, { Component } from 'react';
-import { ParallaxProvider } from 'react-scroll-parallax';
-import { Parallax } from 'react-scroll-parallax';
+// import { ParallaxProvider } from 'react-scroll-parallax';
+// import { Parallax } from 'react-scroll-parallax';
 import Header from '../header/Header';
 import FishMap from '../map/Map';
 import FapDetails from '../fapDetails/FapDetails';
@@ -60,19 +60,19 @@ class Home extends Component {
 
           <div className="row">
             <div class="col-xs-4">
-            <a href="#weather"><img class="rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
+            <a href="#weather"><img class="img-responsive center-block rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
               <a href="#weather"><h2> Weather </h2></a>
               <p> Select the icon to get weather information on your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="weather" role="button">View Weather</a></p>
             </div>
             <div class="col-xs-4">
-            <a href="#siteDetails"><img class="rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
+            <a href="#siteDetails"><img class="img-responsive center-block rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
               <a href="#siteDetails"><h2> Site Details </h2></a>
               <p> Select the icon to get directions and fishing license information on your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="siteDetails" role="button">View Details</a></p>
             </div>
             <div class="col-xs-4">
-            <a href="#photos"><img class="rounded-circle" src={picturesIcon} alt="fish photos" width="140" height="140"/></a>
+            <a href="#photos"><img class="img-responsive center-block rounded-circle" src={picturesIcon} alt="fish photos" width="140" height="140"/></a>
               <a href="#photos"><h2> Photos </h2></a>
               <p> Select the icon to get photos taken near your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="#photos" role="button">View Photos</a></p>

@@ -28,11 +28,12 @@
   to { transform: rotate(360deg); }
 }
 
-/* .jumbotron {
+.jumbotron {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: whitesmoke;
-} */
+  margin: 0px;
+}
 
 /* .map {
   padding-top: 10px;

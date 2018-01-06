@@ -15,10 +15,8 @@ body {
   background: whitesmoke;
 }
 
-.jumbotron {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: whitesmoke;
+.col-xs-4 {
+  text-align: center;
 }
 
 /* .jumbotron .welcome {
@@ -58,10 +56,11 @@ hr {
 }
 
 .rounded-cirle {
-  height: 60px;
-  width: 60px;
-  align-items: center;
-  text-align: center;
+  height: 40px;
+  width: 40px;
+  margin: auto;    
+  display: block;
+  background-color: #2D656C;
 }
 
 

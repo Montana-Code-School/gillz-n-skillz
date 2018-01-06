@@ -7,6 +7,10 @@
   border-block-end-color: #2D656C;
 }
 
+.jumbotron {
+  margin: 60px;
+}
+
 .esri-popup {
   display: none;
 }
