@@ -59,19 +59,19 @@ class Home extends Component {
         <div className="container selection-options">
 
           <div className="row">
-            <div class="col-lg-4">
+            <div class="col-xs-4">
             <a href="#weather"><img class="rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
               <a href="#weather"><h2> Weather </h2></a>
               <p> Select the icon to get weather information on your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="weather" role="button">View Weather</a></p>
             </div>
-            <div class="col-lg-4">
+            <div class="col-xs-4">
             <a href="#siteDetails"><img class="rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
               <a href="#siteDetails"><h2> Site Details </h2></a>
               <p> Select the icon to get directions and fishing license information on your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="siteDetails" role="button">View Details</a></p>
             </div>
-            <div class="col-lg-4">
+            <div class="col-xs-4">
             <a href="#photos"><img class="rounded-circle" src={picturesIcon} alt="fish photos" width="140" height="140"/></a>
               <a href="#photos"><h2> Photos </h2></a>
               <p> Select the icon to get photos taken near your selected fishing access point on the map!</p>
@@ -83,8 +83,7 @@ class Home extends Component {
           <hr className="row feature-divider"/>
         
          <div className="row feature">
-          <div className="col-md-12">
-            <h2 id="weather"> Weather </h2>
+          <div id="weather" className="col-md-12">
             <FapDetails fapDetails={this.state} />
           </div>
           </div>
@@ -92,8 +91,7 @@ class Home extends Component {
           <hr className="row feature-divider"/>
 
         <div className="row feature">
-          <div className="col-md-12">
-            <h2 id="siteDetails"> Site Details </h2>
+          <div id="siteDetails" className="col-md-12">
             <SiteDetails/>
           </div>  
         </div>
@@ -103,8 +101,7 @@ class Home extends Component {
         <hr className="row feature-divider"/>
 
         <div className="row feature">
-        <div className="col-md-12">
-            <h2 id="photos"> Photos </h2>
+        <div id="photos" className="col-md-12">
             <FishPhotos fishPhotos={this.state}/>
         </div> 
         </div>

@@ -77,18 +77,18 @@ componentWillReceiveProps(nextProps) {
       <div className="container-fluid">
         <div className="jumbotron">
           <div className="row">
-            <div className="col-xs-6">
-              <h3>Site Details</h3>
-              <p> {this.state.clickedFapSiteId} </p>
-              <ul>
-                <li><a href={this.state.clickedFapWebPage} target="blank"> More Site Info </a></li>
-                <li> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></li>
-              </ul>
-            </div>
-            <div className="col-xs-6">
-              <p> placeholder for MT fish photos</p>
+            <div className="col-xs-3">
               <img className="fishphotos" src={"https://farm5.staticflickr.com/4595/24430478167_37377f0367.jpg"}/>
               {/* <img src={this.state.fishPic} /> */}
+            </div>
+            <div className="col-xs-3">
+              <p>Image 2</p>
+            </div>
+            <div className="col-xs-3">
+              <p>Image 3</p>
+            </div>
+            <div className="col-xs-3">
+              <p>Image 4</p>
             </div>
          </div>
        </div>

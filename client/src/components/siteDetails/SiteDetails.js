@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './SiteDetails.css';
-import nature from '../../img/56303-nature_1920x1080.jpeg';
+import riverIcon from '../../img/rivericon.png';
 
 
 class SiteDetails extends Component {
@@ -25,17 +25,21 @@ class SiteDetails extends Component {
       <div className="container-fluid">
         <div className="jumbotron">
           <div className="row">
-            <div className="col-xs-6">
+            <div className="col-xs-4">
               <h3>Site Details</h3>
               <p> {this.state.clickedFapSiteId} </p>
               <ul>
                 <li><a href={this.state.clickedFapWebPage} target="blank"> Site Details and Directions </a></li>
-                <li> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></li>
               </ul>
             </div>
-            <div className="col-xs-6">
-              <p> Find your river.</p>
-              <img class="naturePic" src={nature}/>
+            <div className="col-xs-4">
+              <h3> License Info </h3>
+              <ul>
+                <li> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></li>
+              </ul>
+             </div> 
+            <div className="col-xs-4">
+              <img class="riverIcon" src={riverIcon}/>
             </div>
           </div>
         </div>
