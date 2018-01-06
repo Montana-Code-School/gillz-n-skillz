@@ -11,22 +11,36 @@ body {
   margin-right: auto;
 }
 
+.selection-options {
+  background: whitesmoke;
+}
+
 .jumbotron {
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: whitesmoke;
 }
 
+.jumbotron .welcome {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: whitesmoke;
+}
+
 .feature-divider {
-  margin: 5rem 0;
+  margin-top: 5rem;
+  margin-right: 0px;
+  margin-bottom: 5rem;
+  margin-left: 0px;
 }
 
 hr {
   border: 0;
-  border-top: 1px solid black;
+  border-top: 5px solid black;
   box-sizing: content-box;
   height: 0;
   overflow: visible;
+  display: block;
 }
 
 .row .feature-divider {
@@ -39,6 +53,13 @@ hr {
 .map {
   padding-top: 10px;
   border-block-end-color: #2D656C;
+}
+
+.rounded-cirle {
+  height: 60px;
+  width: 60px;
+  align-items: center;
+  text-align: center;
 }
 
  /* .bgimage {

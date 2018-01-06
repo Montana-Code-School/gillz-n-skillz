@@ -43,7 +43,7 @@ class FishMap extends Component {
     };
 
         return (
-          <div className="App">
+          <div className="map">
             
             <EsriLoaderReact 
               options={options} 
