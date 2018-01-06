@@ -1,7 +1,7 @@
 //display montana fish photos on home page
 
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import './SiteDetails.css';
 import riverIcon from '../../img/rivericon.png';
 
@@ -39,7 +39,7 @@ class SiteDetails extends Component {
               </ul>
              </div> 
             <div className="col-xs-4">
-              <img class="riverIcon" src={riverIcon}/>
+              <img className="riverIcon" src={riverIcon} alt=""/>
             </div>
           </div>
         </div>

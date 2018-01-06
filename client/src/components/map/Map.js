@@ -38,6 +38,8 @@ class FishMap extends Component {
   }
 
   render() {
+    //state data appears here
+    console.log(this.state);
     const options = {
        url: 'https://js.arcgis.com/4.5/'
     };
