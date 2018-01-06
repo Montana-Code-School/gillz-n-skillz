@@ -43,8 +43,7 @@ componentDidMount() {
 
 // display fishing photos on home page below map using flickr api
   displayFishPhotos(farmId, serverId, id, secret) {
-  axios.get("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4dff2ac6b49370264bff812fd6c159eb&tags=montana%2C+fly+fishing&bbox=-113%2C+45%2C+-108%2C+47&per_page=20&format=json&nojsoncallback=1"
-)
+  axios.get("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0a1651fe80cd42652d1f519332f4ca71&tags=river%2C+montana&tag_mode=AND&format=json&nojsoncallback=1")
     .then((response) => {
       console.log(response);
       //loop through data response to display photos using farm, server, id and secret
