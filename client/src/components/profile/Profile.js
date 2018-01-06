@@ -13,7 +13,8 @@ class Profile extends Component {
       firstname: "",
       lastname: "",
       email: "",
-      licenseNo: ""
+      licenseNo: "",
+      favoriteFaps: []
     }
   }
 
@@ -42,6 +43,12 @@ class Profile extends Component {
   }
 
   render() {
+    const favoriteFaps = this.state.favoriteFaps.map((fap)=>{
+      return <li key={fap.id}>
+        <Link to="">{fap.name}</Link>&nbsp;
+       <button onClick={this.delete.bind(this, fap.id)}>Delete</button>
+        </li> 
+    });
     return (
       <div className="bgimage img-responsive">
         <div className="container-fluid">
@@ -63,9 +70,10 @@ class Profile extends Component {
                       <li>Email: {this.state.email} </li>
                       <li>Fishing License Number: {this.state.licenseNo} </li>
                     </ul>
-                    <button className="btn btn-xs btn-default form-signin">
-                      <p><Link to="/login">Back to Login</Link></p>
-                    </button>
+                    <h2 className="form-signin-heading">Your Favorite Fishing Spots</h2>
+                    <ul>
+                      { favoriteFaps }
+                    </ul>
                   </div>
                 </div>
               </div>

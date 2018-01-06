@@ -6,6 +6,7 @@ import Header from '../header/Header';
 import FishMap from '../map/Map';
 import FapDetails from '../fapDetails/FapDetails';
 import FishPhotos from '../fishPhotos/FishPhotos';
+import SiteDetails from '../siteDetails/SiteDetails';
 import './Home.css';
 import letterIIcon from '../../img/letter-icon.png';
 import picturesIcon from '../../img/picturesicon.png';
@@ -77,7 +78,7 @@ class Home extends Component {
               <p><a className="btn btn-secondary" href="#photos" role="button">View Photos</a></p>
             </div>
           </div> 
-
+          
         
           <hr className="row feature-divider"/>
         
@@ -92,10 +93,12 @@ class Home extends Component {
 
         <div className="row feature">
           <div className="col-md-12">
-            <h2 id="siteDetails"> Details </h2>
-            <FishPhotos fishPhotos={this.state}/>
+            <h2 id="siteDetails"> Site Details </h2>
+            <SiteDetails/>
+          </div>  
         </div>
-        </div>
+
+      
 
         <hr className="row feature-divider"/>
 
@@ -112,7 +115,8 @@ class Home extends Component {
         </div> 
         </div> 
         </div>
-        </div>
+      </div>  
+        
     );
   }
 }
