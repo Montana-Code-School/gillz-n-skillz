@@ -10,7 +10,8 @@ class FishMap extends Component {
       clickedFapLat: "",
       clickedFapLong: "",
       clickedFapSiteId: "",
-      clickedFapWebPage: ""
+      clickedFapWebPage: "",
+      // clickedFapSiteName: ""
     }
     this.getLatLong = this.getLatLong.bind(this);
   }
@@ -24,11 +25,13 @@ class FishMap extends Component {
       document.querySelector(".esri-popup").style.display="block";
       var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
       var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
+      // var siteName= document.querySelector('p[data-name]').getAttribute('data-name');
               this.setState({
           clickedFapLat: response.results[0].mapPoint.latitude,
           clickedFapLong: response.results[0].mapPoint.longitude,
           clickedFapSiteId: siteId,
-          clickedFapWebPage: webPage
+          clickedFapWebPage: webPage,
+          // clickedFapSiteName: siteName
       })
       this.handleLatLong();
     } else {
@@ -38,6 +41,7 @@ class FishMap extends Component {
   }
 
   render() {
+    //state data appears here
     const options = {
        url: 'https://js.arcgis.com/4.5/'
     };
