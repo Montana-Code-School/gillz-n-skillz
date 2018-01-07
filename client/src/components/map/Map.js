@@ -11,7 +11,7 @@ class FishMap extends Component {
       clickedFapLong: "",
       clickedFapSiteId: "",
       clickedFapWebPage: "",
-      // clickedFapSiteName: ""
+      clickedFapSiteName: ""
     }
     this.getLatLong = this.getLatLong.bind(this);
   }
@@ -25,13 +25,13 @@ class FishMap extends Component {
       document.querySelector(".esri-popup").style.display="block";
       var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
       var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
-      // var siteName= document.querySelector('p[data-name]').getAttribute('data-name');
+      var siteName= document.querySelector('p[data-name]').getAttribute('data-name');
               this.setState({
           clickedFapLat: response.results[0].mapPoint.latitude,
           clickedFapLong: response.results[0].mapPoint.longitude,
           clickedFapSiteId: siteId,
           clickedFapWebPage: webPage,
-          // clickedFapSiteName: siteName
+          clickedFapSiteName: siteName
       })
       this.handleLatLong();
     } else {
@@ -76,11 +76,12 @@ class FishMap extends Component {
                   })
                   
                   var popupTemplate = { // autocasts as new PopupTemplate()
-                    title: "<p data-siteid={SITEID}>{NAME}</p>",
+                    title: "<p data-siteid={SITEID} data-name={NAME}>{NAME}</p>",
                     content:
                       "<p>Boat Facility: {BOAT_FAC}</p>" +
                       "<p>Camping: {CAMPING}</p>" +
                       "<p>SiteID: {SITEID}</p>" +
+                      "<p>Name: {NAME}</p>" +
                       "<p data-webpage={WEB_PAGE}>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
                   };
         
