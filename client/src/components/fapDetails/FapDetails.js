@@ -13,6 +13,7 @@ class FapDetails extends Component {
       clickedFapLong: "",
       clickedFapSiteId: "",
       clickedFapWebPage: "",
+      clickedFapSiteName: "",
       icon: "",
       weather: "",
       feelslike_f: "",
@@ -67,10 +68,6 @@ class FapDetails extends Component {
     })
     console.log(this.state);
     this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId, this.state.clickedFapWebPage)
-
-  }
-
-  componentWillUpdate() {
 
   }
 
@@ -194,7 +191,7 @@ class FapDetails extends Component {
     //    })};
 
     render() {
-
+      console.log(this.state);
       return (
         <div className="container-fluid" >
 

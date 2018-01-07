@@ -14,20 +14,31 @@ class SiteDetails extends Component {
       clickedFapLat: "",
       clickedFapLong: "",
       clickedFapSiteId: "",
-      clickedFapWebPage: ""
+      clickedFapWebPage: "",
+      clickedFapSiteName: ""
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      clickedFapLat: nextProps.siteDetails.clickedFapLat,
+      clickedFapLong: nextProps.siteDetails.clickedFapLong,
+      clickedFapSiteId: nextProps.siteDetails.clickedFapSiteId,
+      clickedFapWebPage: nextProps.siteDetails.clickedFapWebPage,
+      clickedFapSiteName: nextProps.siteDetails.clickedFapSiteName
+    })
+    console.log(this.state);
+  }
 
   render() {
-    
+   console.log(this.state); 
     return (
       <div className="container-fluid">
         <div className="jumbotron">
           <div className="row">
             <div className="col-xs-4">
               <h3>Site Details</h3>
-              <p> {this.state.clickedFapSiteId} </p>
+              <p> Name: {this.state.clickedFapSiteName} </p>
               <ul>
                 <li><a href={this.state.clickedFapWebPage} target="blank"> Site Details and Directions </a></li>
               </ul>
@@ -45,9 +56,11 @@ class SiteDetails extends Component {
         </div>
       </div>
     );
-  }
-
-
+  };
 }
+
+
+
+
 
 export default SiteDetails;
