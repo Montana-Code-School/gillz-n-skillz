@@ -16,7 +16,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "angler": {
+      "type": "belongsTo",
+      "model": "angler",
+      "foreignKey": "anglerId"
+    },
+    "accesssites": {
+      "type": "belongsTo",
+      "model": "accesssites",
+      "foreignKey": "accesssiteId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
