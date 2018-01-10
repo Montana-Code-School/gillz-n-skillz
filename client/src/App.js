@@ -1,11 +1,9 @@
-// import { Navbar, Jumbotron, Button } from 'react-bootstrap';
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
- // Link
-} from 'react-router-dom';
+  } from 'react-router-dom';
 import Home from './components/home/Home';
 import Registration from './components/registration/Registration';
 import Login from './components/login/Login';
