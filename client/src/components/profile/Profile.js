@@ -14,7 +14,8 @@ class Profile extends Component {
       lastname: "",
       email: "",
       licenseNo: "",
-      favoriteFaps: []
+      favoriteFaps: [],
+      anglerId: ""
     }
   }
 
@@ -28,7 +29,8 @@ class Profile extends Component {
               firstname: res.data.firstname,
               lastname: res.data.lastname,
               email: res.data.email,
-              licenseNo: res.data.licenseNo
+              licenseNo: res.data.licenseNo,
+              anglerId: res.data.id
             })
             axios.get('/api/favoriteFaps?filter={"include":["accesssites"],"where":{"anglerId":{"like":"' + this.props.match.params.id + '"}}}')
             .then((res) => {

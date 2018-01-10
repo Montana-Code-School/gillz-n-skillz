@@ -1,9 +1,10 @@
 //display montana fish photos on home page
 
 import React, { Component } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import './SiteDetails.css';
 import riverIcon from '../../img/rivericon.png';
+import { Button } from 'react-bootstrap';
 
 
 class SiteDetails extends Component {
@@ -17,6 +18,7 @@ class SiteDetails extends Component {
       clickedFapWebPage: "",
       clickedFapSiteName: ""
     };
+    this.addFavoriteFap = this.addFavoriteFap.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,7 +32,23 @@ class SiteDetails extends Component {
     console.log(this.state);
   }
 
+  addFavoriteFap(){
+    axios.get('/api/accesssites?filter={"where":{"siteid":{"like":"' + this.state.clickedFapSiteId + '"}}}')
+    .then((res) => {
+      // const newFavoriteFap = {
+      //     accesssiteId: this.state.clickedFapSiteId,
+      //     anglerId: 
+      // }
+      // axios.post('/api/favoriteFaps')
+    })
+    .catch((error) => {
+      alert("Can't add favorite spot.")
+      console.log(error);
+      })
+    }
+
   render() {
+
    console.log(this.state); 
     return (
       <div className="container-fluid">
@@ -51,6 +69,7 @@ class SiteDetails extends Component {
              </div> 
             <div className="col-xs-4">
               <img className="riverIcon" src={riverIcon} alt=""/>
+              <Button onClick={this.addFavoriteFap.bind(this)}> Add to favorites</Button>
             </div>
           </div>
         </div>
