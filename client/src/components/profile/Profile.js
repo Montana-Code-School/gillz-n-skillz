@@ -23,8 +23,6 @@ class Profile extends Component {
     if (accessToken) {
       axios.get('/api/anglers/' + this.props.match.params.id + "?access_token=" + accessToken)
         .then((res) => {
-          console.log(res);
-          if (res.status === 200) {
             this.setState ({
               username: res.data.username,
               firstname: res.data.firstname,
@@ -32,7 +30,16 @@ class Profile extends Component {
               email: res.data.email,
               licenseNo: res.data.licenseNo
             })
-          }
+            axios.get('/api/favoriteFaps?filter={"include":["accesssites"],"where":{"anglerId":{"like":"' + this.props.match.params.id + '"}}}')
+            .then((res) => {
+              console.log(res)
+              this.setState ({
+                favoriteFaps: res.data
+              })
+            })
+            .catch((error) => {
+              alert("Favorite Faps not found.");
+            })
         })
         .catch((error) => {
           this.props.history.push('/login');
@@ -44,9 +51,9 @@ class Profile extends Component {
 
   render() {
     const favoriteFaps = this.state.favoriteFaps.map((fap)=>{
-      return <li key={fap.id}>
-        <Link to="">{fap.name}</Link>&nbsp;
-       <button onClick={this.delete.bind(this, fap.id)}>Delete</button>
+      return <li key={fap.accesssiteId}>
+        <a href={fap.accesssites.webpage} target="blank">{fap.accesssites.name}</a>
+       {/* <button onClick={this.delete.bind(this, fap.id)}>Delete</button> */}
         </li> 
     });
     return (
