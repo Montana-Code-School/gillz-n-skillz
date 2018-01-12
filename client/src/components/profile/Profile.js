@@ -32,7 +32,7 @@ class Profile extends Component {
               licenseNo: res.data.licenseNo,
               anglerId: res.data.id
             })
-            axios.get('/api/favoriteFaps?filter={"include":["accesssites"],"where":{"anglerId":{"like":"' + this.props.match.params.id + '"}}}')
+            axios.get('/api/favoriteFaps?filter={"include":["accesssites"],"where":{"anglerId":{"like":"' + this.state.anglerId + '"}}}')
             .then((res) => {
               console.log(res)
               this.setState ({

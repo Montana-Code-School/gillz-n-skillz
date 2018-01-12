@@ -29,7 +29,7 @@ class Login extends Component {
     axios.post('/api/anglers/login', userLogin)
       .then((res) => {
         localStorage.setItem("gillznskillzAT", res.data.id)
-        this.props.history.push('/angler/' + res.data.userId);
+        this.props.history.push('/angler/me');
       })
       .catch((error) => {
         alert("You ain't fishin'. Get a password FAP!")

@@ -46,7 +46,7 @@ handleSubmit(event){
           axios.post('/api/anglers/login', userLogin)
           .then ((res) => {
             localStorage.setItem("gillznskillzAT", res.data.id)
-          console.log(res);
+            this.props.history.push('/angler/me');
           })
           .catch((error) => {
             console.log(error);
@@ -81,7 +81,7 @@ handleSubmit(event){
                     <label>Last Name:<input type="text" name="lastname" onChange={this.handleChange} /><br /></label>
                     <label>Email:<input type="text" name="email" onChange={this.handleChange} /><br /></label>
                     <label>Fishing License Number:<input type="text" name="licenseNo" onChange={this.handleChange} /><br /></label>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit"> Registration </button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit"> Register </button>
                 </form>
                 <button class="btn btn-xs btn-default form-signin">
               <p><Link to="/login">Back to Login</Link></p>

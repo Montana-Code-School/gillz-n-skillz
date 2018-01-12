@@ -17,7 +17,7 @@
 
 .esri-popup__header-title {
   color: #2D656C;
-  font-size: 60px;
+  font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
   text-align: left;
@@ -27,6 +27,7 @@ p.esri-widget button, .esri-widget [role="button"]{
   font-size: 20px;
   font-family: 'Cabin', sans-serif;
   font-weight: bolder;
+  color: #2D656C;
 }
 
 .esri-popup__content p {
