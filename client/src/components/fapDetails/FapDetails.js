@@ -66,7 +66,6 @@ class FapDetails extends Component {
       clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId,
       clickedFapWebPage: nextProps.fapDetails.clickedFapWebPage
     })
-    console.log(this.state);
     this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId, this.state.clickedFapWebPage)
 
   }
@@ -191,7 +190,6 @@ class FapDetails extends Component {
     //    })};
 
     render() {
-      console.log(this.state);
       return (
         <div className="container-fluid" >
 

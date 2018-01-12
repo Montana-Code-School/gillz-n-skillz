@@ -1,5 +1,3 @@
-//display montana fish photos on home page
-
 import React, { Component } from 'react';
 import axios from 'axios';
 import './SiteDetails.css';
@@ -33,18 +31,40 @@ class SiteDetails extends Component {
   }
 
   addFavoriteFap(){
-    axios.get('/api/accesssites?filter={"where":{"siteid":{"like":"' + this.state.clickedFapSiteId + '"}}}')
-    .then((res) => {
-      // const newFavoriteFap = {
-      //     accesssiteId: this.state.clickedFapSiteId,
-      //     anglerId: 
-      // }
-      // axios.post('/api/favoriteFaps')
-    })
-    .catch((error) => {
-      alert("Can't add favorite spot.")
-      console.log(error);
+    let accessToken = localStorage.getItem("gillznskillzAT");
+    if (accessToken) {
+      axios.get('/api/anglers/me?access_token=' + accessToken)
+      .then((res) => {
+        const userId = res.data.id;
+        console.log(res)
+        axios.get('/api/accesssites?filter={"where":{"siteid":{"like":"' + this.state.clickedFapSiteId + '"}}}')
+        .then((res) => {
+          console.log(res)
+          const newFavoriteFap = {
+              accesssiteId: res.data[0].id,
+              anglerId: userId
+          }
+          console.log(newFavoriteFap)
+          axios.post('/api/favoriteFaps', newFavoriteFap)
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((error) => {
+            alert("Can't add favorite access site.")
+            console.log(error);
+            })
+        })
+        .catch((error) => {
+          alert("Can't get access site.")
+          console.log(error);
+          })
       })
+      .catch((error) => {
+        alert("Can not find your profile.");
+      })
+    } else {
+      this.props.history.push('/login');
+    }
     }
 
   render() {

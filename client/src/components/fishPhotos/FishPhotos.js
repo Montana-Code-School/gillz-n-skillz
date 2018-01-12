@@ -45,14 +45,14 @@ componentDidMount() {
   displayFishPhotos(farmId, serverId, id, secret) {
   axios.get("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0a1651fe80cd42652d1f519332f4ca71&tags=river%2C+montana&tag_mode=AND&format=json&nojsoncallback=1")
     .then((response) => {
-      console.log(response);
       //loop through data response to display photos using farm, server, id and secret
       this.setState({
         // farmId: response.data.photos.photo[0].farm,
         // serverId: response.data.photos.photo[0].server,
         // id: response.data.photos.photo[0].id,
         // secret: response.data.photos.photo[0].secret,
-        fishPicArray: response.data.photos.photo
+    //fishPicArray will display with fresh API key
+        // fishPicArray: response.data.photos.photo
       })
     })
     .catch((err) => {
@@ -61,7 +61,7 @@ componentDidMount() {
 }
 
   render() {
-    console.log(this.state.fishPicArray)
+    // console.log(this.state.fishPicArray)
     //we have data
     let fishItems = this.state.fishPicArray.map((trout) => {
       return (

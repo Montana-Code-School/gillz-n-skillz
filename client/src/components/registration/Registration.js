@@ -73,19 +73,17 @@ handleSubmit(event){
             <div className="jumbotron">
             <div className="container">
               <div className="form-group">
-                <form class="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
-                  <h2 class="form-signin-heading">Please Create an Account</h2>
+                <form className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
+                  <h2 className="form-signin-heading">Create an Account</h2>
                     <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
-                    <label>Password:<input type="text" name="password" onChange={this.handleChange} /><br /></label>
+                    <label>Password:<input type="password" name="password" onChange={this.handleChange} /><br /></label>
                     <label>First Name:<input type="text" name="firstname" onChange={this.handleChange} /><br /></label>
                     <label>Last Name:<input type="text" name="lastname" onChange={this.handleChange} /><br /></label>
                     <label>Email:<input type="text" name="email" onChange={this.handleChange} /><br /></label>
-                    <label>Fishing License Number:<input type="text" name="licenseNo" onChange={this.handleChange} /><br /></label>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit"> Register </button>
+                    <label>Fishing License No.:<input type="text" name="licenseNo" onChange={this.handleChange} /><br /></label>
+                    <button className="btn btn-lg btn-primary btn-block" type="submit"> Register </button>
                 </form>
-                <button class="btn btn-xs btn-default form-signin">
               <p><Link to="/login">Back to Login</Link></p>
-              </button>
             </div>
             </div>
            </div>

@@ -92,7 +92,7 @@ class Home extends Component {
 
         <div className="row feature">
           <div id="siteDetails" className="col-md-12">
-            <SiteDetails siteDetails={this.state}/>
+            <SiteDetails siteDetails={this.state} history={this.props.history}/>
           </div>  
         </div>
 
