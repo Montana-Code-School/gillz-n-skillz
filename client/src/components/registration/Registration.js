@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
-import './Registration.css';
 import axios from 'axios';
+import './Registration.css';
 
 class Registration extends Component {
   constructor() {
@@ -58,7 +58,6 @@ handleSubmit(event){
       })
 }
 
-
  render () {
   return (
     <div className="bgimage img-responsive">
@@ -71,28 +70,28 @@ handleSubmit(event){
         <div className="row">
           <div className="col-lg-12">
             <div className="jumbotron">
-            <div className="container">
-              <div className="form-group">
-                <form className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
-                  <h2 className="form-signin-heading">Create an Account</h2>
-                    <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
-                    <label>Password:<input type="password" name="password" onChange={this.handleChange} /><br /></label>
-                    <label>First Name:<input type="text" name="firstname" onChange={this.handleChange} /><br /></label>
-                    <label>Last Name:<input type="text" name="lastname" onChange={this.handleChange} /><br /></label>
-                    <label>Email:<input type="text" name="email" onChange={this.handleChange} /><br /></label>
-                    <label>Fishing License No.:<input type="text" name="licenseNo" onChange={this.handleChange} /><br /></label>
-                    <button className="btn btn-lg btn-primary btn-block" type="submit"> Register </button>
-                </form>
-              <p><Link to="/login">Back to Login</Link></p>
+              <div className="container">
+                <div className="form-group">
+                  <form className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
+                    <h2 className="form-signin-heading">Create an Account</h2>
+                      <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
+                      <label>Password:<input type="password" name="password" onChange={this.handleChange} /><br /></label>
+                      <label>First Name:<input type="text" name="firstname" onChange={this.handleChange} /><br /></label>
+                      <label>Last Name:<input type="text" name="lastname" onChange={this.handleChange} /><br /></label>
+                      <label>Email:<input type="text" name="email" onChange={this.handleChange} /><br /></label>
+                      <label>Fishing License No.:<input type="text" name="licenseNo" onChange={this.handleChange} /><br /></label>
+                      <button className="btn btn-lg btn-primary btn-block" type="submit"> Register </button>
+                  </form>
+                  <p><Link to="/login">Back to Login</Link></p>
+                </div>
+              </div>
             </div>
-            </div>
-           </div>
           </div>
         </div>
       </div>
     </div>
-  );
- } 
+   );
+  } 
 }
 
  export default Registration;

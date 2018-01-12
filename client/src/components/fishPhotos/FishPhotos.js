@@ -1,9 +1,8 @@
-//display montana fish photos on home page
+//displays montana fish photos on home page
 
 import React, { Component } from 'react';
 import axios from 'axios';
 import './FishPhotos.css';
-
 
 class FishPhotos extends Component {
   constructor(props) {
@@ -36,11 +35,9 @@ componentDidMount() {
 //     fishPic: <img src={`https://farm${this.state.farmId}.staticflickr.com/${this.state.serverId}/${this.state.id}_${this.state.secret}.jpg`} alt=""/>
 //   })
 //   this.displayFishPhotos(this.state.fishPic)
-
 // }
 
 // flickr url format https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
-
 // display fishing photos on home page below map using flickr api
   displayFishPhotos(farmId, serverId, id, secret) {
   axios.get("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0a1651fe80cd42652d1f519332f4ca71&tags=river%2C+montana&tag_mode=AND&format=json&nojsoncallback=1")
@@ -51,7 +48,7 @@ componentDidMount() {
         // serverId: response.data.photos.photo[0].server,
         // id: response.data.photos.photo[0].id,
         // secret: response.data.photos.photo[0].secret,
-    //fishPicArray will display with fresh API key
+//fishPicArray will display with fresh API key
         // fishPicArray: response.data.photos.photo
       })
     })
@@ -62,10 +59,9 @@ componentDidMount() {
 
   render() {
     // console.log(this.state.fishPicArray)
-    //we have data
     let fishItems = this.state.fishPicArray.map((trout) => {
       return (
-          <img className="img-responsive fishphotos" key={trout.id} src={`https://farm${trout.farm}.staticflickr.com/${trout.server}/${trout.id}_${trout.secret}.jpg`} alt=""/>
+        <img className="img-responsive fishphotos" key={trout.id} src={`https://farm${trout.farm}.staticflickr.com/${trout.server}/${trout.id}_${trout.secret}.jpg`} alt=""/>
       )
     });
     return (
@@ -89,8 +85,6 @@ componentDidMount() {
     </div>
     );
   }
-
-
 }
 
 export default FishPhotos;

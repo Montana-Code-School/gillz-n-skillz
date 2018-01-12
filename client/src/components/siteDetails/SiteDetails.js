@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import './SiteDetails.css';
-import riverIcon from '../../img/rivericon.png';
 import { Button } from 'react-bootstrap';
-
+import axios from 'axios';
+import riverIcon from '../../img/rivericon.png';
+import './SiteDetails.css';
 
 class SiteDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = 
-    {
+    this.state = {
       clickedFapLat: "",
       clickedFapLong: "",
       clickedFapSiteId: "",
@@ -36,10 +34,8 @@ class SiteDetails extends Component {
       axios.get('/api/anglers/me?access_token=' + accessToken)
       .then((res) => {
         const userId = res.data.id;
-        console.log(res)
         axios.get('/api/accesssites?filter={"where":{"siteid":{"like":"' + this.state.clickedFapSiteId + '"}}}')
         .then((res) => {
-          console.log(res)
           const newFavoriteFap = {
               accesssiteId: res.data[0].id,
               anglerId: userId
@@ -47,7 +43,6 @@ class SiteDetails extends Component {
           console.log(newFavoriteFap)
           axios.post('/api/favoriteFaps', newFavoriteFap)
           .then((res) => {
-            console.log(res)
           })
           .catch((error) => {
             alert("Can't add favorite access site.")
@@ -68,7 +63,7 @@ class SiteDetails extends Component {
     }
 
   render() {
-
+   //keeping this console log to determine # of clicks for FAP info 
    console.log(this.state); 
     return (
       <div className="container-fluid">
@@ -97,9 +92,5 @@ class SiteDetails extends Component {
     );
   };
 }
-
-
-
-
 
 export default SiteDetails;

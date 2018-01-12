@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Map.css';
-// import { Map } from 'react-arcgis';
 import EsriLoaderReact from 'esri-loader-react';
 
 class FishMap extends Component {
@@ -23,45 +22,40 @@ class FishMap extends Component {
   getLatLong(response){
     if (response.results.length) {
       document.querySelector(".esri-popup").style.display="block";
-      var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
-      var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
-      var siteName= document.querySelector('p[data-name]').getAttribute('data-name');
-              this.setState({
-          clickedFapLat: response.results[0].mapPoint.latitude,
-          clickedFapLong: response.results[0].mapPoint.longitude,
-          clickedFapSiteId: siteId,
-          clickedFapWebPage: webPage,
-          clickedFapSiteName: siteName
-      })
+        var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
+        var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
+        var siteName= document.querySelector('p[data-name]').getAttribute('data-name');
+          this.setState({
+            clickedFapLat: response.results[0].mapPoint.latitude,
+            clickedFapLong: response.results[0].mapPoint.longitude,
+            clickedFapSiteId: siteId,
+            clickedFapWebPage: webPage,
+            clickedFapSiteName: siteName
+          })
       this.handleLatLong();
-    } else {
-      document.querySelector(".esri-popup").style.display="none";
+      } else {
+        document.querySelector(".esri-popup").style.display="none";
+      } 
     }
-    
-  }
 
   render() {
-    //state data appears here
     const options = {
        url: 'https://js.arcgis.com/4.5/'
     };
-
         return (
           <div className="map">
-            
             <EsriLoaderReact 
               options={options} 
               modulesToLoad={['esri/Map', 'esri/views/MapView', "esri/layers/FeatureLayer"]}    
               onReady={({
                 loadedModules: [Map, MapView, FeatureLayer], containerNode}) => {
-                   
                   var fishMap = new Map (
                     {basemap: 'topo'}
                   )
                   var fishView = new MapView({
                       container: containerNode,
                       center: [-111.0429, 45.67],
-                      zoom: 10,
+                      zoom: 15,
                       map: fishMap, 
                       popup: {
                         dockEnabled: true,
@@ -85,7 +79,7 @@ class FishMap extends Component {
                       "<p data-webpage={WEB_PAGE}>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
                   };
         
-                //adds faps to map
+                //Adds Montant Fish Access Points (FAPs) to map
                   var featureLayer = new FeatureLayer({
                     url: "https://services3.arcgis.com/Cdxz8r11hT0MGzg1/arcgis/rest/services/FWPLND_FAS_POINTS/FeatureServer/0",
                     outFields: ['*'],
@@ -98,11 +92,10 @@ class FishMap extends Component {
                     fishView.hitTest(event)
                       .then(this.getLatLong);
                   })
-
                 }}
-                
               onError={error => console.error(error)}
-            />
+          />
+{/* Closes ESRILoaderReact */}
           </div>
         );
       }

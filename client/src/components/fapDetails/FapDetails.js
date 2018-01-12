@@ -170,10 +170,8 @@ class FapDetails extends Component {
       .catch((error) => {
         console.log(error);
       });
+  }
 
-    
-          
-          }
     //  streamflow temp     
     // if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
     //   gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
@@ -192,7 +190,6 @@ class FapDetails extends Component {
     render() {
       return (
         <div className="container-fluid" >
-
           <div className="row">
             <ul className="nav nav-tabs nav-justifed navtabdetails">
               <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>
@@ -249,15 +246,13 @@ class FapDetails extends Component {
               </div>
 
               <div id="StreamTemperature" className="tab-pane fade">
-              <p>
-               {this.state.gaugeStreamTemp}
-              </p>
-            </div> 
+                <p>
+                  {this.state.gaugeStreamTemp}
+                </p>
+              </div> 
             </div>
           </div>
         </div>
-
-
       );
     };
   }

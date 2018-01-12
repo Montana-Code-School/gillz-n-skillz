@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Header from '../header/Header';
 import './Profile.css';
-import axios from 'axios';
 
 class Profile extends Component {
   constructor() {
@@ -54,7 +54,7 @@ class Profile extends Component {
     const favoriteFaps = this.state.favoriteFaps.map((fap)=>{
       return <li key={fap.accesssiteId}>
         <a href={fap.accesssites.webpage} target="blank">{fap.accesssites.name}</a>
-       {/* <button onClick={this.delete.bind(this, fap.id)}>Delete</button> */}
+        {/* <button onClick={this.delete.bind(this, fap.id)}>Delete</button> */}
         </li> 
     });
     return (
@@ -71,17 +71,17 @@ class Profile extends Component {
                 <div className="container">
                   <div className="form-group">
                     <h2 className="form-signin-heading">Your Profile</h2>
-                    <ul>
-                      <li>Username: {this.state.username}</li>
-                      <li>First Name: {this.state.firstname} </li>
-                      <li>Last Name: {this.state.lastname} </li>
-                      <li>Email: {this.state.email} </li>
-                      <li>Fishing License Number: {this.state.licenseNo} </li>
-                    </ul>
+                      <ul>
+                        <li>Username: {this.state.username}</li>
+                        <li>First Name: {this.state.firstname} </li>
+                        <li>Last Name: {this.state.lastname} </li>
+                        <li>Email: {this.state.email} </li>
+                        <li>Fishing License Number: {this.state.licenseNo} </li>
+                      </ul>
                     <h2 className="form-signin-heading">Your Favorite Fishing Spots</h2>
-                    <ul>
-                      { favoriteFaps }
-                    </ul>
+                      <ul>
+                        { favoriteFaps }
+                      </ul>
                   </div>
                 </div>
               </div>
@@ -89,7 +89,6 @@ class Profile extends Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
