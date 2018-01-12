@@ -108,7 +108,7 @@ class Home extends Component {
 
         <div className="row">
         <div className="col-md-12">
-          <p className="caps">Copyright Gillz-n-Skillz 2017</p>
+          <p className="caps">Copyright Gillz-n-Skillz 2018</p>
         </div> 
         </div> 
         </div>
