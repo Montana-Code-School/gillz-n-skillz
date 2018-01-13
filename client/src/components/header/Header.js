@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
@@ -7,6 +8,20 @@ class Header extends Component {
     super();
     this.state = {
     }
+    this.logoutUser= this.logoutUser.bind(this);
+  }
+
+  logoutUser(event) {
+    event.preventDefault();
+    axios.post('/api/anglers/logout?access_token=' + localStorage.getItem("gillznskillzAT"))
+      .then ((res) => {
+        console.log(res);
+        localStorage.removeItem("gillznskillzAT") 
+        this.props.history.push('/');
+     })
+      .catch((error) => {
+      console.log(error);
+    })
   }
 
   render() {
@@ -35,7 +50,7 @@ class Header extends Component {
                     <li className="dropdown"><a href="" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span className="caret"></span></a>
                       <ul className="dropdown-menu">
                         <li><Link to="/login">Login</Link></li>
-                        <li><a href="">Logout</a></li>
+                        <li><a href="" onClick={this.logoutUser.bind(this)}>Logout</a></li>
                       </ul>
                     </li>
                   </ul>

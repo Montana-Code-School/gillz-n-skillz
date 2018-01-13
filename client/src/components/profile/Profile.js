@@ -81,7 +81,7 @@ class Profile extends Component {
 
   render() {
     const favoriteFaps = this.state.favoriteFaps.map((fap)=>{
-      return <div> <label key={fap.accesssiteId}>
+      return <div key={fap.id}> <label>
         <a href={fap.accesssites.webpage} target="blank">{fap.accesssites.name}</a>
         <button onClick={this.deleteFavFap.bind(this, fap.accesssiteId)}>Delete</button><br />
         </label>
@@ -92,7 +92,7 @@ class Profile extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12">
-              <Header />
+              <Header history={this.props.history}/>
             </div>
           </div>
           <div className="container-fluid">
@@ -100,13 +100,13 @@ class Profile extends Component {
             <div className="col-lg-12">
               <div className="jumbotron">
                   <div className="form-group">
-                    <h2 className="form-signin-heading">Your Profile</h2>
+                    <h2 className="form-signin-heading">My Profile</h2>
                         <label>Username: {this.state.username}</label><br />
                         <label>First Name: {this.state.firstname} </label><br />
                         <label>Last Name: {this.state.lastname} </label><br />
                         <label>Email: {this.state.email} </label><br />
                         <label>Fishing License Number: {this.state.licenseNo} </label>
-                    <h2 className="form-signin-heading">Your Favorite Fishing Spots</h2>
+                    <h2 className="form-signin-heading">My Favorite Fishing Spots</h2>
                       <ul>
                         { favoriteFaps }
                       </ul>

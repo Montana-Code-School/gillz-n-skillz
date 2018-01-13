@@ -73,7 +73,7 @@ class Home extends Component {
     return (
       <div>
         <div className="row">
-          <Header/>
+          <Header history={this.props.history}/>
         </div>
 
         <div className="row">

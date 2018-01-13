@@ -43,7 +43,7 @@ class Login extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12">
-              <Header />
+              <Header history={this.props.history}/>
             </div>
           </div>
           <div className="container-fluid">
