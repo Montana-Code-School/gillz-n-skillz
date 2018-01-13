@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../header/Header';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+
 import axios from 'axios';
 import './Login.css';
 
@@ -45,18 +47,27 @@ class Login extends Component {
             </div>
           </div>
           <div className="container-fluid">
-           <div className="row">
-           <div className="col-lg-12">
-             <div className="jumbotron">
-                  <div className="form-group">
-                    <form className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
-                      <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
+            <div className="row">
+              <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <div className="well">
+                  <form onSubmit={(e) => this.handleSubmit(e)}>
+                    <div className="form-group">
+                      <label className="col-lg-2 control-label">Username:</label>
+                      <div  class="col-lg-10">
+                        <input type="text" name="username" onChange={this.handleChange} className="form-control"/>
+                      </div>
+                    </div>
+                    <div className="form-group">
                       <label>Password:<input type="password" name="password" onChange={this.handleChange} /><br /></label>
-                      <button className="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
-                    </form>
+                    </div>  
+                    <div className="form-group">
+                      <Button className="btn-info" type="submit"> Login </Button> 
                       <p><Link to="/registration">Create an Account</Link></p>
-                  </div>
+                    </div> 
+                  </form>
                 </div>
+                <div className="col-md-4"></div>
               </div>
             </div>
           </div>

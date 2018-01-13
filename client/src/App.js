@@ -7,7 +7,6 @@ import {
 import Home from './components/home/Home';
 import Registration from './components/registration/Registration';
 import Login from './components/login/Login';
-import './App.css';
 import Profile from './components/profile/Profile';
 
 class App extends Component {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../header/Header';
 import axios from 'axios';
-import './Registration.css';
 
 class Registration extends Component {
   constructor() {
@@ -53,6 +52,8 @@ handleSubmit(event){
         alert("Can't register.");
       })
 }
+
+// <p> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></p>
 
  render () {
   return (

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../header/Header';
-import './Profile.css';
 
 class Profile extends Component {
   constructor() {

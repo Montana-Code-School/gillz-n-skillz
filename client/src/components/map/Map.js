@@ -44,6 +44,7 @@ class FishMap extends Component {
     };
         return (
           <div className="map">
+            <h3>Use the Map to Get Fishing Spot Info and Save Your Favs!</h3>
             <EsriLoaderReact 
               options={options} 
               modulesToLoad={['esri/Map', 'esri/views/MapView', "esri/layers/FeatureLayer"]}    
@@ -74,9 +75,7 @@ class FishMap extends Component {
                     content:
                       "<p>Boat Facility: {BOAT_FAC}</p>" +
                       "<p>Camping: {CAMPING}</p>" +
-                      "<p>SiteID: {SITEID}</p>" +
-                      "<p>Name: {NAME}</p>" +
-                      "<p data-webpage={WEB_PAGE}>Directions & Site Details<br><a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
+                      "<p data-webpage={WEB_PAGE}><a href={WEB_PAGE} target='blank'>Directions & Site Details</a></p>"
                   };
         
                 //Adds Montant Fish Access Points (FAPs) to map

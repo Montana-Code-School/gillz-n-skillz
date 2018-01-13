@@ -1,4 +1,13 @@
-.riverIcon {
+.bgimage {
+  background: url('../../img/56303-nature_1920x1080.jpeg') no-repeat center center fixed;
+  background-size: cover;
+}
+.bgimage > .container-fluid {
+  padding-top: 60px;
+}
+.rounded-circle {
+  margin: auto;
+  display: block;
   width: 100px;
   height: 100px;
 }
