@@ -55,7 +55,7 @@ class FishMap extends Component {
                   var fishView = new MapView({
                       container: containerNode,
                       center: [-111.0429, 45.67],
-                      zoom: 15,
+                      zoom: 10,
                       map: fishMap, 
                       popup: {
                         dockEnabled: true,
