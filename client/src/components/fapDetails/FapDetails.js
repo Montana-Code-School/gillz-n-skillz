@@ -191,12 +191,12 @@ class FapDetails extends Component {
       return (
         <div className="container-fluid" >
           <div className="row">
-            <ul className="nav nav-tabs nav-justifed navtabdetails">
+            <ul className="nav nav-tabs nav-justifed">
               <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>
               <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
               <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
             </ul>
-            <div className="tab-content tabcontentstyle">
+            <div className="tab-content">
               <div id="Weather" className="tab-pane fade in active">
                 <div className="row">
                   <div className="col-md-3">
