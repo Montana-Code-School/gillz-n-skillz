@@ -72,21 +72,6 @@ class Home extends Component {
           <Header history={this.props.history}/>
         </div>
 
-        <div className="row">
-        <div className="jumbotron welcome">
-          <h3> Use the Map Below to Get Fishing Spot Info and Save Your Favs! </h3>
-        </div>
-        </div>
-
-  {/* <hr className="row feature-divider"/> */}
-
-          {/* <div className="row feature">
-            <div id="siteDetails" className="col-md-12">
-              <SiteDetails siteDetails={this.state} history={this.props.history}/>
-            </div>  
-          </div> */}
-
-
 {/* display map component */}
         <div className="row">
           <div className="jumbotron">
@@ -102,20 +87,18 @@ class Home extends Component {
               <a href="#weather"><img className="img-responsive center-block rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
               <a href="#weather"><h2> Weather </h2></a>
               <p> Get weather information on your selected fishing access point on the map!</p>
-              {/* <p><a className="btn btn-secondary" href="weather" role="button">View Weather</a></p> */}
             </div>
             <div className="col-xs-4">
-              <a href="#siteDetails"><img className="img-responsive center-block rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
-              <a href="#siteDetails"><h2> Site Details </h2></a>
+              <a href=""><img className="img-responsive center-block rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
+              <a href=""><h2> Site Details </h2></a>
               <p> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></p>
               <p><a href={this.state.clickedFapWebPage} target="blank">Get Directions and More Info about this Site from MTFWP</a></p>
-              {/* <p> Get directions and fishing license information on your selected fishing access point on the map!</p> */}
-              {/* <p><a className="btn btn-secondary" href="siteDetails" role="button">View Details</a></p> */}
             </div>
             <div className="col-xs-4">
-              <img className="riverIcon" src={riverIcon} alt=""/><br />
+              <a href="/angler/me"><img className="img-responsive center-block rounded-circle" src={riverIcon} alt="favorite access point sites icon"/></a>
               <a href="/angler/me"><h2> My Favorites </h2></a>
-              <Button onClick={this.addFavoriteFap.bind(this)}> Add to favorites</Button>
+              <p>Keep track of your favorite fishing spots!</p>
+              <Button onClick={this.addFavoriteFap.bind(this)}> Add to Favorites</Button>
             </div>
           </div> 
           
