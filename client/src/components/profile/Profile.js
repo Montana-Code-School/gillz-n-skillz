@@ -65,19 +65,17 @@ class Profile extends Component {
               <Header />
             </div>
           </div>
+          <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12">
               <div className="jumbotron">
-                <div className="container">
                   <div className="form-group">
                     <h2 className="form-signin-heading">Your Profile</h2>
-                      <ul>
-                        <li>Username: {this.state.username}</li>
-                        <li>First Name: {this.state.firstname} </li>
-                        <li>Last Name: {this.state.lastname} </li>
-                        <li>Email: {this.state.email} </li>
-                        <li>Fishing License Number: {this.state.licenseNo} </li>
-                      </ul>
+                        <label>Username: {this.state.username}</label><br />
+                        <label>First Name: {this.state.firstname} </label><br />
+                        <label>Last Name: {this.state.lastname} </label><br />
+                        <label>Email: {this.state.email} </label><br />
+                        <label>Fishing License Number: {this.state.licenseNo} </label>
                     <h2 className="form-signin-heading">Your Favorite Fishing Spots</h2>
                       <ul>
                         { favoriteFaps }
