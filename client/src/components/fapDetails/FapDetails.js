@@ -201,7 +201,7 @@ class FapDetails extends Component {
                 <div className="row">
                   <div className="col-md-3">
                     <p className="dayOfWeek">Now</p>
-                    <p>{this.state.temp_f}℉</p>
+                    <p className="todaysTemp">{this.state.temp_f}℉</p>
                     <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
                     <p>{this.state.weather}</p>
                     {/* <p>feels like {this.state.feelslike_f}℉</p> */}
@@ -211,7 +211,7 @@ class FapDetails extends Component {
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
-                    <p>{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
+                    <p className="futureTemp">{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
                     <p className="caps">high / low</p>
                     <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
                     <p>{this.state.forecastDay0Conditions}</p>
@@ -220,7 +220,7 @@ class FapDetails extends Component {
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
-                    <p>{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
+                    <p className="futureTemp">{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
                     <p className="caps">high / low</p>
                     <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
                     <p>{this.state.forecastDay1Conditions}</p>
@@ -229,7 +229,7 @@ class FapDetails extends Component {
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
-                    <p>{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
+                    <p className="futureTemp">{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
                     <p className="caps">high / low</p>
                     <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
                     <p>{this.state.forecastDay2Conditions}</p>

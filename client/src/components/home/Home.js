@@ -95,7 +95,7 @@ class Home extends Component {
               <p><a href={this.state.clickedFapWebPage} target="blank">Get Directions and More Info about this Site from MTFWP</a></p>
             </div>
             <div className="col-xs-4">
-              <a href=""><img className="img-responsive center-block rounded-circle" src={riverIcon} alt="favorite access point sites icon"/></a>
+              <a href="/angler/me"><img className="img-responsive center-block rounded-circle" src={riverIcon} alt="favorite access point sites icon"/></a>
               <a href="/angler/me"><h2> My Favorites </h2></a>
               <p>Keep track of your favorite fishing spots!</p>
               <Button onClick={this.addFavoriteFap.bind(this)}> Add to Favorites</Button>

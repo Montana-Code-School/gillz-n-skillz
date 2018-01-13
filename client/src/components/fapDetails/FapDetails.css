@@ -4,9 +4,18 @@ p.dayOfWeek {
 }
 p.caps {
   text-transform: uppercase;
+  font-size: x-small;
 }
 p.small {
   font-variant: small-caps;
+}
+
+p.todaysTemp {
+  font-size: xx-large;
+}
+
+p.futureTemp {
+  font-size: x-large;
 }
 
 span.small {
