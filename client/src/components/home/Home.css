@@ -1,17 +1,12 @@
 .container-fluid {
   padding-right: 30px;
   padding-left: 30px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
   }
 
 p {
   font-family: 'Cabin', sans-serif;
-}
-
-.riverIcon {
-  width: 100px;
-  height: 100px;
 }
 
 body {
@@ -68,15 +63,9 @@ hr {
   background: transparent;
 }
 
-.map {
-  padding-top: 10px;
-  border-block-end-color: #2D656C;
-}
-
-.rounded-cirle {
-  height: 40px;
-  width: 40px;
+.rounded-circle {
   margin: auto;    
   display: block;
-  background-color: #2D656C;
+  width: 100px;
+  height: 100px;
 }

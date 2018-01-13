@@ -44,6 +44,7 @@ class FishMap extends Component {
     };
         return (
           <div className="map">
+            <h3>Use the Map to Get Fishing Spot Info and Save Your Favs!</h3>
             <EsriLoaderReact 
               options={options} 
               modulesToLoad={['esri/Map', 'esri/views/MapView', "esri/layers/FeatureLayer"]}    
