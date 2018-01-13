@@ -77,8 +77,7 @@ class SiteDetails extends Component {
               <p> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></p>
              </div> 
             <div className="col-xs-4">
-              <img className="riverIcon" src={riverIcon} alt=""/>
-              <Button onClick={this.addFavoriteFap.bind(this)}> Add to favorites</Button>
+              
             </div>
           </div>
         </div>

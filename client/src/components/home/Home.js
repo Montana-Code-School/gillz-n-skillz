@@ -1,5 +1,7 @@
 import { Jumbotron } from 'react-bootstrap';
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+import axios from 'axios';
 import Header from '../header/Header';
 import FishMap from '../map/Map';
 import FapDetails from '../fapDetails/FapDetails';
@@ -8,6 +10,7 @@ import SiteDetails from '../siteDetails/SiteDetails';
 import letterIIcon from '../../img/letter-icon.png';
 import picturesIcon from '../../img/picturesicon.png';
 import weatherIcon from '../../img/weathericon.png';
+import riverIcon from '../../img/rivericon.png';
 import './Home.css';
 
 class Home extends Component {
@@ -17,7 +20,8 @@ class Home extends Component {
       clickedFapLat: "",
       clickedFapLong: "",
       clickedFapSiteId: "",
-      clickedFapWebPage: ""
+      clickedFapWebPage: "",
+      clickedFapSiteName: ""
     }
     this.latLongCallback = this.latLongCallback.bind(this);
   }
@@ -31,6 +35,40 @@ class Home extends Component {
     })
   }
 
+  addFavoriteFap(){
+    let accessToken = localStorage.getItem("gillznskillzAT");
+    if (accessToken) {
+      axios.get('/api/anglers/me?access_token=' + accessToken)
+      .then((res) => {
+        const userId = res.data.id;
+        axios.get('/api/accesssites?filter={"where":{"siteid":{"like":"' + this.state.clickedFapSiteId + '"}}}')
+        .then((res) => {
+          const newFavoriteFap = {
+              accesssiteId: res.data[0].id,
+              anglerId: userId
+          }
+          console.log(newFavoriteFap)
+          axios.post('/api/favoriteFaps', newFavoriteFap)
+          .then((res) => {
+          })
+          .catch((error) => {
+            alert("Can't add favorite access site.")
+            console.log(error);
+            })
+        })
+        .catch((error) => {
+          alert("Can't get access site.")
+          console.log(error);
+          })
+      })
+      .catch((error) => {
+        alert("Can not find your profile.");
+      })
+    } else {
+      this.props.history.push('/login');
+    }
+    }
+
   render() {
     return (
       <div>
@@ -38,11 +76,20 @@ class Home extends Component {
           <Header/>
         </div>
 
-        {/* <div className="row">
+        <div className="row">
         <div className="jumbotron welcome">
-          <h3> Use the Map Below to Get Fishing Hole Info and Save Your Favs! </h3>
+          <h3> Use the Map Below to Get Fishing Spot Info and Save Your Favs! </h3>
         </div>
-        </div> */}
+        </div>
+
+  {/* <hr className="row feature-divider"/> */}
+
+          {/* <div className="row feature">
+            <div id="siteDetails" className="col-md-12">
+              <SiteDetails siteDetails={this.state} history={this.props.history}/>
+            </div>  
+          </div> */}
+
 
 {/* display map component */}
         <div className="row">
@@ -53,7 +100,7 @@ class Home extends Component {
           </div>
         </div>
 {/* display additional details for clicked fap on map */}
-        <div className="container selection-options">
+        <div className="container selection-options sitepadding">
           <div className="row">
             <div className="col-xs-4">
               <a href="#weather"><img className="img-responsive center-block rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
@@ -70,10 +117,9 @@ class Home extends Component {
               {/* <p><a className="btn btn-secondary" href="siteDetails" role="button">View Details</a></p> */}
             </div>
             <div className="col-xs-4">
-              <a href="#photos"><img className="img-responsive center-block rounded-circle" src={picturesIcon} alt="fish photos" width="140" height="140"/></a>
-              <a href="#photos"><h2> Photos </h2></a>
-              <p> Get photos taken near your selected fishing access point on the map!</p>
-              {/* <p><a className="btn btn-secondary" href="#photos" role="button">View Photos</a></p> */}
+              <img className="riverIcon" src={riverIcon} alt=""/><br />
+              <a href="/angler/me"><h2> My Favorites </h2></a>
+              <Button onClick={this.addFavoriteFap.bind(this)}> Add to favorites</Button>
             </div>
           </div> 
           
@@ -83,14 +129,6 @@ class Home extends Component {
             <div id="weather" className="col-md-12">
               <FapDetails fapDetails={this.state} />
             </div>
-          </div>
-
-          <hr className="row feature-divider"/>
-
-          <div className="row feature">
-            <div id="siteDetails" className="col-md-12">
-              <SiteDetails siteDetails={this.state} history={this.props.history}/>
-            </div>  
           </div>
 
           <hr className="row feature-divider"/>

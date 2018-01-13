@@ -11,6 +11,10 @@ body {
   margin-right: auto;
 }
 
+.sitepadding {
+  padding: 40px;
+}
+
 .selection-options {
   background: whitesmoke;
 }
