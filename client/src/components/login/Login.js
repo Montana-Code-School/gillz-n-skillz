@@ -15,7 +15,6 @@ class Login extends Component {
   }
 
   handleChange(event) {
-    console.log(event.target.value);
     this.setState({ [event.target.name]: event.target.value });
   }
 
@@ -32,8 +31,7 @@ class Login extends Component {
         this.props.history.push('/angler/me');
       })
       .catch((error) => {
-        alert("You ain't fishin'. Get a password FAP!")
-        console.log(error);
+        alert("You ain't fishin'. Get a password!")
       })
   }
 
@@ -51,10 +49,10 @@ class Login extends Component {
            <div className="col-lg-12">
              <div className="jumbotron">
                   <div className="form-group">
-                    <form class="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
+                    <form className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
                       <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
                       <label>Password:<input type="password" name="password" onChange={this.handleChange} /><br /></label>
-                      <button class="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
+                      <button className="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
                     </form>
                       <p><Link to="/registration">Create an Account</Link></p>
                   </div>

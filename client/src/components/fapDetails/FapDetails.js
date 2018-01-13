@@ -91,7 +91,7 @@ class FapDetails extends Component {
         })
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Can't get today's weather.");
       });
     // forecast api call
     axios.get(
@@ -132,7 +132,7 @@ class FapDetails extends Component {
         })
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Can't get forecast.");
       });
 
     //call accesssites table
@@ -168,7 +168,7 @@ class FapDetails extends Component {
         
       })
       .catch((error) => {
-        console.log(error);
+        console.log("Can't get stream flow and/or stream temp.");
       });
   }
 

@@ -19,7 +19,6 @@ class Registration extends Component {
 }
 
 handleChange(event) {
-  console.log(event.target.value);
   this.setState({[event.target.name]: event.target.value});
 }
 
@@ -36,8 +35,6 @@ handleSubmit(event){
   
   axios.post('/api/anglers', userRegistration) 
       .then((res) => {
-        console.log(res);
-        if (res.status === 200) {
           const userLogin = {
             username: this.state.username,
             password: this.state.password
@@ -49,12 +46,11 @@ handleSubmit(event){
             this.props.history.push('/angler/me');
           })
           .catch((error) => {
-            console.log(error);
+            alert("Can't log in.");
           })
-        }
       })
       .catch((error) => {
-        console.log(error);
+        alert("Can't register.");
       })
 }
 

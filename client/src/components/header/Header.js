@@ -15,12 +15,10 @@ class Header extends Component {
     event.preventDefault();
     axios.post('/api/anglers/logout?access_token=' + localStorage.getItem("gillznskillzAT"))
       .then ((res) => {
-        console.log(res);
         localStorage.removeItem("gillznskillzAT") 
         this.props.history.push('/');
      })
       .catch((error) => {
-      console.log(error);
     })
   }
 

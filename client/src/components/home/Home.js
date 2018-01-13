@@ -1,4 +1,3 @@
-import { Jumbotron } from 'react-bootstrap';
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -6,9 +5,8 @@ import Header from '../header/Header';
 import FishMap from '../map/Map';
 import FapDetails from '../fapDetails/FapDetails';
 import FishPhotos from '../fishPhotos/FishPhotos';
-import SiteDetails from '../siteDetails/SiteDetails';
 import letterIIcon from '../../img/letter-icon.png';
-import picturesIcon from '../../img/picturesicon.png';
+// import picturesIcon from '../../img/picturesicon.png';
 import weatherIcon from '../../img/weathericon.png';
 import riverIcon from '../../img/rivericon.png';
 import './Home.css';
@@ -47,18 +45,16 @@ class Home extends Component {
               accesssiteId: res.data[0].id,
               anglerId: userId
           }
-          console.log(newFavoriteFap)
           axios.post('/api/favoriteFaps', newFavoriteFap)
           .then((res) => {
+            alert("Successfully added your new favorite!");
           })
           .catch((error) => {
             alert("Can't add favorite access site.")
-            console.log(error);
             })
         })
         .catch((error) => {
           alert("Can't get access site.")
-          console.log(error);
           })
       })
       .catch((error) => {

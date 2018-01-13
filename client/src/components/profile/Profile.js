@@ -37,7 +37,6 @@ class Profile extends Component {
               this.setState ({
                 favoriteFaps: res.data
               })
-              console.log(this.state.favoriteFaps);
             })
             .catch((error) => {
               alert("Favorite Faps not found.");
@@ -54,18 +53,14 @@ class Profile extends Component {
   deleteFavFap(accesssiteId, event) {
     axios.get('/api/favoriteFaps?filter={"where":{"and":[{"anglerId":"' + this.state.anglerId + '"},{"accesssiteId":"' + accesssiteId + '"}]}}')
     .then((res) => {
-      console.log(res)
       const toDelete = res.data[0].id;
       axios.delete('/api/favoriteFaps/' + toDelete)
       .then((res) => {
-        console.log(res)
         const newFavoriteFaps = this.state.favoriteFaps.filter((fap)=>{
           if (fap.id !== toDelete){
-            console.log(fap);
             return fap;
           } 
         })
-        console.log(newFavoriteFaps);
         this.setState ({
           favoriteFaps: newFavoriteFaps
         })
