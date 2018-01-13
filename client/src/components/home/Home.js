@@ -96,50 +96,53 @@ class Home extends Component {
           </div>
         </div>
 {/* display additional details for clicked fap on map */}
-        <div className="container selection-options sitepadding">
-          <div className="row">
-            <div className="col-xs-4">
-              <a href="#weather"><img className="img-responsive center-block rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
-              <a href="#weather"><h2> Weather </h2></a>
-              <p> Get weather information on your selected fishing access point on the map!</p>
-              {/* <p><a className="btn btn-secondary" href="weather" role="button">View Weather</a></p> */}
-            </div>
-            <div className="col-xs-4">
-              <a href="#siteDetails"><img className="img-responsive center-block rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
-              <a href="#siteDetails"><h2> Site Details </h2></a>
-              <p> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></p>
-              <p><a href={this.state.clickedFapWebPage} target="blank">Get Directions and More Info about this Site from MTFWP</a></p>
-              {/* <p> Get directions and fishing license information on your selected fishing access point on the map!</p> */}
-              {/* <p><a className="btn btn-secondary" href="siteDetails" role="button">View Details</a></p> */}
-            </div>
-            <div className="col-xs-4">
-              <img className="riverIcon" src={riverIcon} alt=""/><br />
-              <a href="/angler/me"><h2> My Favorites </h2></a>
-              <Button onClick={this.addFavoriteFap.bind(this)}> Add to favorites</Button>
-            </div>
-          </div> 
+        {/* <div className="container selection-options sitepadding"> */}
+        <div className="row">
+          <div className="jumbotron">
+            <div className="row">
+              <div className="col-xs-4">
+                <a href="#weather"><img className="img-responsive center-block rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
+                <a href="#weather"><h2> Weather </h2></a>
+                <p> Get weather information on your selected fishing access point on the map!</p>
+                {/* <p><a className="btn btn-secondary" href="weather" role="button">View Weather</a></p> */}
+              </div>
+              <div className="col-xs-4">
+                <a href="#siteDetails"><img className="img-responsive center-block rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
+                <a href="#siteDetails"><h2> Site Details </h2></a>
+                <p> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></p>
+                <p><a href={this.state.clickedFapWebPage} target="blank">Get Directions and More Info about this Site from MTFWP</a></p>
+                {/* <p> Get directions and fishing license information on your selected fishing access point on the map!</p> */}
+                {/* <p><a className="btn btn-secondary" href="siteDetails" role="button">View Details</a></p> */}
+              </div>
+              <div className="col-xs-4">
+                <img className="riverIcon" src={riverIcon} alt=""/><br />
+                <a href="/angler/me"><h2> My Favorites </h2></a>
+                <Button onClick={this.addFavoriteFap.bind(this)}> Add to favorites</Button>
+              </div>
+            </div> 
           
           <hr className="row feature-divider"/>
         
-          <div className="row feature">
-            <div id="weather" className="col-md-12">
-              <FapDetails fapDetails={this.state} />
+            <div className="row feature">
+              <div id="weather" className="col-md-12">
+                <FapDetails fapDetails={this.state} />
+              </div>
             </div>
-          </div>
 
-          <hr className="row feature-divider"/>
+            <hr className="row feature-divider"/>
 
-          <div className="row feature">
-            <div id="photos" className="col-md-12">
-                <FishPhotos fishPhotos={this.state}/>
+            <div className="row feature">
+              <div id="photos" className="col-md-12">
+                  <FishPhotos fishPhotos={this.state}/>
+              </div> 
+            </div>
+
+            <div className="row">
+              <div className="col-md-12">
+                <p className="caps">Copyright 2018 Gillz-n-Skillz</p>
+              </div> 
             </div> 
-          </div>
-
-          <div className="row">
-            <div className="col-md-12">
-              <p className="caps">Copyright 2018 Gillz-n-Skillz</p>
-            </div> 
-          </div> 
+           </div> 
         </div>
       </div>  
     );
