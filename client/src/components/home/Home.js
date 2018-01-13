@@ -58,19 +58,19 @@ class Home extends Component {
             <div className="col-xs-4">
               <a href="#weather"><img className="img-responsive center-block rounded-circle" src={weatherIcon} alt="glitter jumping fish" width="140" height="140"/></a>
               <a href="#weather"><h2> Weather </h2></a>
-              <p> Select the icon to get weather information on your selected fishing access point on the map!</p>
+              <p> Get weather information on your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="weather" role="button">View Weather</a></p>
             </div>
             <div className="col-xs-4">
               <a href="#siteDetails"><img className="img-responsive center-block rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140"/></a>
               <a href="#siteDetails"><h2> Site Details </h2></a>
-              <p> Select the icon to get directions and fishing license information on your selected fishing access point on the map!</p>
+              <p> Get directions and fishing license information on your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="siteDetails" role="button">View Details</a></p>
             </div>
             <div className="col-xs-4">
               <a href="#photos"><img className="img-responsive center-block rounded-circle" src={picturesIcon} alt="fish photos" width="140" height="140"/></a>
               <a href="#photos"><h2> Photos </h2></a>
-              <p> Select the icon to get photos taken near your selected fishing access point on the map!</p>
+              <p> Get photos taken near your selected fishing access point on the map!</p>
               <p><a className="btn btn-secondary" href="#photos" role="button">View Photos</a></p>
             </div>
           </div> 
@@ -101,7 +101,7 @@ class Home extends Component {
 
           <div className="row">
             <div className="col-md-12">
-              <p className="caps">Copyright Gillz-n-Skillz 2018</p>
+              <p className="caps">Copyright 2018 Gillz-n-Skillz</p>
             </div> 
           </div> 
         </div>

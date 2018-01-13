@@ -67,10 +67,10 @@ handleSubmit(event){
             <Header />
           </div>
         </div>
+        <div className="container-fluid">
         <div className="row">
           <div className="col-lg-12">
             <div className="jumbotron">
-              <div className="container">
                 <div className="form-group">
                   <form className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
                     <h2 className="form-signin-heading">Create an Account</h2>

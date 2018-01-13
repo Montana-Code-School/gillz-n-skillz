@@ -46,10 +46,10 @@ class Login extends Component {
               <Header />
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="jumbotron">
-                <div className="container">
+          <div className="container-fluid">
+           <div className="row">
+           <div className="col-lg-12">
+             <div className="jumbotron">
                   <div className="form-group">
                     <form class="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
                       <label>Username:<input type="text" name="username" onChange={this.handleChange} /><br /></label>
