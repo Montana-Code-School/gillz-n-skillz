@@ -74,7 +74,7 @@ class FishMap extends Component {
                     content:
                       "<p>Boat Facility: {BOAT_FAC}</p>" +
                       "<p>Camping: {CAMPING}</p>" +
-                      "<p data-webpage={WEB_PAGE}>Directions & Site Details<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a href={WEB_PAGE} target='blank'>Montana Fish, Wildlife & Parks</a></br></p>"
+                      "<p data-webpage={WEB_PAGE}><a href={WEB_PAGE} target='blank'>Directions & Site Details</a></p>"
                   };
         
                 //Adds Montant Fish Access Points (FAPs) to map
