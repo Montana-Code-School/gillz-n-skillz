@@ -16,6 +16,7 @@ class Profile extends Component {
       favoriteFaps: [],
       anglerId: ""
     }
+    this.deleteFavFap= this.deleteFavFap.bind(this);
   }
 
   componentWillMount() {
@@ -31,12 +32,12 @@ class Profile extends Component {
               licenseNo: res.data.licenseNo,
               anglerId: res.data.id
             })
-            axios.get('/api/favoriteFaps?filter={"include":["accesssites"],"where":{"anglerId":{"like":"' + this.state.anglerId + '"}}}')
+            axios.get('/api/favoriteFaps?filter={"include":["accesssites"],"where":{"anglerId":"' + this.state.anglerId + '"}}')
             .then((res) => {
-              console.log(res)
               this.setState ({
                 favoriteFaps: res.data
               })
+              console.log(this.state.favoriteFaps);
             })
             .catch((error) => {
               alert("Favorite Faps not found.");
@@ -50,12 +51,41 @@ class Profile extends Component {
     }
   }
 
+  deleteFavFap(accesssiteId, event) {
+    axios.get('/api/favoriteFaps?filter={"where":{"and":[{"anglerId":"' + this.state.anglerId + '"},{"accesssiteId":"' + accesssiteId + '"}]}}')
+    .then((res) => {
+      console.log(res)
+      const toDelete = res.data[0].id;
+      axios.delete('/api/favoriteFaps/' + toDelete)
+      .then((res) => {
+        console.log(res)
+        const newFavoriteFaps = this.state.favoriteFaps.filter((fap)=>{
+          if (fap.id !== toDelete){
+            console.log(fap);
+            return fap;
+          } 
+        })
+        console.log(newFavoriteFaps);
+        this.setState ({
+          favoriteFaps: newFavoriteFaps
+        })
+      })
+      .catch((error) => {
+        alert("Can't delete your site.");
+      })
+    })
+    .catch((error) => {
+      alert("Can't find site to delete.");
+    })
+  }
+
   render() {
     const favoriteFaps = this.state.favoriteFaps.map((fap)=>{
-      return <li key={fap.accesssiteId}>
+      return <div> <label key={fap.accesssiteId}>
         <a href={fap.accesssites.webpage} target="blank">{fap.accesssites.name}</a>
-        {/* <button onClick={this.delete.bind(this, fap.id)}>Delete</button> */}
-        </li> 
+        <button onClick={this.deleteFavFap.bind(this, fap.accesssiteId)}>Delete</button><br />
+        </label>
+        </div>
     });
     return (
       <div className="bgimage img-responsive">
