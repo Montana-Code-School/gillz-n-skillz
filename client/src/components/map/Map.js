@@ -43,7 +43,7 @@ class FishMap extends Component {
        url: 'https://js.arcgis.com/4.5/'
     };
         return (
-          <div className="map">
+          <div>
             <h3>Use the Map to Get Fishing Spot Info and Save Your Favs!</h3>
             <EsriLoaderReact 
               options={options} 
@@ -94,7 +94,6 @@ class FishMap extends Component {
                 }}
               onError={error => console.error(error)}
           />
-{/* Closes ESRILoaderReact */}
           </div>
         );
       }

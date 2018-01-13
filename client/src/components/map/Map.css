@@ -2,14 +2,6 @@
   height: 400px;
 }
 
-.map {
-  padding-bottom: 10px;
-}
-
-.jumbotron {
-  margin: 60px;
-}
-
 .esri-popup {
   display: none;
 }
@@ -18,16 +10,12 @@
   max-width: 275px;
 }
 
-.esri-popup__header-title {
-  color: #2D656C;
-  font-size: 2px;
-  font-weight: bold;
-  text-transform: uppercase;
+.esri-popup__header {
   text-align: left;
 }
 
 p.esri-widget button, .esri-widget [role="button"]{
-  font-size: 10px;
+  font-size: 6px;
   line-height: 5px;
   font-family: 'Cabin', sans-serif;
   font-weight: bolder;
