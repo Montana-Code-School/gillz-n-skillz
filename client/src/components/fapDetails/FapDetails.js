@@ -200,7 +200,7 @@ class FapDetails extends Component {
               <div id="Weather" className="tab-pane fade in active">
                 <div className="row">
                   <div className="col-md-3">
-                    <p className="dayOfWeek">Today</p>
+                    <p className="dayOfWeek">Now</p>
                     <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
                     <p>{this.state.weather}</p>
                     <p>{this.state.temp_f}℉</p>

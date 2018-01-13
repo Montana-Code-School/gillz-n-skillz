@@ -70,17 +70,11 @@ class SiteDetails extends Component {
         <div className="jumbotron">
           <div className="row">
             <div className="col-xs-4">
-              <h3>Site Details</h3>
-              <p> Name: {this.state.clickedFapSiteName} </p>
-              <ul>
-                <li><a href={this.state.clickedFapWebPage} target="blank"> Site Details and Directions </a></li>
-              </ul>
+              <p>{this.state.clickedFapSiteName} </p>
+              <p><a href={this.state.clickedFapWebPage} target="blank"> Site Details and Directions </a></p>
             </div>
             <div className="col-xs-4">
-              <h3> License Info </h3>
-              <ul>
-                <li> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></li>
-              </ul>
+              <p> <a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></p>
              </div> 
             <div className="col-xs-4">
               <img className="riverIcon" src={riverIcon} alt=""/>
