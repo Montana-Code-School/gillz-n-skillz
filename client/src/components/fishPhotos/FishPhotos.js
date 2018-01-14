@@ -40,7 +40,7 @@ componentDidMount() {
 // flickr url format https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 // display fishing photos on home page below map using flickr api
   displayFishPhotos(farmId, serverId, id, secret) {
-  axios.get("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=0a1651fe80cd42652d1f519332f4ca71&tags=river%2C+montana&tag_mode=AND&format=json&nojsoncallback=1")
+  axios.get("https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=4dff2ac6b49370264bff812fd6c159eb&tags=fly%20fishing%20montana&tag_mode=AND&format=json&nojsoncallback=1")
     .then((response) => {
       //loop through data response to display photos using farm, server, id and secret
       this.setState({
@@ -49,7 +49,7 @@ componentDidMount() {
         // id: response.data.photos.photo[0].id,
         // secret: response.data.photos.photo[0].secret,
 //fishPicArray will display with fresh API key
-        // fishPicArray: response.data.photos.photo
+        fishPicArray: response.data.photos.photo
       })
     })
     .catch((err) => {
@@ -68,21 +68,29 @@ componentDidMount() {
       <div className="container-fluid">
         <div className="jumbotron">
           <div className="row">
-            <div className="col-xs-3">
+            <div className="col-md-3">
+              <div className="thumbnail img-responsive">
               {fishItems[1]}
+              </div>
             </div>
-            <div className="col-xs-3">
+            <div className="col-md-3">
+            <div className="thumbnail img-responsive">
               {fishItems[2]}
+              </div>
             </div>
-            <div className="col-xs-3">
+            <div className="col-md-3">
+            <div className="thumbnail img-responsive">
               {fishItems[3]}
             </div>
-            <div className="col-xs-3">
+            </div>
+            <div className="col-md-3">
+            <div className="thumbnail img-responsive">
               {fishItems[4]}
+              </div>
             </div> 
          </div>
+         </div>
        </div>
-    </div>
     );
   }
 }
