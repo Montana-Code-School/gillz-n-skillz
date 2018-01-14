@@ -91,17 +91,34 @@ class Profile extends Component {
           </div>
           <div className="container-fluid">
           <div className="row">
-            <div className="col-lg-12">
-              <div className="jumbotron">
-                  <div className="form-group">
-                    <h2 className="form-signin-heading">My Profile</h2>
-                        <label>Username: {this.state.username}</label><br />
-                        <label>First Name: {this.state.firstname} </label><br />
-                        <label>Last Name: {this.state.lastname} </label><br />
-                        <label>Email: {this.state.email} </label><br />
-                        <label>Fishing License Number: {this.state.licenseNo} </label>
-                    <h2 className="form-signin-heading">My Favorite Fishing Spots</h2>
-                      <ul>
+          <div className="col-md-4"></div>
+              <div className="col-md-4">
+                <div className="well">
+                    <h1>My Profile</h1>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <span class="badge">{this.state.username}</span>
+                        Username
+                      </li>
+                      <li class="list-group-item">
+                        <span class="badge">{this.state.firstname}</span>
+                          First Name                   
+                      </li>
+                      <li class="list-group-item">
+                        <span class="badge">{this.state.lastname}</span>
+                        Last Name
+                      </li>
+                      <li class="list-group-item">
+                        <span class="badge">{this.state.email}</span>
+                        Email
+                      </li>
+                      <li class="list-group-item">
+                        <span class="badge">{this.state.licenseNo}</span>
+                        Fishing License No.
+                      </li>
+                    </ul>
+                    <h1>My Favorite Fishing Spots</h1>
+                    <ul class="list-group">
                         { favoriteFaps }
                       </ul>
                   </div>
@@ -110,7 +127,6 @@ class Profile extends Component {
             </div>
           </div>
         </div>
-      </div>
     );
   }
 }
