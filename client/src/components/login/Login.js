@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from '../header/Header';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-
 import axios from 'axios';
 import './Login.css';
 
@@ -51,21 +50,31 @@ class Login extends Component {
               <div className="col-md-4"></div>
               <div className="col-md-4">
                 <div className="well">
+                <form class="form-horizontal">
+                <fieldset>
                   <form onSubmit={(e) => this.handleSubmit(e)}>
                     <div className="form-group">
-                      <label className="col-lg-2 control-label">Username:</label>
-                      <div  class="col-lg-10">
-                        <input type="text" name="username" onChange={this.handleChange} className="form-control"/>
+                      <label className="col-lg-2 control-label">Username</label>
+                      <div class="col-lg-10">
+                        <input type="text" className="form-control" name="username" placeholder="Username" onChange={this.handleChange}/>
                       </div>
                     </div>
                     <div className="form-group">
-                      <label>Password:<input type="password" name="password" onChange={this.handleChange} /><br /></label>
+                      <label className="col-lg-2 control-label">Password</label>
+                      <div class="col-lg-10">
+                      <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} />
                     </div>  
+                    </div>
                     <div className="form-group">
+                    <div class="col-lg-10">
                       <Button className="btn-info" type="submit"> Login </Button> 
-                      <p><Link to="/registration">Create an Account</Link></p>
-                    </div> 
+                      {/* <p><Link to="/registration">Create an Account</Link></p> */}
+                      <Button className="btn-default" type="reset" to="/registration">Create an Account</Button>
+                    </div>
+                    </div>
                   </form>
+                  </fieldset>
+                </form>
                 </div>
                 <div className="col-md-4"></div>
               </div>
