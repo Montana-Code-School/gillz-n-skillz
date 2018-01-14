@@ -76,8 +76,8 @@ class Profile extends Component {
   render() {
     const favoriteFaps = this.state.favoriteFaps.map((fap)=>{
       return <div key={fap.id}> <label>
-        <a href={fap.accesssites.webpage} target="blank">{fap.accesssites.name}</a>
-        <button onClick={this.deleteFavFap.bind(this, fap.accesssiteId)}>Delete</button><br />
+        <a href={fap.accesssites.webpage} target="blank">{fap.accesssites.name}  </a>
+        <button className="btn btn-warning btn-xs" onClick={this.deleteFavFap.bind(this, fap.accesssiteId)}>Delete</button><br />
         </label>
         </div>
     });
@@ -95,30 +95,30 @@ class Profile extends Component {
               <div className="col-md-4">
                 <div className="well">
                     <h1>My Profile</h1>
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        <span class="badge">{this.state.username}</span>
+                    <ul className="list-group">
+                      <li className="list-group-item">
+                        <span className="badge">{this.state.username}</span>
                         Username
                       </li>
-                      <li class="list-group-item">
-                        <span class="badge">{this.state.firstname}</span>
+                      <li className="list-group-item">
+                        <span className="badge">{this.state.firstname}</span>
                           First Name                   
                       </li>
-                      <li class="list-group-item">
-                        <span class="badge">{this.state.lastname}</span>
+                      <li className="list-group-item">
+                        <span className="badge">{this.state.lastname}</span>
                         Last Name
                       </li>
-                      <li class="list-group-item">
-                        <span class="badge">{this.state.email}</span>
+                      <li className="list-group-item">
+                        <span className="badge">{this.state.email}</span>
                         Email
                       </li>
-                      <li class="list-group-item">
-                        <span class="badge">{this.state.licenseNo}</span>
+                      <li className="list-group-item">
+                        <span className="badge">{this.state.licenseNo}</span>
                         Fishing License No.
                       </li>
                     </ul>
                     <h1>My Favorite Fishing Spots</h1>
-                    <ul class="list-group">
+                    <ul className="list-group">
                         { favoriteFaps }
                       </ul>
                   </div>
