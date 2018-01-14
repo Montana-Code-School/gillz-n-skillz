@@ -144,8 +144,8 @@ class FapDetails extends Component {
         //  streamflow graph       
         if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
           this.setState({
-            gaugeStreamflow: <i className="wu wu-black wu-256 wu-unknown"></i>,
-            gaugeStreamTemp: <i className="wu wu-black wu-256 wu-unknown"></i>
+            gaugeStreamflow: <i className="wu wu-white wu-256 wu-unknown"></i>,
+            gaugeStreamTemp: <i className="wu wu-white wu-256 wu-unknown"></i>
           });
         } else {
           axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
@@ -174,12 +174,12 @@ class FapDetails extends Component {
 
     //  streamflow temp     
     // if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
-    //   gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    //   gaugeStreamTemp =  <i className="wu wu-white wu-256 wu-unknown"></i>;
     // } else {      
     //   fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
     //    .then((r) =>  {
     //       if (r.status === 400) {
-    //         gaugeStreamTemp =  <i className="wu wu-black wu-256 wu-unknown"></i>;
+    //         gaugeStreamTemp =  <i className="wu wu-white wu-256 wu-unknown"></i>;
     //       } else {
     //         gaugeStreamTemp = <img className='img-responsive center-block'
     //         src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
@@ -202,7 +202,7 @@ class FapDetails extends Component {
                   <div className="col-md-3">
                     <p className="dayOfWeek">Now</p>
                     <p className="todaysTemp">{this.state.temp_f}℉</p>
-                    <i className={`wu wu-black wu-64 wu-${this.state.icon}`}></i>
+                    <i className={`wu wu-white wu-64 wu-${this.state.icon}`}></i>
                     <p>{this.state.weather}</p>
                     {/* <p>feels like {this.state.feelslike_f}℉</p> */}
                     <p>{this.state.precip_today_in} inches today</p>
@@ -213,7 +213,7 @@ class FapDetails extends Component {
                     <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
                     <p className="futureTemp">{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
                     <p className="caps">high / low</p>
-                    <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
+                    <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
                     <p>{this.state.forecastDay0Conditions}</p>
                     <p>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir}</p>
                     <p>{this.state.forecastDay0maxwindmph} mph max</p>
@@ -222,7 +222,7 @@ class FapDetails extends Component {
                     <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
                     <p className="futureTemp">{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
                     <p className="caps">high / low</p>
-                    <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
+                    <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
                     <p>{this.state.forecastDay1Conditions}</p>
                     <p>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir}</p>
                     <p>{this.state.forecastDay1maxwindmph} mph max</p>
@@ -231,7 +231,7 @@ class FapDetails extends Component {
                     <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
                     <p className="futureTemp">{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
                     <p className="caps">high / low</p>
-                    <p><i className={`wu wu-black wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
+                    <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
                     <p>{this.state.forecastDay2Conditions}</p>
                     <p>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir}</p>
                     <p>{this.state.forecastDay2maxwindmph} mph max</p>
