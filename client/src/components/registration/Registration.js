@@ -68,56 +68,56 @@ class Registration extends Component {
               <div className="col-md-4"></div>
               <div className="col-md-4">
                 <div className="well">
-                  <form class="form-horizontal">
+                  <form className="form-horizontal">
                     <fieldset>
-                      <form className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
+                      <div className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
                         <div className="form-group">
                           <legend>Create an Account</legend>
                           <div className="form-group">
                             <label className="col-lg-2 control-label">Username</label>
-                            <div class="col-lg-10">
+                            <div className="col-lg-10">
                               <input type="text" className="form-control" name="username" placeholder="Username" onChange={this.handleChange} />
                             </div>
                           </div>
                           <div className="form-group">
                             <label className="col-lg-2 control-label">Password</label>
-                            <div class="col-lg-10">
+                            <div className="col-lg-10">
                               <input type="text" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} />
                             </div>
                           </div>
                           <div className="form-group">
                             <label className="col-lg-2 control-label">First Name</label>
-                            <div class="col-lg-10">
+                            <div className="col-lg-10">
                               <input type="text" className="form-control" name="firstname" placeholder="First Name" onChange={this.handleChange} />
                             </div>
                           </div>
                           <div className="form-group">
                             <label className="col-lg-2 control-label">Last Name</label>
-                            <div class="col-lg-10">
+                            <div className="col-lg-10">
                               <input type="text" className="form-control" name="lastname" placeholder="Last Name" onChange={this.handleChange} />
                             </div>
                           </div>
                           <div className="form-group">
                             <label className="col-lg-2 control-label">Email</label>
-                            <div class="col-lg-10">
+                            <div className="col-lg-10">
                               <input type="text" className="form-control" name="email" placeholder="Email" onChange={this.handleChange} />
                             </div>
                           </div>
                           <div className="form-group">
                             <label className="col-lg-2 control-label">Fishing License No. </label> 
-                            <div class="col-lg-10">
+                            <div className="col-lg-10">
                               <input type="text" className="form-control" name="licenseNo" placeholder="Fishing License No." onChange={this.handleChange} />
-                              <span class="help-block"><a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></span>
+                              <span className="help-block"><a href="https://app.mt.gov/als/index/index.html" target="blank"> Need a License? </a></span>
                             </div>
                           </div>
                           <div className="form-group">
-                            <div class="col-lg-10">
+                            <div className="col-lg-10">
                               <Button className="btn-info" type="submit"> Register </Button>
                               <Link className="btn btn-default" to="/login">Back to Login</Link>
                             </div>
                           </div>
                         </div>
-                      </form>
+                      </div>
                     </fieldset>
                   </form>
                 </div>
