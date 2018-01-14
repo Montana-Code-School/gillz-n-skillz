@@ -202,7 +202,7 @@ class FapDetails extends Component {
                   <div className="col-md-3">
                     <p className="dayOfWeek">Now</p>
                     <p className="todaysTemp">{this.state.temp_f}℉</p>
-                    <i className={`wu wu-white wu-64 wu-${this.state.icon}`}></i>
+                    <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
                     <p>{this.state.weather}</p>
                     {/* <p>feels like {this.state.feelslike_f}℉</p> */}
                     <p>{this.state.precip_today_in} inches today</p>
