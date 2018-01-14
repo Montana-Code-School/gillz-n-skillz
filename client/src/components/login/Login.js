@@ -69,7 +69,7 @@ class Login extends Component {
                     <div class="col-lg-10">
                       <Button className="btn-info" type="submit"> Login </Button> 
                       {/* <p><Link to="/registration">Create an Account</Link></p> */}
-                      <Link className="btn btn-default" to="/registration">Create an Account</Link>
+                      <Link className="btn btn-link" to="/registration">Create an Account</Link>
                     </div>
                     </div>
                   </form>
