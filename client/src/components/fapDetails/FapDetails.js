@@ -60,14 +60,15 @@ class FapDetails extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      clickedFapLat: nextProps.fapDetails.clickedFapLat,
-      clickedFapLong: nextProps.fapDetails.clickedFapLong,
-      clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId,
-      clickedFapWebPage: nextProps.fapDetails.clickedFapWebPage
+    setTimeout (() => {
+      this.setState({
+        clickedFapLat: nextProps.fapDetails.clickedFapLat,
+        clickedFapLong: nextProps.fapDetails.clickedFapLong,
+        clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId,
+        clickedFapWebPage: nextProps.fapDetails.clickedFapWebPage
+      })
+      this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId, this.state.clickedFapWebPage)
     })
-    this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId, this.state.clickedFapWebPage)
-
   }
 
   drawWeather(lat, long, siteId, webPage) {
@@ -150,11 +151,18 @@ class FapDetails extends Component {
         } else {
           axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
             .then((r) => {
+
                 this.setState({
                   gaugeStreamflow: <img className='img-responsive center-block'
                     src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
                     alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic' />
                 });
+            })
+            .catch((error) => {
+              this.setState({
+                gaugeStreamflow: <i className="wu wu-white wu-256 wu-unknown"></i>
+              });
+              console.log("Can't get stream flow.");
             });
             axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
             .then((r) => {
@@ -163,29 +171,20 @@ class FapDetails extends Component {
                   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
                   alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
                 });
+              })
+              .catch((error) => {
+                this.setState({
+                  gaugeStreamTemp: <i className="wu wu-white wu-256 wu-unknown"></i>
+                });
+                console.log("Can't get stream temp.");
               });
             } 
-        
       })
       .catch((error) => {
-        console.log("Can't get stream flow and/or stream temp.");
+        console.log("Can't get access site with provided id.");
       });
   }
 
-    //  streamflow temp     
-    // if (this.state.usgsgagesitenumber === "0" || this.state.usgsgagesitenumber === "") {
-    //   gaugeStreamTemp =  <i className="wu wu-white wu-256 wu-unknown"></i>;
-    // } else {      
-    //   fetch(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
-    //    .then((r) =>  {
-    //       if (r.status === 400) {
-    //         gaugeStreamTemp =  <i className="wu wu-white wu-256 wu-unknown"></i>;
-    //       } else {
-    //         gaugeStreamTemp = <img className='img-responsive center-block'
-    //         src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
-    //         alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
-    //       }
-    //    })};
 
     render() {
       return (
@@ -200,41 +199,47 @@ class FapDetails extends Component {
               <div id="Weather" className="tab-pane fade in active">
                 <div className="row">
                   <div className="col-md-3">
-                    <p className="dayOfWeek">Now</p>
+
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><strong>NOW</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p className="todaysTemp">{this.state.temp_f}℉</p>
+                      <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
+                      <p>{this.state.weather}</p>
+                      <p>{this.state.precip_today_in} inches</p>
+                      <p><small>{this.state.wind_mph} mph {this.state.wind_dir} | {this.state.wind_gust_mph} mph gusts</small></p>                    </div>
+                  </div>
+
+                    {/* <p className="dayOfWeek">Now</p>
                     <p className="todaysTemp">{this.state.temp_f}℉</p>
                     <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
                     <p>{this.state.weather}</p>
-                    {/* <p>feels like {this.state.feelslike_f}℉</p> */}
-                    <p>{this.state.precip_today_in} inches today</p>
-                    <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
-                    <p>{this.state.wind_gust_mph}  mph gusts</p>
+                    <p>{this.state.precip_today_in} inches</p>
+                    <p><small>{this.state.wind_mph} mph {this.state.wind_dir} | {this.state.wind_gust_mph} mph gusts</small></p> */}
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
-                    <p className="futureTemp">{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
-                    <p className="caps">high / low</p>
+                    <p className="futureTemp">{this.state.forecastDay0High} / {this.state.forecastDay0Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
                     <p>{this.state.forecastDay0Conditions}</p>
-                    <p>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir}</p>
-                    <p>{this.state.forecastDay0maxwindmph} mph max</p>
+                    <p><small>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir} | {this.state.forecastDay0maxwindmph} mph max</small></p>
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
-                    <p className="futureTemp">{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
-                    <p className="caps">high / low</p>
+                    <p className="futureTemp">{this.state.forecastDay1High} / {this.state.forecastDay1Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
                     <p>{this.state.forecastDay1Conditions}</p>
-                    <p>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir}</p>
-                    <p>{this.state.forecastDay1maxwindmph} mph max</p>
+                    <p><small>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir} | {this.state.forecastDay1maxwindmph} mph max</small></p>
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
-                    <p className="futureTemp">{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
-                    <p className="caps">high / low</p>
+                    <p className="futureTemp">{this.state.forecastDay2High} / {this.state.forecastDay2Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
                     <p>{this.state.forecastDay2Conditions}</p>
-                    <p>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir}</p>
-                    <p>{this.state.forecastDay2maxwindmph} mph max</p>
+                    <p><small>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir} | {this.state.forecastDay2maxwindmph} mph max</small></p>
                   </div>
                 </div>
               </div>

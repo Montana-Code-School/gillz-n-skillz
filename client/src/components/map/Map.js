@@ -20,23 +20,25 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
-    if (response.results.length) {
-      document.querySelector(".esri-popup").style.display="block";
-        var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
-        var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
-        var siteName= document.querySelector('p[data-name]').getAttribute('data-name');
-          this.setState({
-            clickedFapLat: response.results[0].mapPoint.latitude,
-            clickedFapLong: response.results[0].mapPoint.longitude,
-            clickedFapSiteId: siteId,
-            clickedFapWebPage: webPage,
-            clickedFapSiteName: siteName
-          })
-      this.handleLatLong();
-      } else {
-        document.querySelector(".esri-popup").style.display="none";
-      } 
-    }
+    setTimeout(() => {     
+      if (response.results.length) {
+        document.querySelector(".esri-popup").style.display="block";
+          var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
+          var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
+          var siteName = document.querySelector('p[data-name]').getAttribute('data-name');
+            this.setState({
+              clickedFapLat: response.results[0].mapPoint.latitude,
+              clickedFapLong: response.results[0].mapPoint.longitude,
+              clickedFapSiteId: siteId,
+              clickedFapWebPage: webPage,
+              clickedFapSiteName: siteName
+            })
+        this.handleLatLong();
+        } else {
+          document.querySelector(".esri-popup").style.display="none";
+        } 
+    })
+  }
 
   render() {
     const options = {
