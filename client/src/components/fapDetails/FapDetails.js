@@ -60,14 +60,15 @@ class FapDetails extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      clickedFapLat: nextProps.fapDetails.clickedFapLat,
-      clickedFapLong: nextProps.fapDetails.clickedFapLong,
-      clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId,
-      clickedFapWebPage: nextProps.fapDetails.clickedFapWebPage
+    setTimeout (() => {
+      this.setState({
+        clickedFapLat: nextProps.fapDetails.clickedFapLat,
+        clickedFapLong: nextProps.fapDetails.clickedFapLong,
+        clickedFapSiteId: nextProps.fapDetails.clickedFapSiteId,
+        clickedFapWebPage: nextProps.fapDetails.clickedFapWebPage
+      })
+      this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId, this.state.clickedFapWebPage)
     })
-    this.drawWeather(this.state.clickedFapLat, this.state.clickedFapLong, this.state.clickedFapSiteId, this.state.clickedFapWebPage)
-
   }
 
   drawWeather(lat, long, siteId, webPage) {
