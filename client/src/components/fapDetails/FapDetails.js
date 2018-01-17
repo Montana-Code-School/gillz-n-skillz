@@ -198,43 +198,48 @@ class FapDetails extends Component {
             <div className="tab-content">
               <div id="Weather" className="tab-pane fade in active">
                 <div className="row">
-                  <div className="col-md-3" className="now">
-                    <p className="dayOfWeek">Now</p>
+                  <div className="col-md-3">
+
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><strong>NOW</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p className="todaysTemp">{this.state.temp_f}℉</p>
+                      <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
+                      <p>{this.state.weather}</p>
+                      <p>{this.state.precip_today_in} inches</p>
+                      <p><small>{this.state.wind_mph} mph {this.state.wind_dir} | {this.state.wind_gust_mph} mph gusts</small></p>                    </div>
+                  </div>
+
+                    {/* <p className="dayOfWeek">Now</p>
                     <p className="todaysTemp">{this.state.temp_f}℉</p>
                     <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
                     <p>{this.state.weather}</p>
-                    <i className="wu wu-white wu-32 wu-rain"></i>
-                    <p>{this.state.precip_today_in} inches today</p>
-                    <i className="wu wu-white wu-32 wu-hazy"></i>
-                    <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
-                    <p>{this.state.wind_gust_mph}  mph gusts</p>
+                    <p>{this.state.precip_today_in} inches</p>
+                    <p><small>{this.state.wind_mph} mph {this.state.wind_dir} | {this.state.wind_gust_mph} mph gusts</small></p> */}
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
                     <p className="futureTemp">{this.state.forecastDay0High} / {this.state.forecastDay0Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
                     <p>{this.state.forecastDay0Conditions}</p>
-                    <i className="wu wu-white wu-32 wu-hazy"></i>             
-                    <p>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir}</p>
-                    <p>{this.state.forecastDay0maxwindmph} mph max</p>
+                    <p><small>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir} | {this.state.forecastDay0maxwindmph} mph max</small></p>
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
                     <p className="futureTemp">{this.state.forecastDay1High} / {this.state.forecastDay1Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
                     <p>{this.state.forecastDay1Conditions}</p>
-                    <i className="wu wu-white wu-32 wu-hazy"></i>
-                    <p>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir}</p>
-                    <p>{this.state.forecastDay1maxwindmph} mph max</p>
+                    <p><small>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir} | {this.state.forecastDay1maxwindmph} mph max</small></p>
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
                     <p className="futureTemp">{this.state.forecastDay2High} / {this.state.forecastDay2Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
                     <p>{this.state.forecastDay2Conditions}</p>
-                    <i className="wu wu-white wu-32 wu-hazy"></i>
-                    <p>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir}</p>
-                    <p>{this.state.forecastDay2maxwindmph} mph max</p>
+                    <p><small>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir} | {this.state.forecastDay2maxwindmph} mph max</small></p>
                   </div>
                 </div>
               </div>
