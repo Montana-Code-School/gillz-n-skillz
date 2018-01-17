@@ -2,9 +2,8 @@ p.dayOfWeek {
   text-transform: uppercase;
   font-weight: bold;
 }
-p.caps {
+h2.caps {
   text-transform: uppercase;
-  font-size: x-small;
 }
 p.small {
   font-variant: small-caps;
@@ -26,13 +25,3 @@ span.small {
   text-align: center;
   padding-top: 35px;
 }
-
-/* .now {
-  text-align: center;
-  float: left;
-  width: 250px;
-  width: 3250;
-border: 1px ridge #2b3e50;  
-  padding: 25px;
-  margin: 15px;
-} */

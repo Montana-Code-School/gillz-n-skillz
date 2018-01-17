@@ -60,7 +60,7 @@ class FapDetails extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    setTimeout (() => {
+    setTimeout(() => {
       this.setState({
         clickedFapLat: nextProps.fapDetails.clickedFapLat,
         clickedFapLong: nextProps.fapDetails.clickedFapLong,
@@ -152,11 +152,11 @@ class FapDetails extends Component {
           axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`)
             .then((r) => {
 
-                this.setState({
-                  gaugeStreamflow: <img className='img-responsive center-block'
-                    src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
-                    alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic' />
-                });
+              this.setState({
+                gaugeStreamflow: <img className='img-responsive center-block'
+                  src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
+                  alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic' />
+              });
             })
             .catch((error) => {
               this.setState({
@@ -164,21 +164,21 @@ class FapDetails extends Component {
               });
               console.log("Can't get stream flow.");
             });
-            axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
+          axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
             .then((r) => {
               this.setState({
                 gaugeStreamTemp: <img className='img-responsive center-block'
                   src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`}
-                  alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days'/>
-                });
-              })
-              .catch((error) => {
-                this.setState({
-                  gaugeStreamTemp: <i className="wu wu-white wu-256 wu-unknown"></i>
-                });
-                console.log("Can't get stream temp.");
+                  alt='A graph courtesy of the US Geological Survey of water temperature in degrees Celsius and Fahrenheit for the last seven days' />
               });
-            } 
+            })
+            .catch((error) => {
+              this.setState({
+                gaugeStreamTemp: <i className="wu wu-white wu-256 wu-unknown"></i>
+              });
+              console.log("Can't get stream temp.");
+            });
+        }
       })
       .catch((error) => {
         console.log("Can't get access site with provided id.");
@@ -186,56 +186,70 @@ class FapDetails extends Component {
   }
 
 
-    render() {
-      return (
-        <div className="container-fluid" >
-          <div className="row">
-            <ul className="nav nav-tabs nav-justifed">
-              <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>
-              <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
-              <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
-            </ul>
-            <div className="tab-content">
-              <div id="Weather" className="tab-pane fade in active">
-                <div className="row">
-                  <div className="col-md-3">
+  render() {
+    return (
+      <div className="container-fluid" >
 
+        <div className="row">
+          <ul className="nav nav-tabs nav-justifed">
+            <li className="active"><a data-toggle="tab" href="#Weather">Weather</a></li>
+            <li><a data-toggle="tab" href="#Streamflow">Streamflow</a></li>
+            <li><a data-toggle="tab" href="#StreamTemperature">Stream Temperature</a></li>
+          </ul>
+          <div className="tab-content">
+            <div id="Weather" className="tab-pane fade in active">
 
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h3 class="panel-title"><strong>NOW</strong></h3>
+              <div className="row">
+
+                <div className="col-md-3">
+                  <div className="panel panel-info">
+                    <div className="panel-heading">
+                      <h2 className="panel-title">NOW</h2>
                     </div>
-                    <div class="panel-body">
+                    <div className="panel-body">
                       <p className="todaysTemp">{this.state.temp_f}℉</p>
                       <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
                       <p>{this.state.weather}</p>
-                      <p>{this.state.precip_today_in} inches</p>
-                      <p><small>{this.state.wind_mph} mph {this.state.wind_dir} | {this.state.wind_gust_mph} mph gusts</small></p>                    </div>
+                      <p><small>{this.state.precip_today_in} inches</small></p>
+                      <p><small>{this.state.wind_mph} mph {this.state.wind_dir} | {this.state.wind_gust_mph} mph gusts</small></p>                    
+                    </div>
                   </div>
+                </div>
 
-                    {/* <p className="dayOfWeek">Now</p>
-                    <p className="todaysTemp">{this.state.temp_f}℉</p>
-                    <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
-                    <p>{this.state.weather}</p>
-                    <p>{this.state.precip_today_in} inches</p>
-                    <p><small>{this.state.wind_mph} mph {this.state.wind_dir} | {this.state.wind_gust_mph} mph gusts</small></p> */}
+              <div className="col-md-3">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h2 className="panel-title caps">{this.state.forecastDay0Weekday}</h2>
                   </div>
-                  <div className="col-md-3">
-                    <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
+                  <div className="panel-body">
                     <p className="futureTemp">{this.state.forecastDay0High} / {this.state.forecastDay0Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
                     <p>{this.state.forecastDay0Conditions}</p>
                     <p><small>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir} | {this.state.forecastDay0maxwindmph} mph max</small></p>
                   </div>
-                  <div className="col-md-3">
-                    <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
+                </div>
+              </div>
+
+              <div className="col-md-3">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h2 className="panel-title caps">{this.state.forecastDay1Weekday}</h2>
+                  </div>
+                  <div className="panel-body">
                     <p className="futureTemp">{this.state.forecastDay1High} / {this.state.forecastDay1Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
                     <p>{this.state.forecastDay1Conditions}</p>
                     <p><small>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir} | {this.state.forecastDay1maxwindmph} mph max</small></p>
                   </div>
-                  <div className="col-md-3">
-                    <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
+                </div>
+              </div>
+
+              <div className="col-md-3">
+                <div className="panel panel-default">
+                  <div className="panel-heading">
+                    <h2 className="panel-title caps">{this.state.forecastDay2Weekday}</h2>
+                  </div>
+                  <div className="panel-body">
                     <p className="futureTemp">{this.state.forecastDay2High} / {this.state.forecastDay2Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
                     <p>{this.state.forecastDay2Conditions}</p>
@@ -243,23 +257,24 @@ class FapDetails extends Component {
                   </div>
                 </div>
               </div>
-
-              <div id="Streamflow" className="tab-pane fade">
-                <p>
-                  {this.state.gaugeStreamflow}
-                </p>
-              </div>
-
-              <div id="StreamTemperature" className="tab-pane fade">
-                <p>
-                  {this.state.gaugeStreamTemp}
-                </p>
-              </div> 
             </div>
           </div>
+          <div id="Streamflow" className="tab-pane fade">
+              <p>
+                {this.state.gaugeStreamflow}
+              </p>
+            </div>
+
+            <div id="StreamTemperature" className="tab-pane fade">
+              <p>
+                {this.state.gaugeStreamTemp}
+              </p>
+            </div>
         </div>
-      );
-    };
-  }
+      </div>
+      </div >
+    );
+  };
+}
 
 export default FapDetails;
