@@ -128,7 +128,7 @@ class Home extends Component {
 
             {/* <div className="row">
               <div className="col-md-12"> */}
-              <div class="footer">
+              <div className="footer">
                 <p className="caps">Copyright 2018 Gillz-n-Skillz</p>
               </div> 
               </div>
