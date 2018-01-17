@@ -122,18 +122,24 @@ class Home extends Component {
               </div> 
             </div>
 
-            <div className="row">
-              <div className="col-md-12">
+            
+
+
+
+            {/* <div className="row">
+              <div className="col-md-12"> */}
+              <div class="footer">
                 <p className="caps">Copyright 2018 Gillz-n-Skillz</p>
               </div> 
+              </div>
             </div> 
            </div> 
         </div>
         </div>
         <div className="col-md-1"></div>
         </div>
-      </div> 
-      </div> 
+      // </div> 
+      // </div> 
     );
   }
 }

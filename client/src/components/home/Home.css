@@ -5,3 +5,18 @@
   width: 100px;
   height: 100px;
 }
+
+.col-xs-4 {
+  text-align: center;
+}
+
+.footer {
+    position: fixed;
+    left: 130px;
+    bottom: 0;
+    width: 83.5%;
+    height: 15px;
+    background-color: #df691a;
+    color: white;
+    text-align: center;
+}

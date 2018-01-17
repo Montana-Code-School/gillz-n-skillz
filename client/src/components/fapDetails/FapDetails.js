@@ -155,6 +155,7 @@ class FapDetails extends Component {
                     src={`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00060&period=8`}
                     alt='A graph courtesy of the US Geological Survey of discharge in cubic feet per second for the last seven days and the median daily statistic' />
                 });
+                console.log(r);
             });
             axios.get(`https://waterdata.usgs.gov/nwisweb/graph?agency_cd=USGS&site_no=${this.state.usgsgagesitenumber}&parm_cd=00010&period=8`)
             .then((r) => {
@@ -199,40 +200,42 @@ class FapDetails extends Component {
             <div className="tab-content">
               <div id="Weather" className="tab-pane fade in active">
                 <div className="row">
-                  <div className="col-md-3">
+                  <div className="col-md-3" className="now">
                     <p className="dayOfWeek">Now</p>
                     <p className="todaysTemp">{this.state.temp_f}℉</p>
                     <i className={`wu wu-white wu-128 wu-${this.state.icon}`}></i>
                     <p>{this.state.weather}</p>
                     {/* <p>feels like {this.state.feelslike_f}℉</p> */}
+                    <i className="wu wu-white wu-32 wu-rain"></i>
                     <p>{this.state.precip_today_in} inches today</p>
+                    <i className="wu wu-white wu-32 wu-hazy"></i>
                     <p>{this.state.wind_mph} mph {this.state.wind_dir}</p>
                     <p>{this.state.wind_gust_mph}  mph gusts</p>
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay0Weekday}</p>
-                    <p className="futureTemp">{this.state.forecastDay0High}℉ / {this.state.forecastDay0Low}℉</p>
-                    <p className="caps">high / low</p>
+                    <p className="futureTemp">{this.state.forecastDay0High} / {this.state.forecastDay0Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay0Icon}`}></i></p>
                     <p>{this.state.forecastDay0Conditions}</p>
+                    <i className="wu wu-white wu-32 wu-hazy"></i>             
                     <p>{this.state.forecastDay0avewindmph} mph {this.state.forecastDay0avewinddir}</p>
                     <p>{this.state.forecastDay0maxwindmph} mph max</p>
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay1Weekday}</p>
-                    <p className="futureTemp">{this.state.forecastDay1High}℉ / {this.state.forecastDay1Low}℉</p>
-                    <p className="caps">high / low</p>
+                    <p className="futureTemp">{this.state.forecastDay1High} / {this.state.forecastDay1Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay1Icon}`}></i></p>
                     <p>{this.state.forecastDay1Conditions}</p>
+                    <i className="wu wu-white wu-32 wu-hazy"></i>
                     <p>{this.state.forecastDay1avewindmph} mph {this.state.forecastDay1avewinddir}</p>
                     <p>{this.state.forecastDay1maxwindmph} mph max</p>
                   </div>
                   <div className="col-md-3">
                     <p className="dayOfWeek">{this.state.forecastDay2Weekday}</p>
-                    <p className="futureTemp">{this.state.forecastDay2High}℉ / {this.state.forecastDay2Low}℉</p>
-                    <p className="caps">high / low</p>
+                    <p className="futureTemp">{this.state.forecastDay2High} / {this.state.forecastDay2Low}℉</p>
                     <p><i className={`wu wu-white wu-64 wu-${this.state.forecastDay2Icon}`}></i></p>
                     <p>{this.state.forecastDay2Conditions}</p>
+                    <i className="wu wu-white wu-32 wu-hazy"></i>
                     <p>{this.state.forecastDay2avewindmph} mph {this.state.forecastDay2avewinddir}</p>
                     <p>{this.state.forecastDay2maxwindmph} mph max</p>
                   </div>

@@ -22,3 +22,17 @@ span.small {
   font-variant: small-caps;
 }
 
+.col-md-3 {
+  text-align: center;
+  padding-top: 35px;
+}
+
+.now {
+  text-align: center;
+  float: left;
+  width: 250px;
+  width: 3250;
+border: 1px ridge #2b3e50;  
+  padding: 25px;
+  margin: 15px;
+}
