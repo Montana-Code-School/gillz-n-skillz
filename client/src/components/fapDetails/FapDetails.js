@@ -73,7 +73,7 @@ class FapDetails extends Component {
 
   drawWeather(lat, long, siteId, webPage) {
     axios.get(
-      "http://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
+      "https://api.wunderground.com/api/0bc19fae1dad4e32/conditions/q/"
       + lat
       + ","
       + long
@@ -96,7 +96,7 @@ class FapDetails extends Component {
       });
     // forecast api call
     axios.get(
-      "http://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
+      "https://api.wunderground.com/api/0bc19fae1dad4e32/forecast/q/"
       + lat
       + ","
       + long
