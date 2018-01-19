@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../header/Header';
+import Footer from '../footer/Footer';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -81,6 +82,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
+        <Footer history={this.props.history}/>
       </div>
     );
   }

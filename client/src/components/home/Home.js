@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import Header from '../header/Header';
+import Footer from '../footer/Footer';
 import FishMap from '../map/Map';
 import FapDetails from '../fapDetails/FapDetails';
 import FishPhotos from '../fishPhotos/FishPhotos';
@@ -132,13 +133,15 @@ class Home extends Component {
           </div>
           </div>
         </div>
-          <div className="row">
+        <Footer history={this.props.history} />
+        
+          {/* <div className="row">
             <div className="col-md-12">
               <div className="footer navbar-static-bottom navbar-inverse">
                 <p className="caps">Copyright 2018 Gillz-n-Skillz</p>
               </div>
             </div>
-          </div>
+          </div> */}
       </div>
     );
   }
