@@ -2,9 +2,9 @@
   height: 400px;
 }
 
-.esri-popup {
+/* .esri-popup {
   display: none;
-}
+} */
 
 .esri-view-height-less-than-medium .esri-popup__main-container {
   max-width: 310px;

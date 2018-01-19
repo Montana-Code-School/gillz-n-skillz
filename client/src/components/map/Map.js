@@ -20,9 +20,8 @@ class FishMap extends Component {
   }
   
   getLatLong(response){
-    setTimeout(() => {     
-      if (response.results.length) {
-        document.querySelector(".esri-popup").style.display="block";
+    setTimeout(() => {   
+      if (document.querySelector("p[data-siteid")) {
           var siteId = document.querySelector('p[data-siteid]').getAttribute('data-siteid'); 
           var webPage = document.querySelector('p[data-webpage]').getAttribute('data-webpage');
           var siteName = document.querySelector('p[data-name]').getAttribute('data-name');
@@ -34,9 +33,7 @@ class FishMap extends Component {
               clickedFapSiteName: siteName
             })
         this.handleLatLong();
-        } else {
-          document.querySelector(".esri-popup").style.display="none";
-        } 
+          }
     })
   }
 
