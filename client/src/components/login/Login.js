@@ -4,7 +4,6 @@ import Footer from '../footer/Footer';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
-import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -82,7 +81,7 @@ class Login extends Component {
             </div>
           </div>
         </div>
-        <Footer history={this.props.history}/>
+        <Footer/>
       </div>
     );
   }

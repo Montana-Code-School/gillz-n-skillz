@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Header from '../header/Header';
+import Footer from '../footer/Footer';
 import axios from 'axios';
 
 class Registration extends Component {
@@ -68,9 +69,9 @@ class Registration extends Component {
               <div className="col-md-4"></div>
               <div className="col-md-4">
                 <div className="well">
-                  <form className="form-horizontal">
+                  <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)}>
                     <fieldset>
-                      <div className="form-signin" onSubmit={(e) => this.handleSubmit(e)}>
+                      <div className="form-signin">
                         <div className="form-group">
                           <legend>Create an Account</legend>
                           <div className="form-group">
@@ -82,7 +83,7 @@ class Registration extends Component {
                           <div className="form-group">
                             <label className="col-lg-2 control-label">Password</label>
                             <div className="col-lg-10">
-                              <input type="text" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} />
+                              <input type="password" className="form-control" name="password" placeholder="Password" onChange={this.handleChange} />
                             </div>
                           </div>
                           <div className="form-group">
@@ -126,6 +127,7 @@ class Registration extends Component {
           </div>
           <div className="col-md-4"></div>
         </div>
+        <Footer/>
       </div >
     );
   }

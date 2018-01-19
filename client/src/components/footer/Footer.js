@@ -15,8 +15,8 @@ class Footer extends Component {
       <footer>
       <div className="row">
       <div className="col-md-12">
-        <div className="footer navbar-static-bottom navbar-inverse">
-          <p className="caps">Copyright 2018 Gillz-n-Skillz</p>
+        <div className="navbar navbar-fixed-bottom navbar-inverse">
+          <p>Copyright 2018 Gillz-n-Skillz</p>
         </div>
       </div>
     </div>

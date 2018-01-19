@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
 class Profile extends Component {
   constructor() {
@@ -126,6 +127,7 @@ class Profile extends Component {
               </div>
             </div>
           </div>
+          <Footer/>
         </div>
     );
   }
