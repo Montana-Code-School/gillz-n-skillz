@@ -1,5 +1,4 @@
 //displays montana fish photos on home page
-
 import React, { Component } from 'react';
 import axios from 'axios';
 
