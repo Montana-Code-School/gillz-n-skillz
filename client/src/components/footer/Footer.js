@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-// import { Link } from 'react-router-dom';
-// import './Header.css';
+import './Footer.css';
 
 class Footer extends Component {
   constructor() {
@@ -15,8 +13,8 @@ class Footer extends Component {
       <footer>
       <div className="row">
       <div className="col-md-12">
-        <div className="navbar navbar-fixed-bottom navbar-inverse">
-          <p>Copyright 2018 Gillz-n-Skillz</p>
+        <div className="navbar navbar-fixed-bottom navbar-default">
+        <p><span>Copyright 2018 &nbsp;<a href="https://github.com/Montana-Code-School/gillz-n-skillz" target="blank"> Gillz-n-Skillz</a></span></p>
         </div>
       </div>
     </div>

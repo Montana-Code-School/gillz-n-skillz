@@ -50,9 +50,8 @@ class Login extends Component {
               <div className="col-md-4"></div>
               <div className="col-md-4">
                 <div className="well">
-                <form className="form-horizontal">
+                <form className="form-horizontal" onSubmit={(e) => this.handleSubmit(e)}>
                 <fieldset>
-                  <form onSubmit={(e) => this.handleSubmit(e)}>
                     <div className="form-group">
                       <label className="col-lg-2 control-label">Username</label>
                       <div className="col-lg-10">
@@ -72,7 +71,6 @@ class Login extends Component {
                       <Link className="btn btn-link" to="/registration">Create an Account</Link>
                     </div>
                     </div>
-                  </form>
                   </fieldset>
                 </form>
                 </div>
