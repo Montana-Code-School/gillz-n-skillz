@@ -1,4 +1,3 @@
-//displays montana fish photos on home page
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -7,9 +6,6 @@ class FishPhotos extends Component {
     super(props);
     this.state = 
     {
-      clickedFapLat: "",
-      clickedFapLong: "",
-      clickedFapSiteId: "",
       fishPicArray: []
     };
   }
@@ -31,11 +27,11 @@ class FishPhotos extends Component {
 }
 
   render() {
-    let fishItems = this.state.fishPicArray.map((trout) => {
+    let fishItems = this.state.fishPicArray.map((picture) => {
       return (
-        <div className="col-md-2">
+        <div className="col-md-2" key={picture.id}>
           <div className="thumbnail">
-            <img className="img-responsive thumbnail" key={trout.id} src={`https://farm${trout.farm}.staticflickr.com/${trout.server}/${trout.id}_${trout.secret}_q.jpg`} alt=""/>
+            <img className="img-responsive thumbnail" src={`https://farm${picture.farm}.staticflickr.com/${picture.server}/${picture.id}_${picture.secret}_q.jpg`} alt=""/>
           </div>
         </div>  
       )

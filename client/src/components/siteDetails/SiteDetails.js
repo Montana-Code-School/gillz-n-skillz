@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import riverIcon from '../../img/rivericon.png';
-import './SiteDetails.css';
 
 class SiteDetails extends Component {
   constructor(props) {

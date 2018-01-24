@@ -79,10 +79,8 @@ class Home extends Component {
             <div className="col-md-1"></div>
             <div className="col-md-10">
               <div className="row">
-                <div className="jumbotron">
-                  <div className="map">
-                    <FishMap callbackFromApp={this.latLongCallback} />
-                  </div>
+                <div className="jumbotron map">
+                  <FishMap callbackFromApp={this.latLongCallback} />
                 </div>
               </div>
               <div className="row">
@@ -96,11 +94,11 @@ class Home extends Component {
                     <div className="col-xs-4">
                       <a href=""><img className="img-responsive center-block rounded-circle" src={letterIIcon} alt="information icon" width="140" height="140" /></a>
                       <h2 className="text-primary"> Site Details </h2>
-                      <p>Get Directions and More Info about this Site from MTFWP</p>
+                      <p>Get directions and more info about this site from MTFWP.</p>
                       <a href={this.state.clickedFapWebPage} target="blank" className="btn btn-info">Get Directions</a>
                     </div>
                     <div className="col-xs-4">
-                      <a href="/angler/me"><img className="img-responsive center-block rounded-circle" src={riverIcon} alt="favorite access point sites icon" /></a>
+                      <a href="angler/me"><img className="img-responsive center-block rounded-circle" src={riverIcon} alt="favorite access point sites icon" /></a>
                       <h2 className="text-primary"> My Favorites </h2>
                       <p> Keep track of your favorite fishing spots. </p>
                       <Button className="btn-info" onClick={this.addFavoriteFap.bind(this)}> Add to Favorites</Button>
@@ -133,8 +131,8 @@ class Home extends Component {
         <footer>
          <div className="row">
          <div className="col-md-12">
-           <div className="navbar navbar-bottom navbar-inverse">
-             <p>Copyright 2018 Gillz-n-Skillz</p>
+           <div className="navbar navbar-bottom navbar-default">
+             <p><span>Copyright 2018 &nbsp;<a href="https://github.com/Montana-Code-School/gillz-n-skillz" target="blank"> Gillz-n-Skillz</a></span></p>
            </div>
          </div>
        </div>
